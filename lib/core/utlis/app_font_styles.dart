@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 abstract class AppFontStyles {
-
   static const TextStyle styleBold32 = TextStyle(
     fontSize: 32,
     fontWeight: FontWeight.bold,
@@ -16,7 +15,7 @@ abstract class AppFontStyles {
     fontSize: 20,
     fontWeight: FontWeight.bold,
   );
-  
+
   static const TextStyle styleSemiBold18 = TextStyle(
     fontSize: 18,
     fontWeight: FontWeight.w600,
@@ -29,6 +28,11 @@ abstract class AppFontStyles {
 
   static const TextStyle styleSemiBold16 = TextStyle(
     fontSize: 16,
+    fontWeight: FontWeight.w600,
+  );
+
+  static const TextStyle styleSemiBold14 = TextStyle(
+    fontSize: 14,
     fontWeight: FontWeight.w600,
   );
 
