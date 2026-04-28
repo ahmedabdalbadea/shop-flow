@@ -1,0 +1,7 @@
+{
+    "@@locale": "en",
+    "splashTagline": "Seamless shopping for the modern lifestyle.",
+    "@splashTagline": {
+        "description": "Tagline shown on the splash screen"
+    }
+}

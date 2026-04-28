@@ -4,6 +4,7 @@ import 'package:shop_flow/constants.dart';
 import 'package:shop_flow/core/utlis/app_font_styles.dart';
 import 'package:shop_flow/core/utlis/assets_images.dart';
 import 'package:shop_flow/core/widget/custom_elevated_button.dart';
+import 'package:shop_flow/generated/l10n.dart';
 
 class SplashViewBody extends StatefulWidget {
   const SplashViewBody({super.key});
@@ -79,7 +80,7 @@ class _SplashViewBodyState extends State<SplashViewBody> {
         ),
         const SizedBox(height: 8),
         Text(
-          "Seamless shopping for the modern lifestyle.",
+          S.of(context).splashTagline,
           style: AppFontStyles.styleRegular14,
           textAlign: TextAlign.center,
         ),
