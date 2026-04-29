@@ -25,5 +25,6 @@ class MessageLookup extends MessageLookupByLibrary {
     "splashTagline": MessageLookupByLibrary.simpleMessage(
       "Seamless shopping for the modern lifestyle.",
     ),
+    "start": MessageLookupByLibrary.simpleMessage("Get Started"),
   };
 }
