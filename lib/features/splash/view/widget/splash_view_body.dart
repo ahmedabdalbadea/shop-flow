@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:shop_flow/constants.dart';
-import 'package:shop_flow/core/utlis/app_font_styles.dart';
 import 'package:shop_flow/core/utlis/assets_images.dart';
 import 'package:shop_flow/core/widget/custom_elevated_button.dart';
+import 'package:shop_flow/features/splash/view/widget/splash_tagline.dart';
 import 'package:shop_flow/generated/l10n.dart';
 
 class SplashViewBody extends StatefulWidget {
@@ -15,8 +15,8 @@ class SplashViewBody extends StatefulWidget {
 
 class _SplashViewBodyState extends State<SplashViewBody> {
   double _logoOpacity = 0;
-  double _textOpacity = 0;
-  Offset _textOffset = const Offset(0, 0.4);
+  double _taglineOpacity = 0;
+  Offset _taglinePosition = const Offset(0, 0.4);
   @override
   void initState() {
     super.initState();
@@ -24,7 +24,7 @@ class _SplashViewBodyState extends State<SplashViewBody> {
       _animateLogo();
 
       Future.delayed(const Duration(milliseconds: 1200), () {
-        if (mounted) _animateText();
+        if (mounted) _animateTagline();
       });
     });
   }
@@ -36,7 +36,7 @@ class _SplashViewBodyState extends State<SplashViewBody> {
       child: Column(
         children: [
           const Spacer(flex: 3),
-          // logo
+          // Logo
           AnimatedOpacity(
             duration: kAnimationDuration,
             opacity: _logoOpacity,
@@ -47,23 +47,23 @@ class _SplashViewBodyState extends State<SplashViewBody> {
             ),
           ),
 
-          // tagline
+          // Tagline
           AnimatedSlide(
             duration: kAnimationDuration,
-            offset: _textOffset,
+            offset: _taglinePosition,
             curve: Curves.easeOut,
             child: AnimatedOpacity(
-              opacity: _textOpacity,
+              opacity: _taglineOpacity,
               duration: kAnimationDuration,
               curve: Curves.easeOut,
-              child: _buildTagline(),
+              child: const SplashTagline(),
             ),
           ),
 
           const Spacer(flex: 2),
 
           // Get started button
-          CustomElevatedButton(title: "Get Started", onPressed: () {}),
+          CustomElevatedButton(title: S.of(context).start, onPressed: () {}),
 
           const Spacer(flex: 1),
         ],
@@ -71,27 +71,10 @@ class _SplashViewBodyState extends State<SplashViewBody> {
     );
   }
 
-  Column _buildTagline() {
-    return Column(
-      children: [
-        Text(
-          "ShopFlow",
-          style: AppFontStyles.styleBold32.copyWith(color: kPrimaryColor),
-        ),
-        const SizedBox(height: 8),
-        Text(
-          S.of(context).splashTagline,
-          style: AppFontStyles.styleRegular14,
-          textAlign: TextAlign.center,
-        ),
-      ],
-    );
-  }
-
-  void _animateText() {
+  void _animateTagline() {
     setState(() {
-      _textOpacity = 1;
-      _textOffset = Offset.zero;
+      _taglineOpacity = 1;
+      _taglinePosition = Offset.zero;
     });
   }
 
