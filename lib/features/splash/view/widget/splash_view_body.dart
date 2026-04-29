@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:go_router/go_router.dart';
 import 'package:shop_flow/constants.dart';
+import 'package:shop_flow/core/utlis/app_router.dart';
 import 'package:shop_flow/core/utlis/assets_images.dart';
 import 'package:shop_flow/core/widget/custom_elevated_button.dart';
 import 'package:shop_flow/features/splash/view/widget/splash_tagline.dart';
@@ -63,7 +65,13 @@ class _SplashViewBodyState extends State<SplashViewBody> {
           const Spacer(flex: 2),
 
           // Get started button
-          CustomElevatedButton(title: S.of(context).start, onPressed: () {}),
+          CustomElevatedButton(
+            title: S.of(context).start,
+            onPressed: () {
+              // Navigate to Signin
+              GoRouter.of(context).push(AppRouter.kSignInView);
+            },
+          ),
 
           const Spacer(flex: 1),
         ],
