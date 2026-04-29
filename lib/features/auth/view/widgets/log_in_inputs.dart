@@ -16,6 +16,21 @@ class LogInInputs extends StatelessWidget {
         ),
         const SizedBox(height: 8),
         UserInput(hint: "name@example.com"),
+        const SizedBox(height: 16),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Text("Password", style: AppFontStyles.styleSemiBold14),
+            Text(
+              "Forgot password?",
+              style: AppFontStyles.styleMedium12.copyWith(
+                color: const Color(0xff24389C),
+              ),
+            ),
+          ],
+        ),
+        const SizedBox(height: 8),
+        UserInput(hint: "••••••••", isPassword: true),
       ],
     );
   }
