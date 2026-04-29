@@ -3,6 +3,7 @@ import 'package:shop_flow/core/utlis/app_font_styles.dart';
 import 'package:shop_flow/core/widget/custom_elevated_button.dart';
 import 'package:shop_flow/features/auth/view/widgets/log_in_inputs.dart';
 import 'package:shop_flow/features/auth/view/widgets/onboarding_card.dart';
+import 'package:shop_flow/features/auth/view/widgets/or_divider.dart';
 
 class SignInViewBody extends StatelessWidget {
   const SignInViewBody({super.key});
@@ -26,6 +27,8 @@ class SignInViewBody extends StatelessWidget {
                 LogInInputs(),
                 const SizedBox(height: 16),
                 CustomElevatedButton(title: "Sign In", onPressed: () {}),
+                const SizedBox(height: 32),
+                OrDivider(),
               ],
             ),
           ),
