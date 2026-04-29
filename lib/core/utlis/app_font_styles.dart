@@ -11,6 +11,11 @@ abstract class AppFontStyles {
     fontWeight: FontWeight.bold,
   );
 
+  static const TextStyle styleSemiBold24 = TextStyle(
+    fontSize: 24,
+    fontWeight: FontWeight.w600,
+  );
+
   static const TextStyle styleBold20 = TextStyle(
     fontSize: 20,
     fontWeight: FontWeight.bold,
