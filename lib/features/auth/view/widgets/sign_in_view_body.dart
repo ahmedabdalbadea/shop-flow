@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:shop_flow/core/utlis/app_font_styles.dart';
 import 'package:shop_flow/features/auth/view/widgets/auth_input.dart';
+import 'package:shop_flow/features/auth/view/widgets/log_in_inputs.dart';
 import 'package:shop_flow/features/auth/view/widgets/onboarding_card.dart';
 
 class SignInViewBody extends StatelessWidget {
@@ -22,7 +23,7 @@ class SignInViewBody extends StatelessWidget {
                   style: AppFontStyles.styleRegular14,
                 ),
                 const SizedBox(height: 32),
-                
+                LogInInputs(),
               ],
             ),
           ),
