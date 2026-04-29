@@ -2,11 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:shop_flow/core/utlis/app_font_styles.dart';
 
 class UserInput extends StatelessWidget {
-  const UserInput({super.key, required this.hint});
+  const UserInput({super.key, required this.hint, this.isPassword = false});
   final String hint;
+  final bool isPassword;
   @override
   Widget build(BuildContext context) {
     return TextField(
+      obscureText: isPassword,
       decoration: InputDecoration(
         filled: true,
         fillColor: const Color(0xffF4F2FC),
