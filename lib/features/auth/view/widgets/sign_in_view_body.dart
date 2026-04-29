@@ -15,7 +15,14 @@ class SignInViewBody extends StatelessWidget {
           child: OnboardingCard(
             child: Column(
               children: [
-              
+                Text("Welcome back", style: AppFontStyles.styleSemiBold24),
+                const SizedBox(height: 8),
+                Text(
+                  "Sign in to your ShopFlow account",
+                  style: AppFontStyles.styleRegular14,
+                ),
+                const SizedBox(height: 32),
+                
               ],
             ),
           ),
