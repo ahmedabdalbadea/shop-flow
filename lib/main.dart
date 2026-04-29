@@ -21,7 +21,10 @@ class ShopFlow extends StatelessWidget {
         GlobalCupertinoLocalizations.delegate,
       ],
       supportedLocales: S.delegate.supportedLocales,
-      theme: ThemeData(textTheme: GoogleFonts.interTextTheme()),
+      theme: ThemeData(
+        textTheme: GoogleFonts.interTextTheme(),
+        scaffoldBackgroundColor: const Color(0xffF8F9FA),
+      ),
       debugShowCheckedModeBanner: false,
       routerConfig: AppRouter.router,
     );
