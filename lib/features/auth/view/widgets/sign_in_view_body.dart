@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:shop_flow/core/utlis/app_font_styles.dart';
+import 'package:shop_flow/core/utils/app_font_styles.dart';
 import 'package:shop_flow/core/widget/custom_elevated_button.dart';
 import 'package:shop_flow/features/auth/view/widgets/log_in_inputs.dart';
 import 'package:shop_flow/features/auth/view/widgets/onboarding_card.dart';

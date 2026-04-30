@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:shop_flow/core/utlis/app_font_styles.dart';
+import 'package:shop_flow/core/utils/app_font_styles.dart';
 
 class UserInput extends StatelessWidget {
   const UserInput({super.key, required this.hint, this.isPassword = false});

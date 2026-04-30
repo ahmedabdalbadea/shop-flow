@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:shop_flow/constants.dart';
-import 'package:shop_flow/core/utlis/app_font_styles.dart';
+import 'package:shop_flow/core/utils/app_font_styles.dart';
 import 'package:shop_flow/core/widget/user_input.dart';
 
 class LogInInputs extends StatelessWidget {

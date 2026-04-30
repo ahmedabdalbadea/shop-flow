@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:shop_flow/core/utlis/app_router.dart';
+import 'package:shop_flow/core/utils/app_router.dart';
 import 'package:shop_flow/generated/l10n.dart';
 
 void main() {

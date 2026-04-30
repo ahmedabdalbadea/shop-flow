@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:shop_flow/core/utlis/app_font_styles.dart';
+import 'package:shop_flow/core/utils/app_font_styles.dart';
 
 class OrDivider extends StatelessWidget {
   const OrDivider({super.key});
