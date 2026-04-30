@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shop_flow/constants.dart';
 import 'package:shop_flow/core/utils/app_font_styles.dart';
 import 'package:shop_flow/core/widget/user_input.dart';
 
@@ -23,7 +24,7 @@ class SignInInputs extends StatelessWidget {
             Text(
               "Forgot password?",
               style: AppFontStyles.styleMedium12.copyWith(
-                color: const Color(0xff24389C),
+                color: kSecTextColor,
               ),
             ),
           ],
