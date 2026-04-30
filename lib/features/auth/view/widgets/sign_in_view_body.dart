@@ -3,6 +3,7 @@ import 'package:shop_flow/core/utils/app_font_styles.dart';
 import 'package:shop_flow/features/auth/view/widgets/sign_in_actions.dart';
 import 'package:shop_flow/features/auth/view/widgets/sign_in_inputs.dart';
 import 'package:shop_flow/features/auth/view/widgets/onboarding_card.dart';
+import 'package:shop_flow/features/auth/view/widgets/sign_up_prompt.dart';
 
 class SignInViewBody extends StatelessWidget {
   const SignInViewBody({super.key});
@@ -23,10 +24,11 @@ class SignInViewBody extends StatelessWidget {
                   style: AppFontStyles.styleRegular14,
                 ),
                 const SizedBox(height: 32),
-                SignInInputs(),
+                const SignInInputs(),
                 const SizedBox(height: 16),
-                SignInActions(),
+                const SignInActions(),
                 const SizedBox(height: 32),
+                const SignUpPrompt(),
               ],
             ),
           ),
