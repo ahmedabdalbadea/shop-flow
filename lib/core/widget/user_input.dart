@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shop_flow/constants.dart';
 import 'package:shop_flow/core/utils/app_font_styles.dart';
 
 class UserInput extends StatelessWidget {
@@ -20,7 +21,7 @@ class UserInput extends StatelessWidget {
         hintStyle: AppFontStyles.styleSemiBold16.copyWith(
           color: const Color(0xff6B7280),
         ),
-        border: _buildBorder(color: const Color(0xffC5C5D4)),
+        border: _buildBorder(color: kPrimaryBorderColor),
         focusedBorder: _buildBorder(color: const Color(0xffE0E0E0), width: 2),
         errorBorder: _buildBorder(color: const Color(0xffF44336), width: 2),
       ),

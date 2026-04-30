@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shop_flow/constants.dart';
 import 'package:shop_flow/core/utils/app_font_styles.dart';
 
 class OrDivider extends StatelessWidget {
@@ -8,7 +9,7 @@ class OrDivider extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        const Expanded(child: Divider(height: 1, color: Color(0xffC5C5D4))),
+        const Expanded(child: Divider(height: 1, color: kPrimaryBorderColor)),
         const SizedBox(width: 16),
         Text(
           "OR",
@@ -17,7 +18,7 @@ class OrDivider extends StatelessWidget {
           ),
         ),
         const SizedBox(width: 16),
-        const Expanded(child: Divider(height: 1, color: Color(0xffC5C5D4))),
+        const Expanded(child: Divider(height: 1, color: kPrimaryBorderColor)),
       ],
     );
   }
