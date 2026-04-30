@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shop_flow/constants.dart';
 import 'package:shop_flow/core/utils/app_font_styles.dart';
 import 'package:shop_flow/features/auth/view/widgets/sign_in_actions.dart';
 import 'package:shop_flow/features/auth/view/widgets/sign_in_inputs.dart';
@@ -22,7 +23,7 @@ class SignInViewBody extends StatelessWidget {
                 Text(
                   "Sign in to your ShopFlow account",
                   style: AppFontStyles.styleRegular14.copyWith(
-                    color: const Color(0XFF454652),
+                    color: kThrTextColor,
                   ),
                 ),
                 const SizedBox(height: 32),

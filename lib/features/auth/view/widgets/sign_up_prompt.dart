@@ -13,7 +13,10 @@ class SignUpPrompt extends StatelessWidget {
       spacing: 8,
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Text("Don't have an account?", style: AppFontStyles.styleRegular14),
+        Text(
+          "Don't have an account?",
+          style: AppFontStyles.styleRegular14.copyWith(color: kThrTextColor),
+        ),
 
         GestureDetector(
           onTap: () {
