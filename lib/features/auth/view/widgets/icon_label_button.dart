@@ -32,7 +32,12 @@ class IconLabelButton extends StatelessWidget {
 
           children: [
             SvgPicture.asset(icon),
-            Text(label, style: AppFontStyles.styleSemiBold14),
+            Text(
+              label,
+              style: AppFontStyles.styleSemiBold14.copyWith(
+                color: const Color(0XFF1A1B22),
+              ),
+            ),
           ],
         ),
       ),
