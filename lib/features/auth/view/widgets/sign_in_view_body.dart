@@ -21,7 +21,9 @@ class SignInViewBody extends StatelessWidget {
                 const SizedBox(height: 8),
                 Text(
                   "Sign in to your ShopFlow account",
-                  style: AppFontStyles.styleRegular14,
+                  style: AppFontStyles.styleRegular14.copyWith(
+                    color: const Color(0XFF454652),
+                  ),
                 ),
                 const SizedBox(height: 32),
                 const SignInInputs(),
