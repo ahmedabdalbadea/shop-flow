@@ -17,7 +17,9 @@ class SplashTagline extends StatelessWidget {
         const SizedBox(height: 8),
         Text(
           S.of(context).splashTagline,
-          style: AppFontStyles.styleRegular14,
+          style: AppFontStyles.styleRegular14.copyWith(
+            color: const Color(0XFF5D5F5F),
+          ),
           textAlign: TextAlign.center,
         ),
       ],
