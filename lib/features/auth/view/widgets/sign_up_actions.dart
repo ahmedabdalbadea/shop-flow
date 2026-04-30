@@ -12,9 +12,9 @@ class SignUpActions extends StatelessWidget {
     return Column(
       children: [
         CustomElevatedButton(title: "Sign In", onPressed: () {}),
-        const SizedBox(height: 32),
+        const SizedBox(height: 26),
         const OrDivider(),
-        const SizedBox(height: 32),
+        const SizedBox(height: 26),
         IconLabelButton(
           icon: AssetsImages.googleLogo,
           label: "Continue with Google",
