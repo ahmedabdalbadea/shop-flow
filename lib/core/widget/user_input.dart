@@ -22,6 +22,7 @@ class UserInput extends StatelessWidget {
           color: const Color(0xff6B7280),
         ),
         border: _buildBorder(color: kPrimaryBorderColor),
+        enabledBorder: _buildBorder(color: kPrimaryBorderColor),
         focusedBorder: _buildBorder(color: const Color(0xffE0E0E0), width: 2),
         errorBorder: _buildBorder(color: const Color(0xffF44336), width: 2),
       ),
