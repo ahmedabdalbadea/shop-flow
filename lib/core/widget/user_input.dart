@@ -30,7 +30,7 @@ class UserInput extends StatelessWidget {
 
   OutlineInputBorder _buildBorder({required Color color, double width = 1}) {
     return OutlineInputBorder(
-      borderRadius: BorderRadius.circular(12),
+      borderRadius: BorderRadius.circular(kBorderRadiusCircular),
       borderSide: BorderSide(color: color, width: width),
     );
   }
