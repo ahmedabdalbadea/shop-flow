@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:shop_flow/constants.dart';
 import 'package:shop_flow/core/utils/app_font_styles.dart';
 import 'package:shop_flow/features/auth/view/widgets/onboarding_card.dart';
+import 'package:shop_flow/features/auth/view/widgets/sign_up_actions.dart';
 import 'package:shop_flow/features/auth/view/widgets/sign_up_inputs.dart';
 
 class SignUpViewBody extends StatelessWidget {
@@ -28,6 +29,9 @@ class SignUpViewBody extends StatelessWidget {
                 const SizedBox(height: 32),
                 const SignUpInputs(),
                 const SizedBox(height: 16),
+                const SignUpActions(),
+                // const SizedBox(height: 32),
+                // const SignUpPrompt(),
               ],
             ),
           ),
