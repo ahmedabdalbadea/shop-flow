@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "524858853482",
+    "project_id": "shop-flow-571d7",
+    "storage_bucket": "shop-flow-571d7.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:524858853482:android:cf13287499e7ad0968e213",
+        "android_client_info": {
+          "package_name": "com.example.shop_flow"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBq293EfPqi1d8HWKwrRuhRGFn3ApZmqKg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

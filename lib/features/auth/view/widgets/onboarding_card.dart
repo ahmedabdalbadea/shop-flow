@@ -12,7 +12,7 @@ class OnboardingCard extends StatelessWidget {
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(kBorderRadiusCircular),
-        boxShadow: [
+        boxShadow: const [
           BoxShadow(color: Color(0xffF1F5F9), spreadRadius: 5, blurRadius: 6),
         ],
       ),
