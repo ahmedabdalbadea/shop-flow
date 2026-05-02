@@ -29,8 +29,7 @@ class SignUpViewBody extends StatelessWidget {
                 ),
                 const SizedBox(height: 26),
                 const SignUpInputs(),
-                const SizedBox(height: 16),
-                const SignUpActions(),
+
                 const SizedBox(height: 26),
                 const SignInPrompt(),
               ],

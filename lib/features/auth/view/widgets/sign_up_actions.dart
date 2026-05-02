@@ -5,8 +5,8 @@ import 'package:shop_flow/features/auth/view/widgets/icon_label_button.dart';
 import 'package:shop_flow/features/auth/view/widgets/or_divider.dart';
 
 class SignUpActions extends StatelessWidget {
-  const SignUpActions({super.key});
-
+  const SignUpActions({super.key, required, required this.formKey});
+  final GlobalKey<FormState> formKey;
   @override
   Widget build(BuildContext context) {
     return Column(
