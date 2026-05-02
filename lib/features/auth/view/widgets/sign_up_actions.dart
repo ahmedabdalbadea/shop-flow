@@ -5,13 +5,14 @@ import 'package:shop_flow/features/auth/view/widgets/icon_label_button.dart';
 import 'package:shop_flow/features/auth/view/widgets/or_divider.dart';
 
 class SignUpActions extends StatelessWidget {
-  const SignUpActions({super.key, required, required this.formKey});
-  final GlobalKey<FormState> formKey;
+  const SignUpActions({super.key, required void Function() validateForm})
+    : _validateForm = validateForm;
+  final VoidCallback _validateForm;
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
-        CustomElevatedButton(title: "Sign In", onPressed: () {}),
+        CustomElevatedButton(title: "Sign Up", onPressed: _validateForm),
         const SizedBox(height: 26),
         const OrDivider(),
         const SizedBox(height: 26),
