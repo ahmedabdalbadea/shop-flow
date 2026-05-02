@@ -18,6 +18,7 @@ class SplashViewBody extends StatefulWidget {
 class _SplashViewBodyState extends State<SplashViewBody> {
   double _logoOpacity = 0;
   double _taglineOpacity = 0;
+  double _buttonOpacity = 0;
   Offset _taglinePosition = const Offset(0, 0.4);
   @override
   void initState() {
@@ -27,6 +28,10 @@ class _SplashViewBodyState extends State<SplashViewBody> {
 
       Future.delayed(const Duration(milliseconds: 1200), () {
         if (mounted) _animateTagline();
+      });
+
+      Future.delayed(const Duration(milliseconds: 2400), () {
+        if (mounted) _animateButton();
       });
     });
   }
@@ -65,12 +70,16 @@ class _SplashViewBodyState extends State<SplashViewBody> {
           const Spacer(flex: 2),
 
           // Get started button
-          CustomElevatedButton(
-            title: S.of(context).start,
-            onPressed: () {
-              // Navigate to Signin
-              GoRouter.of(context).push(AppRouter.kSignInView);
-            },
+          AnimatedOpacity(
+            duration: kAnimationDuration,
+            opacity: _buttonOpacity,
+            child: CustomElevatedButton(
+              title: S.of(context).start,
+              onPressed: () {
+                // Navigate to Signin
+                GoRouter.of(context).push(AppRouter.kSignInView);
+              },
+            ),
           ),
 
           const Spacer(flex: 1),
@@ -89,6 +98,12 @@ class _SplashViewBodyState extends State<SplashViewBody> {
   void _animateLogo() {
     setState(() {
       _logoOpacity = 1;
+    });
+  }
+
+  void _animateButton() {
+    setState(() {
+      _buttonOpacity = 1;
     });
   }
 }
