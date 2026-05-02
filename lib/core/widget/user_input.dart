@@ -3,12 +3,19 @@ import 'package:shop_flow/constants.dart';
 import 'package:shop_flow/core/utils/app_font_styles.dart';
 
 class UserInput extends StatelessWidget {
-  const UserInput({super.key, required this.hint, this.isPassword = false});
+  const UserInput({
+    super.key,
+    required this.hint,
+    this.isPassword = false,
+    this.validator,
+  });
   final String hint;
   final bool isPassword;
+  final String? Function(String?)? validator;
   @override
   Widget build(BuildContext context) {
-    return TextField(
+    return TextFormField(
+      validator: validator,
       obscureText: isPassword,
       decoration: InputDecoration(
         filled: true,
