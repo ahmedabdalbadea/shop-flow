@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:shop_flow/constants.dart';
 import 'package:shop_flow/core/utils/app_font_styles.dart';
 
-class UserInput extends StatelessWidget {
+class UserInput extends StatefulWidget {
   const UserInput({
     super.key,
     required this.hint,
@@ -12,11 +12,19 @@ class UserInput extends StatelessWidget {
   final String hint;
   final bool isPassword;
   final String? Function(String?)? validator;
+
+  @override
+  State<UserInput> createState() => _UserInputState();
+}
+
+class _UserInputState extends State<UserInput> {
+  bool showPassword = true;
+
   @override
   Widget build(BuildContext context) {
     return TextFormField(
-      validator: validator,
-      obscureText: isPassword,
+      validator: widget.validator,
+      obscureText: showPassword,
       decoration: InputDecoration(
         filled: true,
         fillColor: const Color(0xffF4F2FC),
@@ -24,10 +32,23 @@ class UserInput extends StatelessWidget {
           horizontal: 16,
           vertical: 17,
         ),
-        hintText: hint,
+        hintText: widget.hint,
         hintStyle: AppFontStyles.styleSemiBold16.copyWith(
           color: const Color(0xff6B7280),
         ),
+
+        suffixIcon: widget.isPassword
+            ? IconButton(
+                onPressed: () {
+                  setState(() {
+                    showPassword = !showPassword;
+                  });
+                },
+                icon: Icon(
+                  showPassword ? Icons.visibility : Icons.visibility_off,
+                ),
+              )
+            : null,
         border: _buildBorder(color: kPrimaryBorderColor),
         enabledBorder: _buildBorder(color: kPrimaryBorderColor),
         focusedBorder: _buildBorder(color: kFocusColor, width: 2),

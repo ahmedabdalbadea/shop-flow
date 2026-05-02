@@ -23,9 +23,7 @@ class SignInInputs extends StatelessWidget {
             Text("Password", style: AppFontStyles.styleSemiBold14),
             Text(
               "Forgot password?",
-              style: AppFontStyles.styleMedium12.copyWith(
-                color: kSecTextColor,
-              ),
+              style: AppFontStyles.styleMedium12.copyWith(color: kSecTextColor),
             ),
           ],
         ),
