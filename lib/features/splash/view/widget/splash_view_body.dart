@@ -3,7 +3,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:go_router/go_router.dart';
 import 'package:shop_flow/constants.dart';
 import 'package:shop_flow/core/utils/app_router.dart';
-import 'package:shop_flow/core/utils/assets_images.dart';
+import 'package:shop_flow/core/utils/assets.dart';
 import 'package:shop_flow/core/widget/custom_elevated_button.dart';
 import 'package:shop_flow/features/splash/view/widget/splash_tagline.dart';
 import 'package:shop_flow/generated/l10n.dart';
@@ -49,7 +49,7 @@ class _SplashViewBodyState extends State<SplashViewBody> {
             opacity: _logoOpacity,
             curve: Curves.easeInOutCirc,
             child: SvgPicture.asset(
-              AssetsImages.appLogo,
+              Assets.appLogo,
               width: MediaQuery.widthOf(context) * 0.35,
             ),
           ),
