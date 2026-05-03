@@ -8,10 +8,12 @@ class UserInput extends StatefulWidget {
     required this.hint,
     this.isPassword = false,
     this.validator,
+    this.onChanged,
   });
   final String hint;
   final bool isPassword;
   final String? Function(String?)? validator;
+  final void Function(String)? onChanged;
 
   @override
   State<UserInput> createState() => _UserInputState();
@@ -23,8 +25,9 @@ class _UserInputState extends State<UserInput> {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      onChanged: widget.onChanged,
       validator: widget.validator,
-      obscureText: showPassword,
+      obscureText: widget.isPassword ? showPassword : false,
       decoration: InputDecoration(
         filled: true,
         fillColor: const Color(0xffF4F2FC),
