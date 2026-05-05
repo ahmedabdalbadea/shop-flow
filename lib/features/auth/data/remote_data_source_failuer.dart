@@ -20,6 +20,18 @@ class RemoteDataSourceFailure extends Failure {
         return RemoteDataSourceFailure('Incorrect password');
       case 'network-request-failed':
         return RemoteDataSourceFailure('No internet connection');
+      case 'operation-not-allowed':
+        return RemoteDataSourceFailure('This sign-in method is not allowed');
+      case 'email-not-verified':
+        return RemoteDataSourceFailure('Please verify your email first');
+      case 'requires-recent-login':
+        return RemoteDataSourceFailure('Please sign in again to continue');
+      case 'credential-already-in-use':
+        return RemoteDataSourceFailure(
+          'This account is already linked to another user',
+        );
+      case 'popup-closed-by-user':
+        return RemoteDataSourceFailure('Sign in was cancelled');
       case 'account-exists-with-different-credential':
         return RemoteDataSourceFailure(
           'Account already exists with a different sign-in method',
