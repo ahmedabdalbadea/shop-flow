@@ -20,6 +20,18 @@ class RemoteDataSourceFailure extends Failure {
         return RemoteDataSourceFailure('Incorrect password');
       case 'network-request-failed':
         return RemoteDataSourceFailure('No internet connection');
+      case 'account-exists-with-different-credential':
+        return RemoteDataSourceFailure(
+          'Account already exists with a different sign-in method',
+        );
+      case 'invalid-credential':
+        return RemoteDataSourceFailure('Invalid credentials, please try again');
+      case 'user-disabled':
+        return RemoteDataSourceFailure('This account has been disabled');
+      case 'too-many-requests':
+        return RemoteDataSourceFailure(
+          'Too many attempts, please try again later',
+        );
       default:
         return RemoteDataSourceFailure(e.message ?? 'Unknown error');
     }
