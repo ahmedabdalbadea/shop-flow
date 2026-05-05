@@ -19,14 +19,14 @@ class SignUpViewBody extends StatelessWidget {
         const Spacer(),
         BlocListener<AuthCubit, AuthState>(
           listener: (context, state) {
-            if (state is SignUpSuccess) {
+            if (state is SignUpSuccess || state is GoogleSignInSuccess) {
               showAlertDialog(
                 context,
                 msg: "Success",
                 icon: Assets.animationSuccess,
                 barrierDismissible: false,
               );
-            } else if (state is SignUpFailure) {
+            } else if (state is AuthFailureState) {
               showAlertDialog(
                 context,
                 msg: state.errMsg,
