@@ -8,5 +8,10 @@ abstract class AuthRepo {
     required String password,
   });
 
+  Future<Either<Failure, UserModel>> signIn({
+    required String email,
+    required String password,
+  });
+
   Future<Either<Failure, UserModel?>> signInWithGoogle();
 }

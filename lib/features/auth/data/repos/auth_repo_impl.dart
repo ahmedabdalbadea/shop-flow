@@ -28,6 +28,23 @@ class AuthRepoImpl implements AuthRepo {
   }
 
   @override
+  Future<Either<Failure, UserModel>> signIn({
+    required String email,
+    required String password,
+  }) async {
+    try {
+      final credential = await _authRemoteDataSource.signIn(email, password);
+      return right(UserModel.fromUserCredential(credential));
+    } on FirebaseAuthException catch (e) {
+      return left(RemoteDataSourceFailure.fromFirebaseAuthException(e));
+    } catch (e) {
+      return left(
+        RemoteDataSourceFailure("Unexpected error, please try again"),
+      );
+    }
+  }
+
+  @override
   Future<Either<Failure, UserModel?>> signInWithGoogle() async {
     try {
       final credential = await _authRemoteDataSource.signInWithGoogle();
@@ -37,7 +54,6 @@ class AuthRepoImpl implements AuthRepo {
     } on FirebaseAuthException catch (e) {
       return left(RemoteDataSourceFailure.fromFirebaseAuthException(e));
     } catch (e) {
-      print("=================>${e.toString()}");
       return left(
         RemoteDataSourceFailure("Unexpected error, please try again"),
       );
