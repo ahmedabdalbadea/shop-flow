@@ -13,6 +13,13 @@ class AuthRemoteDataSource {
     );
   }
 
+  Future<UserCredential> signIn(String email, String password) async {
+    return await _auth.signInWithEmailAndPassword(
+      email: email,
+      password: password,
+    );
+  }
+
   Future<UserCredential?> signInWithGoogle() async {
     // Trigger the authentication flow
     final GoogleSignIn googleSignIn = GoogleSignIn.instance;
