@@ -1,4 +1,6 @@
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
+import 'package:shop_flow/features/auth/manager/auth_cubit/auth_cubit.dart';
 import 'package:shop_flow/features/auth/view/sign_in_view.dart';
 import 'package:shop_flow/features/auth/view/sign_up_view.dart';
 import 'package:shop_flow/features/splash/view/splash_view.dart';
@@ -25,7 +27,10 @@ abstract class AppRouter {
       GoRoute(
         path: kSignUpView,
         builder: (context, state) {
-          return const SignUpView();
+          return BlocProvider.value(
+            value: state.extra as AuthCubit,
+            child: const SignUpView(),
+          );
         },
       ),
     ],
