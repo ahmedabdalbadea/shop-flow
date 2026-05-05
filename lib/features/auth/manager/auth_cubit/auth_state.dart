@@ -22,6 +22,18 @@ final class SignUpFailure extends AuthFailureState {
   SignUpFailure(super.errMsg);
 }
 
+final class SignInLoading extends AuthState {}
+
+final class SignInSuccess extends AuthState {
+  final UserModel user;
+
+  SignInSuccess({required this.user});
+}
+
+final class SignInFailure extends AuthFailureState {
+  SignInFailure(super.errMsg);
+}
+
 final class GoogleSignInSuccess extends AuthState {
   final UserModel? user;
   GoogleSignInSuccess({required this.user});
