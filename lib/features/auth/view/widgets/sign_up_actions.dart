@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shop_flow/core/utils/assets.dart';
 import 'package:shop_flow/core/widget/custom_elevated_button.dart';
-import 'package:shop_flow/features/auth/manager/cubit/auth_cubit.dart';
+import 'package:shop_flow/features/auth/manager/auth_cubit/auth_cubit.dart';
 import 'package:shop_flow/features/auth/view/widgets/icon_label_button.dart';
 import 'package:shop_flow/features/auth/view/widgets/or_divider.dart';
 

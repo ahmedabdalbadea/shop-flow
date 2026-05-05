@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shop_flow/core/utils/app_font_styles.dart';
 import 'package:shop_flow/core/utils/form_validators.dart';
 import 'package:shop_flow/core/widget/user_input.dart';
-import 'package:shop_flow/features/auth/manager/cubit/auth_cubit.dart';
+import 'package:shop_flow/features/auth/manager/auth_cubit/auth_cubit.dart';
 import 'package:shop_flow/features/auth/view/widgets/sign_up_actions.dart';
 
 class SignUpInputs extends StatefulWidget {
