@@ -19,7 +19,7 @@ class SignUpViewBody extends StatelessWidget {
         const Spacer(),
         BlocListener<AuthCubit, AuthState>(
           listener: (context, state) {
-            if (state is SignUpSucess) {
+            if (state is SignUpSuccess) {
               showAlertDialog(
                 context,
                 msg: "Success",

@@ -1,5 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:meta/meta.dart';
+import 'package:shop_flow/features/auth/data/models/user_model.dart';
 
 import 'package:shop_flow/features/auth/data/repos/auth_repo_impl.dart';
 
@@ -17,7 +18,7 @@ class AuthCubit extends Cubit<AuthState> {
         emit(SignUpFailure(failure.errMsg));
       },
       (user) {
-        emit(SignUpSucess());
+        emit(SignUpSuccess(user: user));
       },
     );
   }
