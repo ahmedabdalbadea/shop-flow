@@ -13,8 +13,20 @@ final class SignUpSuccess extends AuthState {
   SignUpSuccess({required this.user});
 }
 
-final class SignUpFailure extends AuthState {
+abstract class AuthFailureState extends AuthState {
   final String errMsg;
+  AuthFailureState(this.errMsg);
+}
 
-  SignUpFailure(this.errMsg);
+final class SignUpFailure extends AuthFailureState {
+  SignUpFailure(super.errMsg);
+}
+
+final class GoogleSignInSuccess extends AuthState {
+  final UserModel? user;
+  GoogleSignInSuccess({required this.user});
+}
+
+final class GoogleSignInFailure extends AuthFailureState {
+  GoogleSignInFailure(super.errMsg);
 }
