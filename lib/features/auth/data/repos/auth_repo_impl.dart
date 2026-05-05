@@ -26,4 +26,21 @@ class AuthRepoImpl implements AuthRepo {
       );
     }
   }
+
+  @override
+  Future<Either<Failure, UserModel?>> signInWithGoogle() async {
+    try {
+      final credential = await _authRemoteDataSource.signInWithGoogle();
+      return right(
+        credential == null ? null : UserModel.fromUserCredential(credential),
+      );
+    } on FirebaseAuthException catch (e) {
+      return left(RemoteDataSourceFailure.fromFirebaseAuthException(e));
+    } catch (e) {
+      print("=================>${e.toString()}");
+      return left(
+        RemoteDataSourceFailure("Unexpected error, please try again"),
+      );
+    }
+  }
 }
