@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:shop_flow/core/utils/app_router.dart';
 import 'package:shop_flow/generated/l10n.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:shop_flow/simple_bloc_observer.dart';
 import 'firebase_options.dart';
 
 void main() async {
+  Bloc.observer = SimpleBlocObserver();
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   runApp(const ShopFlow());
