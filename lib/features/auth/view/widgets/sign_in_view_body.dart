@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 import 'package:shop_flow/constants.dart';
 import 'package:shop_flow/core/helpers/show_alert_dialog.dart';
 import 'package:shop_flow/core/utils/app_font_styles.dart';
+import 'package:shop_flow/core/utils/app_router.dart';
 import 'package:shop_flow/core/utils/assets.dart';
 import 'package:shop_flow/features/auth/manager/auth_cubit/auth_cubit.dart';
 import 'package:shop_flow/features/auth/view/widgets/sign_in_inputs.dart';
@@ -26,6 +28,7 @@ class SignInViewBody extends StatelessWidget {
                 icon: Assets.animationSuccess,
                 barrierDismissible: false,
               );
+              context.go(AppRouter.kHomeView);
             } else if (state is AuthFailureState) {
               showAlertDialog(
                 context,
