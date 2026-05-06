@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:shop_flow/constants.dart';
 import 'package:shop_flow/core/utils/app_font_styles.dart';
+import 'package:shop_flow/generated/l10n.dart';
 
 class OrDivider extends StatelessWidget {
   const OrDivider({super.key});
@@ -12,7 +13,7 @@ class OrDivider extends StatelessWidget {
         const Expanded(child: Divider(height: 1, color: kPrimaryBorderColor)),
         const SizedBox(width: 16),
         Text(
-          "OR",
+          S.of(context).orDivider,
           style: AppFontStyles.styleMedium12.copyWith(
             color: const Color(0xff757684),
           ),

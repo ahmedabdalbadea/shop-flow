@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:shop_flow/constants.dart';
 import 'package:shop_flow/core/utils/app_font_styles.dart';
+import 'package:shop_flow/generated/l10n.dart';
 
 class SignInPrompt extends StatelessWidget {
   const SignInPrompt({super.key});
@@ -13,7 +14,7 @@ class SignInPrompt extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Text(
-          "Already have an account?",
+          S.of(context).alreadyHaveAccount,
           style: AppFontStyles.styleRegular14.copyWith(color: kThrTextColor),
         ),
 
@@ -22,7 +23,7 @@ class SignInPrompt extends StatelessWidget {
             GoRouter.of(context).pop();
           },
           child: Text(
-            "Sign In",
+            S.of(context).signIn,
             style: AppFontStyles.styleRegular14.copyWith(color: kSecTextColor),
           ),
         ),

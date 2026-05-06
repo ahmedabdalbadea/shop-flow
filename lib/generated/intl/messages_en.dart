@@ -22,9 +22,40 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+    "alreadyHaveAccount": MessageLookupByLibrary.simpleMessage(
+      "Already have an account?",
+    ),
+    "continueWithGoogle": MessageLookupByLibrary.simpleMessage(
+      "Continue with Google",
+    ),
+    "createAccount": MessageLookupByLibrary.simpleMessage("Create Account"),
+    "dontHaveAccount": MessageLookupByLibrary.simpleMessage(
+      "Don\'t have an account?",
+    ),
+    "email": MessageLookupByLibrary.simpleMessage("Email"),
+    "emailHint": MessageLookupByLibrary.simpleMessage("name@example.com"),
+    "forgotPassword": MessageLookupByLibrary.simpleMessage("Forgot password?"),
+    "fullName": MessageLookupByLibrary.simpleMessage("Full Name"),
+    "fullNameHint": MessageLookupByLibrary.simpleMessage("John Doe"),
+    "joinCommunity": MessageLookupByLibrary.simpleMessage(
+      "Join the ShopFlow community",
+    ),
+    "loading": MessageLookupByLibrary.simpleMessage("Loading..."),
+    "orDivider": MessageLookupByLibrary.simpleMessage("OR"),
+    "password": MessageLookupByLibrary.simpleMessage("Password"),
+    "signIn": MessageLookupByLibrary.simpleMessage("Sign In"),
+    "signInSubtitle": MessageLookupByLibrary.simpleMessage(
+      "Sign in to your ShopFlow account",
+    ),
+    "signInSuccess": MessageLookupByLibrary.simpleMessage("Welcome back!"),
+    "signUp": MessageLookupByLibrary.simpleMessage("Sign Up"),
+    "signUpSuccess": MessageLookupByLibrary.simpleMessage(
+      "Account created successfully!",
+    ),
     "splashTagline": MessageLookupByLibrary.simpleMessage(
       "Seamless shopping for the modern lifestyle.",
     ),
     "start": MessageLookupByLibrary.simpleMessage("Get Started"),
+    "welcomeBack": MessageLookupByLibrary.simpleMessage("Welcome back"),
   };
 }

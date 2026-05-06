@@ -5,6 +5,7 @@ import 'package:shop_flow/core/utils/form_validators.dart';
 import 'package:shop_flow/core/widget/user_input.dart';
 import 'package:shop_flow/features/auth/manager/auth_cubit/auth_cubit.dart';
 import 'package:shop_flow/features/auth/view/widgets/sign_up_actions.dart';
+import 'package:shop_flow/generated/l10n.dart';
 
 class SignUpInputs extends StatefulWidget {
   const SignUpInputs({super.key});
@@ -25,27 +26,27 @@ class _SignUpInputsState extends State<SignUpInputs> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text("Full Name", style: AppFontStyles.styleSemiBold14),
+          Text(S.of(context).fullName, style: AppFontStyles.styleSemiBold14),
           const SizedBox(height: 8),
           UserInput(
-            hint: "John Doe",
+            hint: S.of(context).fullNameHint,
             validator: FormValidators.requiredFieldValidator,
             onChanged: (value) {
               _name = value;
             },
           ),
           const SizedBox(height: 16),
-          Text("Email", style: AppFontStyles.styleSemiBold14),
+          Text(S.of(context).email, style: AppFontStyles.styleSemiBold14),
           const SizedBox(height: 8),
           UserInput(
-            hint: "name@example.com",
+            hint: S.of(context).emailHint,
             validator: FormValidators.validateEmail,
             onChanged: (value) {
               _email = value;
             },
           ),
           const SizedBox(height: 16),
-          Text("Password", style: AppFontStyles.styleSemiBold14),
+          Text(S.of(context).password, style: AppFontStyles.styleSemiBold14),
           const SizedBox(height: 8),
           UserInput(
             hint: "••••••••",

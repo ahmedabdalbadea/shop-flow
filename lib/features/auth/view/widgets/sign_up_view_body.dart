@@ -9,6 +9,7 @@ import 'package:shop_flow/features/auth/manager/auth_cubit/auth_cubit.dart';
 import 'package:shop_flow/features/auth/view/widgets/onboarding_card.dart';
 import 'package:shop_flow/features/auth/view/widgets/sign_in_prompt.dart';
 import 'package:shop_flow/features/auth/view/widgets/sign_up_inputs.dart';
+import 'package:shop_flow/generated/l10n.dart';
 
 class SignUpViewBody extends StatelessWidget {
   const SignUpViewBody({super.key});
@@ -23,7 +24,7 @@ class SignUpViewBody extends StatelessWidget {
             if (state is SignUpSuccess || state is GoogleSignInSuccess) {
               showAlertDialog(
                 context,
-                msg: "Success",
+                msg: S.of(context).signUpSuccess,
                 icon: Assets.animationSuccess,
                 barrierDismissible: false,
               );
@@ -38,7 +39,7 @@ class SignUpViewBody extends StatelessWidget {
             } else {
               showAlertDialog(
                 context,
-                msg: "Loading...",
+                msg: S.of(context).loading,
                 icon: Assets.animationTrailLoading,
                 barrierDismissible: false,
               );
@@ -49,10 +50,13 @@ class SignUpViewBody extends StatelessWidget {
             child: OnboardingCard(
               child: Column(
                 children: [
-                  Text("Create Account", style: AppFontStyles.styleSemiBold24),
+                  Text(
+                    S.of(context).createAccount,
+                    style: AppFontStyles.styleSemiBold24,
+                  ),
                   const SizedBox(height: 8),
                   Text(
-                    "Join the ShopFlow community",
+                    S.of(context).joinCommunity,
                     style: AppFontStyles.styleRegular14.copyWith(
                       color: kThrTextColor,
                     ),

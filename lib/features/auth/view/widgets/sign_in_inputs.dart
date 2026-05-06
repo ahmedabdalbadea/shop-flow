@@ -6,6 +6,7 @@ import 'package:shop_flow/core/utils/form_validators.dart';
 import 'package:shop_flow/core/widget/user_input.dart';
 import 'package:shop_flow/features/auth/manager/auth_cubit/auth_cubit.dart';
 import 'package:shop_flow/features/auth/view/widgets/sign_in_actions.dart';
+import 'package:shop_flow/generated/l10n.dart';
 
 class SignInInputs extends StatefulWidget {
   const SignInInputs({super.key});
@@ -27,11 +28,14 @@ class _SignInInputsState extends State<SignInInputs> {
         children: [
           Align(
             alignment: Alignment.centerLeft,
-            child: Text("Email", style: AppFontStyles.styleSemiBold14),
+            child: Text(
+              S.of(context).email,
+              style: AppFontStyles.styleSemiBold14,
+            ),
           ),
           const SizedBox(height: 8),
           UserInput(
-            hint: "name@example.com",
+            hint: S.of(context).emailHint,
             validator: FormValidators.validateEmail,
             onChanged: (value) {
               _email = value;
@@ -41,9 +45,12 @@ class _SignInInputsState extends State<SignInInputs> {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text("Password", style: AppFontStyles.styleSemiBold14),
               Text(
-                "Forgot password?",
+                S.of(context).password,
+                style: AppFontStyles.styleSemiBold14,
+              ),
+              Text(
+                S.of(context).forgotPassword,
                 style: AppFontStyles.styleMedium12.copyWith(
                   color: kSecTextColor,
                 ),

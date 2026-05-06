@@ -5,6 +5,7 @@ import 'package:shop_flow/constants.dart';
 import 'package:shop_flow/core/utils/app_font_styles.dart';
 import 'package:shop_flow/core/utils/app_router.dart';
 import 'package:shop_flow/features/auth/manager/auth_cubit/auth_cubit.dart';
+import 'package:shop_flow/generated/l10n.dart';
 
 class SignUpPrompt extends StatelessWidget {
   const SignUpPrompt({super.key});
@@ -16,7 +17,7 @@ class SignUpPrompt extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Text(
-          "Don't have an account?",
+          S.of(context).dontHaveAccount,
           style: AppFontStyles.styleRegular14.copyWith(color: kThrTextColor),
         ),
 
@@ -27,7 +28,7 @@ class SignUpPrompt extends StatelessWidget {
             ).push(AppRouter.kSignUpView, extra: context.read<AuthCubit>());
           },
           child: Text(
-            "Sign up",
+            S.of(context).signUp,
             style: AppFontStyles.styleRegular14.copyWith(color: kSecTextColor),
           ),
         ),

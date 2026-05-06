@@ -4,5 +4,81 @@
     "@splashTagline": {
         "description": "Tagline shown on the splash screen"
     },
-    "start": "Get Started"
+    "start": "Get Started",
+    "createAccount": "Create Account",
+    "@createAccount": {
+        "description": "Sign up screen title"
+    },
+    "joinCommunity": "Join the ShopFlow community",
+    "@joinCommunity": {
+        "description": "Sign up screen subtitle"
+    },
+    "fullName": "Full Name",
+    "@fullName": {
+        "description": "Full name field label"
+    },
+    "fullNameHint": "John Doe",
+    "@fullNameHint": {
+        "description": "Full name field hint"
+    },
+    "email": "Email",
+    "@email": {
+        "description": "Email field label"
+    },
+    "emailHint": "name@example.com",
+    "@emailHint": {
+        "description": "Email field hint"
+    },
+    "password": "Password",
+    "@password": {
+        "description": "Password field label"
+    },
+    "forgotPassword": "Forgot password?",
+    "@forgotPassword": {
+        "description": "Forgot password link"
+    },
+    "signUp": "Sign Up",
+    "@signUp": {
+        "description": "Sign up button"
+    },
+    "orDivider": "OR",
+    "@orDivider": {
+        "description": "OR divider text"
+    },
+    "continueWithGoogle": "Continue with Google",
+    "@continueWithGoogle": {
+        "description": "Google sign in button"
+    },
+    "alreadyHaveAccount": "Already have an account?",
+    "@alreadyHaveAccount": {
+        "description": "Sign in prompt text"
+    },
+    "signIn": "Sign In",
+    "@signIn": {
+        "description": "Sign in button and link"
+    },
+    "welcomeBack": "Welcome back",
+    "@welcomeBack": {
+        "description": "Sign in screen title"
+    },
+    "signInSubtitle": "Sign in to your ShopFlow account",
+    "@signInSubtitle": {
+        "description": "Sign in screen subtitle"
+    },
+    "dontHaveAccount": "Don't have an account?",
+    "@dontHaveAccount": {
+        "description": "Sign up prompt text"
+    },
+    "signUpSuccess": "Account created successfully!",
+    "@signUpSuccess": {
+        "description": "Success message after sign up"
+    },
+    "signInSuccess": "Welcome back!",
+    "@signInSuccess": {
+        "description": "Success message after sign in"
+    },
+    "loading": "Loading...",
+    "@loading": {
+        "description": "Loading message"
+    }
 }

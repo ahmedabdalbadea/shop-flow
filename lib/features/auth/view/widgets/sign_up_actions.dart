@@ -5,6 +5,7 @@ import 'package:shop_flow/core/widget/custom_elevated_button.dart';
 import 'package:shop_flow/features/auth/manager/auth_cubit/auth_cubit.dart';
 import 'package:shop_flow/features/auth/view/widgets/icon_label_button.dart';
 import 'package:shop_flow/features/auth/view/widgets/or_divider.dart';
+import 'package:shop_flow/generated/l10n.dart';
 
 class SignUpActions extends StatelessWidget {
   const SignUpActions({super.key, required void Function() validateForm})
@@ -14,13 +15,16 @@ class SignUpActions extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        CustomElevatedButton(title: "Sign Up", onPressed: _validateForm),
+        CustomElevatedButton(
+          title: S.of(context).signUp,
+          onPressed: _validateForm,
+        ),
         const SizedBox(height: 26),
         const OrDivider(),
         const SizedBox(height: 26),
         IconLabelButton(
           icon: Assets.googleLogo,
-          label: "Continue with Google",
+          label: S.of(context).continueWithGoogle,
           onPressed: () {
             context.read<AuthCubit>().signInWithGoogle();
           },
