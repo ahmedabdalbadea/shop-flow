@@ -3,11 +3,13 @@ import 'package:go_router/go_router.dart';
 import 'package:shop_flow/features/auth/manager/auth_cubit/auth_cubit.dart';
 import 'package:shop_flow/features/auth/view/sign_in_view.dart';
 import 'package:shop_flow/features/auth/view/sign_up_view.dart';
+import 'package:shop_flow/features/home/view/home_view.dart';
 import 'package:shop_flow/features/splash/view/splash_view.dart';
 
 abstract class AppRouter {
   static const kSignInView = "/signInView";
   static const kSignUpView = "/signUpView";
+  static const kHomeView = "/homeView";
   static final router = GoRouter(
     routes: [
       GoRoute(
@@ -31,6 +33,13 @@ abstract class AppRouter {
             value: state.extra as AuthCubit,
             child: const SignUpView(),
           );
+        },
+      ),
+
+      GoRoute(
+        path: kHomeView,
+        builder: (context, state) {
+          return const HomeView();
         },
       ),
     ],
