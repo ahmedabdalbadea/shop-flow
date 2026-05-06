@@ -29,10 +29,7 @@ abstract class AppRouter {
       GoRoute(
         path: kSignUpView,
         builder: (context, state) {
-          return BlocProvider.value(
-            value: state.extra as AuthCubit,
-            child: const SignUpView(),
-          );
+          return const SignUpView();
         },
       ),
 
