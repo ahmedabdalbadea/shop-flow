@@ -17,7 +17,7 @@ class CustomAlertDialog extends StatelessWidget {
     return PopScope(
       canPop: canPop,
       child: AlertDialog(
-        icon: Lottie.asset(icon, height: 200, repeat: repeat),
+        icon: Lottie.asset(icon, height: 180, width: 120, repeat: repeat),
         content: Text(
           msg,
           textAlign: TextAlign.center,

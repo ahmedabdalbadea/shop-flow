@@ -48,7 +48,7 @@ class SignUpViewBody extends StatelessWidget {
               showAlertDialog(
                 context,
                 msg: S.of(context).loading,
-                icon: Assets.animationTrailLoading,
+                icon: Assets.animationLoader,
                 barrierDismissible: false,
                 repeat: true,
               );
