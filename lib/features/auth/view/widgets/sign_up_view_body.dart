@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 import 'package:shop_flow/constants.dart';
 import 'package:shop_flow/core/helpers/show_alert_dialog.dart';
 import 'package:shop_flow/core/utils/app_font_styles.dart';
@@ -26,6 +27,7 @@ class SignUpViewBody extends StatelessWidget {
                 icon: Assets.animationSuccess,
                 barrierDismissible: false,
               );
+              GoRouter.of(context).pop();
             } else if (state is AuthFailureState) {
               showAlertDialog(
                 context,
