@@ -1,18 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:shop_flow/features/auth/view/widgets/custom_alert_dialog.dart';
 
-bool _isDialogOpen = false;
+bool isDialogOpen = false;
 
 void showAlertDialog(
   BuildContext context, {
   required String msg,
   required String icon,
   required bool barrierDismissible,
+  bool repeat = false,
 }) {
-  if (_isDialogOpen) {
-    Navigator.of(context).pop();
-  }
-  _isDialogOpen = true;
   showDialog(
     context: context,
     barrierDismissible: barrierDismissible,
@@ -21,7 +18,10 @@ void showAlertDialog(
         icon: icon,
         msg: msg,
         canPop: barrierDismissible,
+        repeat: repeat,
       );
     },
-  ).then((_) => _isDialogOpen = false);
+  ).then((_) {
+    isDialogOpen = false;
+  });
 }
