@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:shop_flow/constants.dart';
+import 'package:shop_flow/core/helpers/close_alert_dialog.dart';
 import 'package:shop_flow/core/helpers/show_alert_dialog.dart';
 import 'package:shop_flow/core/utils/app_font_styles.dart';
+import 'package:shop_flow/core/utils/app_router.dart';
 import 'package:shop_flow/core/utils/assets.dart';
 import 'package:shop_flow/features/auth/manager/auth_cubit/auth_cubit.dart';
 import 'package:shop_flow/features/auth/view/widgets/onboarding_card.dart';
@@ -22,27 +24,32 @@ class SignUpViewBody extends StatelessWidget {
         BlocListener<AuthCubit, AuthState>(
           listener: (context, state) {
             if (state is SignUpSuccess || state is GoogleSignInSuccess) {
+              closeAlertDialog(context); // If dialog is open -> Close it
               showAlertDialog(
                 context,
                 msg: S.of(context).signUpSuccess,
                 icon: Assets.animationSuccess,
-                barrierDismissible: false,
+                barrierDismissible: true,
               );
-              GoRouter.of(context).pop();
+              isDialogOpen = true;
             } else if (state is AuthFailureState) {
+              closeAlertDialog(context); // If dialog is open -> Close it
               showAlertDialog(
                 context,
                 msg: state.errMsg,
                 icon: Assets.animationFailure,
                 barrierDismissible: true,
               );
+              isDialogOpen = true;
             } else {
               showAlertDialog(
                 context,
                 msg: S.of(context).loading,
                 icon: Assets.animationTrailLoading,
                 barrierDismissible: false,
+                repeat: true,
               );
+              isDialogOpen = true;
             }
           },
           child: Padding(

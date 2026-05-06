@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:shop_flow/constants.dart';
+import 'package:shop_flow/core/helpers/close_alert_dialog.dart';
 import 'package:shop_flow/core/helpers/show_alert_dialog.dart';
 import 'package:shop_flow/core/utils/app_font_styles.dart';
 import 'package:shop_flow/core/utils/app_router.dart';
@@ -22,27 +23,33 @@ class SignInViewBody extends StatelessWidget {
         BlocListener<AuthCubit, AuthState>(
           listener: (context, state) {
             if (state is SignInSuccess || state is GoogleSignInSuccess) {
+              closeAlertDialog(context); // If dialog is open -> Close it
               showAlertDialog(
                 context,
                 msg: S.of(context).signInSuccess,
                 icon: Assets.animationSuccess,
                 barrierDismissible: false,
               );
+              isDialogOpen = true;
               context.go(AppRouter.kHomeView);
             } else if (state is AuthFailureState) {
+              closeAlertDialog(context); // If dialog is open -> Close it
               showAlertDialog(
                 context,
                 msg: state.errMsg,
                 icon: Assets.animationFailure,
                 barrierDismissible: true,
               );
+              isDialogOpen = true;
             } else {
               showAlertDialog(
                 context,
                 msg: S.of(context).loading,
                 icon: Assets.animationTrailLoading,
                 barrierDismissible: false,
+                repeat: true,
               );
+              isDialogOpen = true;
             }
           },
           child: Padding(
