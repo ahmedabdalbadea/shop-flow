@@ -18,43 +18,43 @@ class SignUpViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        const Spacer(),
-        BlocListener<AuthCubit, AuthState>(
-          listener: (context, state) {
-            if (state is SignUpSuccess || state is GoogleSignInSuccess) {
-              closeAlertDialog(context); // If dialog is open -> Close it
-              showAlertDialog(
-                context,
-                msg: S.of(context).signUpSuccess,
-                icon: Assets.animationSuccess,
-                barrierDismissible: true,
-              );
-              isDialogOpen = true;
-              Future.delayed(Duration(seconds: 1), () {
-                context.go(AppRouter.kHomeView);
-              });
-            } else if (state is AuthFailureState) {
-              closeAlertDialog(context); // If dialog is open -> Close it
-              showAlertDialog(
-                context,
-                msg: state.errMsg,
-                icon: Assets.animationFailure,
-                barrierDismissible: true,
-              );
-              isDialogOpen = true;
-            } else {
-              showAlertDialog(
-                context,
-                msg: S.of(context).loading,
-                icon: Assets.animationLoader,
-                barrierDismissible: false,
-                repeat: true,
-              );
-              isDialogOpen = true;
-            }
-          },
+    return BlocListener<AuthCubit, AuthState>(
+      listener: (context, state) {
+        if (state is SignUpSuccess || state is GoogleSignInSuccess) {
+          closeAlertDialog(context); // If dialog is open -> Close it
+          showAlertDialog(
+            context,
+            msg: S.of(context).signUpSuccess,
+            icon: Assets.animationSuccess,
+            barrierDismissible: true,
+          );
+          isDialogOpen = true;
+          Future.delayed(Duration(seconds: 1), () {
+            context.go(AppRouter.kHomeView);
+          });
+        } else if (state is AuthFailureState) {
+          closeAlertDialog(context); // If dialog is open -> Close it
+          showAlertDialog(
+            context,
+            msg: state.errMsg,
+            icon: Assets.animationFailure,
+            barrierDismissible: true,
+          );
+          isDialogOpen = true;
+        } else {
+          showAlertDialog(
+            context,
+            msg: S.of(context).loading,
+            icon: Assets.animationLoader,
+            barrierDismissible: false,
+            repeat: true,
+          );
+          isDialogOpen = true;
+        }
+      },
+      child: Center(
+        child: SingleChildScrollView(
+          // physics: const PageScrollPhysics(),
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 24),
             child: OnboardingCard(
@@ -81,8 +81,7 @@ class SignUpViewBody extends StatelessWidget {
             ),
           ),
         ),
-        const Spacer(),
-      ],
+      ),
     );
   }
 }
