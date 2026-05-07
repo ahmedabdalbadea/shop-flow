@@ -13,4 +13,6 @@ class Assets {
   static const String animationSuccess = "assets/animations/success.json";
   static const String animationFailure = "assets/animations/failure.json";
   static const String animationLoader = "assets/animations/loader.json";
+
+  static const String imageBag = "assets/images/bag.svg";
 }
