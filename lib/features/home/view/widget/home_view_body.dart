@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:shop_flow/constants.dart';
 import 'package:shop_flow/core/utils/app_font_styles.dart';
+import 'package:shop_flow/features/home/view/widget/all_product_section.dart';
 import 'package:shop_flow/features/home/view/widget/custom_search_bar.dart';
 import 'package:shop_flow/features/home/view/widget/featured_section.dart';
 import 'package:shop_flow/features/home/view/widget/filters_categorey_list.dart';
@@ -44,6 +45,9 @@ class HomeViewBody extends StatelessWidget {
           SliverToBoxAdapter(child: FiltersCategoreyList()),
           const SliverToBoxAdapter(child: SizedBox(height: 32)),
           SliverToBoxAdapter(child: FeaturedSection()),
+          SliverToBoxAdapter(child: const SizedBox(height: 32)),
+          AllProductSection(),
+          SliverToBoxAdapter(child: const SizedBox(height: 55)),
         ],
       ),
     );
