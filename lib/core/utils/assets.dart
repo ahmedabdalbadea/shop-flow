@@ -15,4 +15,7 @@ class Assets {
   static const String animationLoader = "assets/animations/loader.json";
 
   static const String imageBag = "assets/images/bag.svg";
+
+  static const String imagesFeaturedImageTest =
+      "assets/images/featured_image_test.png";
 }
