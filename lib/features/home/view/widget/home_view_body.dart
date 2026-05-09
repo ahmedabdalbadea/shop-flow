@@ -2,10 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:shop_flow/constants.dart';
 import 'package:shop_flow/core/utils/app_font_styles.dart';
 import 'package:shop_flow/features/home/view/widget/custom_search_bar.dart';
-import 'package:shop_flow/features/home/view/widget/featured_list_view.dart';
-import 'package:shop_flow/features/home/view/widget/featured_product_card.dart';
+import 'package:shop_flow/features/home/view/widget/featured_section.dart';
 import 'package:shop_flow/features/home/view/widget/filters_categorey_list.dart';
-import 'package:shop_flow/features/home/view/widget/home_section_header.dart';
 
 class HomeViewBody extends StatelessWidget {
   const HomeViewBody({super.key});
@@ -14,6 +12,10 @@ class HomeViewBody extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.only(left: 24.0),
       child: CustomScrollView(
+        scrollBehavior: ScrollConfiguration.of(
+          context,
+        ).copyWith(overscroll: false),
+        physics: const BouncingScrollPhysics(),
         slivers: [
           const SliverToBoxAdapter(child: SizedBox(height: 32)),
           SliverToBoxAdapter(
@@ -32,26 +34,16 @@ class HomeViewBody extends StatelessWidget {
             ),
           ),
           const SliverToBoxAdapter(child: SizedBox(height: 16)),
-          SliverToBoxAdapter(
+          const SliverToBoxAdapter(
             child: Padding(
-              padding: const EdgeInsets.only(right: 24),
+              padding: EdgeInsets.only(right: 24),
               child: CustomSearchBar(),
             ),
           ),
           const SliverToBoxAdapter(child: SizedBox(height: 16)),
           SliverToBoxAdapter(child: FiltersCategoreyList()),
           const SliverToBoxAdapter(child: SizedBox(height: 32)),
-          SliverToBoxAdapter(
-            child: Column(
-              children: [
-                HomeSectionHeader(title: "Featured"),
-                const SizedBox(height: 16),
-
-                SizedBox(height: 275, child: FeaturedListView()),
-                const SizedBox(height: 28),
-              ],
-            ),
-          ),
+          SliverToBoxAdapter(child: FeaturedSection()),
         ],
       ),
     );
