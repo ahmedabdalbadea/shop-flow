@@ -7,18 +7,15 @@ class HomeSectionHeader extends StatelessWidget {
   final String title;
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(right: 24.0),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          Text(title, style: AppFontStyles.styleSemiBold20),
-          Text(
-            "View all",
-            style: AppFontStyles.styleSemiBold14.copyWith(color: kSecTextColor),
-          ),
-        ],
-      ),
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        Text(title, style: AppFontStyles.styleSemiBold20),
+        Text(
+          "View all",
+          style: AppFontStyles.styleSemiBold14.copyWith(color: kSecTextColor),
+        ),
+      ],
     );
   }
 }

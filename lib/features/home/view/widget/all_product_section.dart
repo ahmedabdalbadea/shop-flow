@@ -19,20 +19,17 @@ class AllProductSection extends StatelessWidget {
           ),
         ),
 
-        SliverPadding(
-          padding: EdgeInsetsGeometry.only(right: 24),
-          sliver: SliverGrid.count(
-            crossAxisCount: 2,
-            crossAxisSpacing: 16,
-            mainAxisSpacing: 16,
-            childAspectRatio: 1 / 1.10,
-            children: List.generate(
-              4,
-              (index) => AllProductCard(
-                image: Assets.imagesFeaturedImageTest,
-                title: "Retro Cam Mini",
-                price: "89.00",
-              ),
+        SliverGrid.count(
+          crossAxisCount: 2,
+          crossAxisSpacing: 16,
+          mainAxisSpacing: 16,
+          childAspectRatio: 1 / 1.10,
+          children: List.generate(
+            4,
+            (index) => AllProductCard(
+              image: Assets.imagesFeaturedImageTest,
+              title: "Retro Cam Mini",
+              price: "89.00",
             ),
           ),
         ),
