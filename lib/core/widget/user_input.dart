@@ -30,7 +30,7 @@ class _UserInputState extends State<UserInput> {
       obscureText: widget.isPassword ? showPassword : false,
       decoration: InputDecoration(
         filled: true,
-        fillColor: const Color(0xffF4F2FC),
+        fillColor: kFillColor,
         contentPadding: const EdgeInsets.symmetric(
           horizontal: 16,
           vertical: 17,

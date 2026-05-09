@@ -6,5 +6,6 @@ const kErrorColor = Color(0xffF44336);
 const kAnimationDuration = Duration(seconds: 1);
 const kPrimaryBorderColor = Color(0XFFC5C5D4);
 const kBorderRadiusCircular = 12.0;
+const kFillColor = Color(0XFFF4F2FC);
 const kSecTextColor = Color(0xff24389C);
 const kThrTextColor = Color(0xff454652);

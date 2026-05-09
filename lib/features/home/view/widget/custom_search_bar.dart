@@ -12,7 +12,7 @@ class CustomSearchBar extends StatelessWidget {
       child: TextField(
         decoration: InputDecoration(
           filled: true,
-          fillColor: const Color(0xffF4F2FC),
+          fillColor: kFillColor,
           border: _buildBorder(),
           enabledBorder: _buildBorder(),
           focusedBorder: _buildBorder(),
