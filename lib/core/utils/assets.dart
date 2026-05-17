@@ -18,4 +18,6 @@ class Assets {
 
   static const String imagesFeaturedImageTest =
       "assets/images/featured_image_test.png";
+
+  static const String imagesImageNotFound = "assets/images/Image-not-found.png";
 }
