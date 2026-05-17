@@ -1,0 +1,34 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:shop_flow/features/home/manager/top_products_cubit/top_products_cubit.dart';
+import 'package:shop_flow/features/home/view/widget/custom_error.dart';
+import 'package:shop_flow/features/home/view/widget/custom_top_products_loading.dart';
+import 'package:shop_flow/features/home/view/widget/top_product_card.dart';
+
+class TopProductsListView extends StatelessWidget {
+  const TopProductsListView({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return BlocBuilder<TopProductsCubit, TopProductsState>(
+      builder: (context, state) {
+        if (state is TopProductsSuccess) {
+          return ListView.builder(
+            scrollDirection: Axis.horizontal,
+            itemCount: state.products.products!.length,
+            itemBuilder: (context, index) {
+              return Padding(
+                padding: const EdgeInsets.only(right: 16.0),
+                child: TopProductCard(product: state.products.products![index]),
+              );
+            },
+          );
+        } else if (state is TopProductsFailure) {
+          return CustomError(errMsg: state.errMsg);
+        } else {
+          return const CustomTopProductsLoading();
+        }
+      },
+    );
+  }
+}
