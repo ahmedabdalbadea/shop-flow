@@ -64,7 +64,8 @@ class DefaultFirebaseOptions {
     messagingSenderId: '524858853482',
     projectId: 'shop-flow-571d7',
     storageBucket: 'shop-flow-571d7.firebasestorage.app',
-    iosClientId: '524858853482-54f6ilhe6ss64oro5j92r9iq436jbckf.apps.googleusercontent.com',
+    iosClientId:
+        '524858853482-54f6ilhe6ss64oro5j92r9iq436jbckf.apps.googleusercontent.com',
     iosBundleId: 'com.example.shopFlow',
   );
 
@@ -74,7 +75,8 @@ class DefaultFirebaseOptions {
     messagingSenderId: '524858853482',
     projectId: 'shop-flow-571d7',
     storageBucket: 'shop-flow-571d7.firebasestorage.app',
-    iosClientId: '524858853482-54f6ilhe6ss64oro5j92r9iq436jbckf.apps.googleusercontent.com',
+    iosClientId:
+        '524858853482-54f6ilhe6ss64oro5j92r9iq436jbckf.apps.googleusercontent.com',
     iosBundleId: 'com.example.shopFlow',
   );
 
@@ -87,5 +89,4 @@ class DefaultFirebaseOptions {
     storageBucket: 'shop-flow-571d7.firebasestorage.app',
     measurementId: 'G-KGT61G83D3',
   );
-
 }
