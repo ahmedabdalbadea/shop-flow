@@ -9,7 +9,10 @@ class CategoriesSection extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Text("Categories", style: AppFontStyles.styleSemiBold20),
+        Align(
+          alignment: Alignment.centerLeft,
+          child: Text("Categories", style: AppFontStyles.styleSemiBold20),
+        ),
         const SizedBox(height: 8),
         FiltersCategoreyList(),
       ],
