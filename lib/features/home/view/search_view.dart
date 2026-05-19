@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:shop_flow/constants.dart';
+import 'package:shop_flow/features/home/view/widget/custom_search_bar.dart';
 import 'package:shop_flow/features/home/view/widget/search_view_body.dart';
 
 class SearchView extends StatelessWidget {
@@ -6,6 +8,13 @@ class SearchView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(body: SafeArea(child: SearchViewBody()));
+    return Scaffold(
+      appBar: AppBar(
+        title: CustomSearchBar(),
+        titleSpacing: 8,
+        foregroundColor: kSecTextColor,
+      ),
+      body: const SafeArea(child: SearchViewBody()),
+    );
   }
 }
