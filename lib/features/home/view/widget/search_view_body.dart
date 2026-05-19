@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:shop_flow/features/home/view/widget/categories_section.dart';
+import 'package:shop_flow/features/home/view/widget/search_products_gird.dart';
 import 'package:shop_flow/features/home/view/widget/recent_searches_section.dart';
 
 class SearchViewBody extends StatelessWidget {
@@ -9,13 +10,23 @@ class SearchViewBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 24.0),
-      child: Column(
-        children: [
-          const SizedBox(height: 16),
-          RecentSearchesSection(),
+      child: CustomScrollView(
+        slivers: [
+          const SliverToBoxAdapter(child: SizedBox(height: 16)),
 
-          const SizedBox(height: 32),
-          CategoriesSection(),
+          const SliverToBoxAdapter(
+            child: Column(
+              children: [
+                RecentSearchesSection(),
+
+                SizedBox(height: 32),
+                CategoriesSection(),
+              ],
+            ),
+          ),
+          const SliverToBoxAdapter(child: SizedBox(height: 32)),
+          const SearchProductsGrid(),
+          const SliverToBoxAdapter(child: SizedBox(height: 34)),
         ],
       ),
     );
