@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:shop_flow/core/utils/app_font_styles.dart';
 import 'package:shop_flow/features/home/view/widget/top_products_list_view.dart';
-import 'package:shop_flow/features/home/view/widget/home_section_header.dart';
 
 class TopProductsSection extends StatelessWidget {
   const TopProductsSection({super.key});
@@ -9,7 +9,10 @@ class TopProductsSection extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        HomeSectionHeader(title: "Top"),
+        Align(
+          alignment: Alignment.centerLeft,
+          child: Text("Top", style: AppFontStyles.styleSemiBold20),
+        ),
         const SizedBox(height: 16),
 
         SizedBox(height: 275, child: TopProductsListView()),
