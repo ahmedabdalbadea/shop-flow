@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:shop_flow/constants.dart';
 import 'package:shop_flow/core/utils/app_font_styles.dart';
 import 'package:shop_flow/features/home/data/models/products/product.dart';
+import 'package:shop_flow/features/home/view/widget/categories_section.dart';
 import 'package:shop_flow/features/home/view/widget/filters_categorey_list.dart';
 import 'package:shop_flow/features/home/view/widget/recent_searches_list_view.dart';
 
@@ -29,6 +30,9 @@ class SearchViewBody extends StatelessWidget {
             ],
           ),
           SizedBox(height: 100, child: RecentSearchesListView()),
+
+          const SizedBox(height: 32),
+          CategoriesSection(),
         ],
       ),
     );
