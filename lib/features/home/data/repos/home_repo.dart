@@ -6,4 +6,6 @@ abstract class HomeRepo {
   Future<Either<Failure, Products>> fetchProductsByCategory({
     required String category,
   });
+
+  Future<Either<Failure, Products>> fetchAllProducts();
 }

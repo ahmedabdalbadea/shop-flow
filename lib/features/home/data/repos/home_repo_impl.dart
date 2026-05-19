@@ -16,8 +16,23 @@ class HomeRepoImpl implements HomeRepo {
   }) async {
     try {
       Map<String, dynamic> data = await _apiService.get(
-        endPoints: "category/$category?sortBy=rating&order=desc",
+        endPoints: "products/category/$category?sortBy=rating&order=desc",
       );
+
+      return right(Products.fromJson(data));
+    } on Exception catch (e) {
+      if (e is DioException) {
+        return left(ServerFailuer.fromDioException(e));
+      } else {
+        return left(ServerFailuer("An error occurred, please try again"));
+      }
+    }
+  }
+
+  @override
+  Future<Either<Failure, Products>> fetchAllProducts() async {
+    try {
+      Map<String, dynamic> data = await _apiService.get(endPoints: "products");
 
       return right(Products.fromJson(data));
     } on Exception catch (e) {
