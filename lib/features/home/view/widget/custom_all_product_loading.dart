@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:shop_flow/features/home/data/models/products/product.dart';
-import 'package:shop_flow/features/home/view/widget/all_product_card.dart';
+import 'package:shop_flow/features/home/view/widget/product_card.dart';
 import 'package:skeletonizer/skeletonizer.dart';
 
 class CustomAllProductLoading extends StatelessWidget {
@@ -16,7 +16,7 @@ class CustomAllProductLoading extends StatelessWidget {
         childAspectRatio: 1 / 1.10,
         children: List.generate(
           4,
-          (index) => AllProductCard(
+          (index) => ProductCard(
             product: Product(title: "titel title title title", price: 12.12),
           ),
         ),

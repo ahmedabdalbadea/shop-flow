@@ -4,8 +4,8 @@ import 'package:shop_flow/core/utils/assets.dart';
 import 'package:shop_flow/features/home/data/models/products/product.dart';
 import 'package:shop_flow/features/home/view/widget/all_product_card_info.dart';
 
-class AllProductCard extends StatelessWidget {
-  const AllProductCard({super.key, required this.product});
+class ProductCard extends StatelessWidget {
+  const ProductCard({super.key, required this.product});
   final Product product;
 
   @override
