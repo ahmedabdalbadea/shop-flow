@@ -10,6 +10,10 @@ class SearchView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        surfaceTintColor: Colors.white,
+        backgroundColor: Colors.white,
+        shadowColor: const Color.fromARGB(59, 241, 245, 249),
+        elevation: 4,
         title: CustomSearchBar(),
         titleSpacing: 8,
         foregroundColor: kSecTextColor,
