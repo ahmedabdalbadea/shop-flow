@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:shop_flow/constants.dart';
 import 'package:shop_flow/core/utils/app_font_styles.dart';
+import 'package:shop_flow/core/utils/app_router.dart';
 import 'package:shop_flow/features/home/view/widget/all_product_section.dart';
 import 'package:shop_flow/features/home/view/widget/custom_search_bar.dart';
 import 'package:shop_flow/features/home/view/widget/custom_sliver_app_bar.dart';
@@ -12,8 +14,10 @@ class HomeViewBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CustomScrollView(
-      scrollBehavior: ScrollBehavior().copyWith(overscroll: false),
-      physics: const BouncingScrollPhysics(),
+      scrollBehavior: ScrollBehavior().copyWith(
+        overscroll: false,
+        physics: BouncingScrollPhysics(),
+      ),
       slivers: [
         CustomSliverAppBar(),
         const SliverToBoxAdapter(child: SizedBox(height: 32)),
@@ -39,10 +43,15 @@ class HomeViewBody extends StatelessWidget {
           ),
         ),
         const SliverToBoxAdapter(child: SizedBox(height: 16)),
-        const SliverToBoxAdapter(
+        SliverToBoxAdapter(
           child: Padding(
             padding: EdgeInsets.symmetric(horizontal: 24.0),
-            child: CustomSearchBar(),
+            child: CustomSearchBar(
+              readOnly: true,
+              onTap: () {
+                GoRouter.of(context).push(AppRouter.kSearchView);
+              },
+            ),
           ),
         ),
         const SliverToBoxAdapter(child: SizedBox(height: 16)),
