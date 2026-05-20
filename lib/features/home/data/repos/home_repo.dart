@@ -8,4 +8,5 @@ abstract class HomeRepo {
   });
 
   Future<Either<Failure, Products>> fetchAllProducts();
+  Future<Either<Failure, List<dynamic>>> fetchCategoryList();
 }

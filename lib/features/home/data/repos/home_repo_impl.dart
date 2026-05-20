@@ -43,4 +43,21 @@ class HomeRepoImpl implements HomeRepo {
       }
     }
   }
+
+  @override
+  Future<Either<Failure, List<dynamic>>> fetchCategoryList() async {
+    try {
+      List<dynamic> data = await _apiService.get(
+        endPoints: "products/category-list",
+      );
+
+      return right(data);
+    } on Exception catch (e) {
+      if (e is DioException) {
+        return left(ServerFailuer.fromDioException(e));
+      } else {
+        return left(ServerFailuer("An error occurred, please try again"));
+      }
+    }
+  }
 }
