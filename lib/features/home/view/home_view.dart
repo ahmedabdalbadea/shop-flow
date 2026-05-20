@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shop_flow/core/utils/api_service.dart';
 import 'package:shop_flow/features/home/data/repos/home_repo_impl.dart';
 import 'package:shop_flow/features/home/manager/all_products_cubit.dart/all_products_cubit.dart';
+import 'package:shop_flow/features/home/manager/category_list_cubit/category_list_cubit.dart';
 import 'package:shop_flow/features/home/manager/top_products_cubit/top_products_cubit.dart';
 import 'package:shop_flow/features/home/view/widget/home_view_body.dart';
 
@@ -24,6 +25,12 @@ class HomeView extends StatelessWidget {
             create: (context) =>
                 AllProductsCubit(HomeRepoImpl(ApiService(Dio())))
                   ..getAllProducts(),
+          ),
+
+          BlocProvider(
+            create: (context) =>
+                CategoryListCubit(HomeRepoImpl(ApiService(Dio())))
+                  ..getCategoreyList(),
           ),
         ],
         child: HomeViewBody(),

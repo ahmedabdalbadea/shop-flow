@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:shop_flow/constants.dart';
 import 'package:shop_flow/core/utils/app_font_styles.dart';
 import 'package:shop_flow/core/utils/app_router.dart';
+import 'package:shop_flow/features/home/manager/category_list_cubit/category_list_cubit.dart';
 import 'package:shop_flow/features/home/view/widget/all_product_section.dart';
 import 'package:shop_flow/features/home/view/widget/custom_search_bar.dart';
 import 'package:shop_flow/features/home/view/widget/custom_sliver_app_bar.dart';
@@ -49,7 +51,10 @@ class HomeViewBody extends StatelessWidget {
             child: CustomSearchBar(
               readOnly: true,
               onTap: () {
-                GoRouter.of(context).push(AppRouter.kSearchView);
+                GoRouter.of(context).push(
+                  AppRouter.kSearchView,
+                  extra: context.read<CategoryListCubit>(),
+                );
               },
             ),
           ),
