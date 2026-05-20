@@ -1,6 +1,8 @@
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:shop_flow/features/auth/view/sign_in_view.dart';
 import 'package:shop_flow/features/auth/view/sign_up_view.dart';
+import 'package:shop_flow/features/home/manager/category_list_cubit/category_list_cubit.dart';
 import 'package:shop_flow/features/home/view/home_view.dart';
 import 'package:shop_flow/features/home/view/search_view.dart';
 import 'package:shop_flow/features/splash/view/splash_view.dart';
@@ -42,7 +44,8 @@ abstract class AppRouter {
       GoRoute(
         path: kSearchView,
         builder: (context, state) {
-          return const SearchView();
+          CategoryListCubit cubit = state.extra as CategoryListCubit;
+          return BlocProvider.value(value: cubit, child: const SearchView());
         },
       ),
     ],
