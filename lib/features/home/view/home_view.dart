@@ -1,7 +1,6 @@
-import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:shop_flow/core/utils/api_service.dart';
+import 'package:shop_flow/core/utils/get_it.dart';
 import 'package:shop_flow/features/home/data/repos/home_repo_impl.dart';
 import 'package:shop_flow/features/home/manager/all_products_cubit.dart/all_products_cubit.dart';
 import 'package:shop_flow/features/home/manager/category_list_cubit/category_list_cubit.dart';
@@ -18,18 +17,16 @@ class HomeView extends StatelessWidget {
         providers: [
           BlocProvider(
             create: (context) =>
-                TopProductsCubit(HomeRepoImpl(ApiService(Dio())))
-                  ..getTopProducts(),
+                TopProductsCubit(getIt.get<HomeRepoImpl>())..getTopProducts(),
           ),
           BlocProvider(
             create: (context) =>
-                AllProductsCubit(HomeRepoImpl(ApiService(Dio())))
-                  ..getAllProducts(),
+                AllProductsCubit(getIt.get<HomeRepoImpl>())..getAllProducts(),
           ),
 
           BlocProvider(
             create: (context) =>
-                CategoryListCubit(HomeRepoImpl(ApiService(Dio())))
+                CategoryListCubit(getIt.get<HomeRepoImpl>())
                   ..getCategoreyList(),
           ),
         ],
