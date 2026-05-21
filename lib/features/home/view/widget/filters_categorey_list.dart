@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shop_flow/features/home/manager/category_list_cubit/category_list_cubit.dart';
+import 'package:shop_flow/features/home/manager/search_products_cubit/search_products_cubit.dart';
 import 'package:shop_flow/features/home/view/widget/filter_card.dart';
 import 'package:skeletonizer/skeletonizer.dart';
 
 class FiltersCategoreyList extends StatelessWidget {
-  const FiltersCategoreyList({super.key});
+  const FiltersCategoreyList({super.key, this.fromHome = false});
+  final bool fromHome;
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<CategoryListCubit, CategoryListState>(
@@ -15,12 +17,16 @@ class FiltersCategoreyList extends StatelessWidget {
               .read<CategoryListCubit>()
               .categoreyList!;
 
-          return SuccessFiltersBody(filtersList: filtersList);
+          return SuccessFiltersBody(
+            fromHome: fromHome,
+            filtersList: filtersList,
+          );
         } else if (state is CategoryListFailure) {
           return Center(child: Text(state.errMsg));
         } else {
           return Skeletonizer(
             child: SuccessFiltersBody(
+              fromHome: fromHome,
               filtersList: List.generate(6, (index) => "hello world"),
             ),
           );
@@ -31,7 +37,12 @@ class FiltersCategoreyList extends StatelessWidget {
 }
 
 class SuccessFiltersBody extends StatefulWidget {
-  const SuccessFiltersBody({super.key, required this.filtersList});
+  const SuccessFiltersBody({
+    super.key,
+    required this.filtersList,
+    required this.fromHome,
+  });
+  final bool fromHome;
   final List<dynamic> filtersList;
 
   @override
@@ -53,6 +64,13 @@ class _SuccessFiltersBodyState extends State<SuccessFiltersBody> {
               onTap: () {
                 if (e.key != selectedItem) {
                   setState(() {
+                    if (!widget.fromHome) {
+                      BlocProvider.of<SearchProductsCubit>(
+                        context,
+                      ).searchProductsByCategory(
+                        category: widget.filtersList[e.key],
+                      );
+                    }
                     selectedItem = e.key;
                   });
                 }

@@ -63,7 +63,7 @@ class HomeViewBody extends StatelessWidget {
         SliverToBoxAdapter(
           child: Padding(
             padding: _buildPadding(),
-            child: FiltersCategoreyList(),
+            child: FiltersCategoreyList(fromHome: true),
           ),
         ),
         const SliverToBoxAdapter(child: SizedBox(height: 32)),

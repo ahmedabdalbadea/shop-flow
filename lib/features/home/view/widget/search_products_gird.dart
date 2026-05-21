@@ -15,13 +15,15 @@ class SearchProductsGrid extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<SearchProductsCubit, SearchProductsState>(
       builder: (context, state) {
-        if (state is SearchProductsSuccess) {
+        if (state is SearchProductsSuccess ||
+            state is SearchProductsByCategorySuccess) {
           return SearchProductsBodySucess(
             productsList: context.read<SearchProductsCubit>().productsList!,
           );
         } else if (state is SearchProductsFailure) {
           return CustomError(errMsg: state.errMsg);
-        } else if (state is SearchProductsLoading) {
+        } else if (state is SearchProductsLoading ||
+            state is SearchProductsByCategoryLoading) {
           return Skeletonizer.sliver(
             child: SearchProductsBodySucess(
               productsList: Products(
