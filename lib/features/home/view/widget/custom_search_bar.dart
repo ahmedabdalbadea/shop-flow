@@ -3,14 +3,21 @@ import 'package:shop_flow/constants.dart';
 import 'package:shop_flow/core/utils/app_font_styles.dart';
 
 class CustomSearchBar extends StatelessWidget {
-  const CustomSearchBar({super.key, this.readOnly = false, this.onTap});
+  const CustomSearchBar({
+    super.key,
+    this.readOnly = false,
+    this.onTap,
+    this.onChanged,
+  });
   final bool readOnly;
   final VoidCallback? onTap;
+  final void Function(String)? onChanged;
   @override
   Widget build(BuildContext context) {
     return SizedBox(
       height: 52,
       child: TextField(
+        onChanged: onChanged,
         onTap: onTap,
         readOnly: readOnly,
         decoration: InputDecoration(

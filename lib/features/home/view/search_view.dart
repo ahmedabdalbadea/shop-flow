@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:shop_flow/constants.dart';
-import 'package:shop_flow/features/home/view/widget/custom_search_bar.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:shop_flow/core/utils/get_it.dart';
+import 'package:shop_flow/features/home/data/repos/home_repo_impl.dart';
+import 'package:shop_flow/features/home/manager/search_products_cubit/search_products_cubit.dart';
 import 'package:shop_flow/features/home/view/widget/search_view_body.dart';
 
 class SearchView extends StatelessWidget {
@@ -9,16 +11,12 @@ class SearchView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        surfaceTintColor: Colors.white,
-        backgroundColor: Colors.white,
-        shadowColor: const Color.fromARGB(59, 241, 245, 249),
-        elevation: 4,
-        title: CustomSearchBar(),
-        titleSpacing: 8,
-        foregroundColor: kSecTextColor,
+      body: SafeArea(
+        child: BlocProvider(
+          create: (context) => SearchProductsCubit(getIt.get<HomeRepoImpl>()),
+          child: const SearchViewBody(),
+        ),
       ),
-      body: const SafeArea(child: SearchViewBody()),
     );
   }
 }
