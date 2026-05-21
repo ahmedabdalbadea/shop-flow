@@ -60,4 +60,24 @@ class HomeRepoImpl implements HomeRepo {
       }
     }
   }
+
+  @override
+  Future<Either<Failure, Products>> searchProducts({
+    required String product,
+  }) async {
+    try {
+      Map<String, dynamic> data = await _apiService.get(
+        endPoints: "products/search?q=$product",
+      );
+
+      return right(Products.fromJson(data));
+    } on Exception catch (e) {
+      if (e is DioException) {
+        return left(ServerFailuer.fromDioException(e));
+      } else {
+        return left(ServerFailuer("An error occurred, please try again"));
+      }
+    }
+    ;
+  }
 }
