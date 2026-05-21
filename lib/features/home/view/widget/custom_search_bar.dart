@@ -8,10 +8,12 @@ class CustomSearchBar extends StatelessWidget {
     this.readOnly = false,
     this.onTap,
     this.onChanged,
+    this.onSubmitted,
   });
   final bool readOnly;
   final VoidCallback? onTap;
   final void Function(String)? onChanged;
+  final void Function(String)? onSubmitted;
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -19,6 +21,7 @@ class CustomSearchBar extends StatelessWidget {
       child: TextField(
         onChanged: onChanged,
         onTap: onTap,
+        onSubmitted: onSubmitted,
         readOnly: readOnly,
         decoration: InputDecoration(
           filled: true,

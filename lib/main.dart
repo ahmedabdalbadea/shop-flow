@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:hive_ce_flutter/hive_flutter.dart';
+import 'package:shop_flow/constants.dart';
 import 'package:shop_flow/core/utils/app_router.dart';
 import 'package:shop_flow/core/utils/get_it.dart';
 import 'package:shop_flow/generated/l10n.dart';
@@ -10,10 +12,12 @@ import 'package:shop_flow/simple_bloc_observer.dart';
 import 'firebase_options.dart';
 
 void main() async {
-  Bloc.observer = SimpleBlocObserver();
   WidgetsFlutterBinding.ensureInitialized();
+  Bloc.observer = SimpleBlocObserver();
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   setupServiceLocator();
+  await Hive.initFlutter();
+  await Hive.openBox<String>(kRecentSearchesBox);
   runApp(const ShopFlow());
 }
 
