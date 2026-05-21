@@ -31,7 +31,7 @@ class SearchProductsCubit extends Cubit<SearchProductsState> {
 
     data.fold(
       (failure) {
-        emit(SearchProductsByCategoryFailure(errMsg: failure.errMsg));
+        emit(SearchProductsFailure(errMsg: failure.errMsg));
       },
       (products) {
         productsList = products;
