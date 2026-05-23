@@ -21,7 +21,7 @@ class HomeViewBody extends StatelessWidget {
         physics: BouncingScrollPhysics(),
       ),
       slivers: [
-        CustomSliverAppBar(),
+        CustomSliverAppBar(title: "ShopFlow"),
         const SliverToBoxAdapter(child: SizedBox(height: 32)),
         SliverToBoxAdapter(
           child: Padding(

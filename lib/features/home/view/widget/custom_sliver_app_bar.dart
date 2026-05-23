@@ -5,8 +5,8 @@ import 'package:shop_flow/core/utils/app_font_styles.dart';
 import 'package:shop_flow/core/utils/assets.dart';
 
 class CustomSliverAppBar extends StatelessWidget {
-  const CustomSliverAppBar({super.key});
-
+  const CustomSliverAppBar({super.key, required this.title});
+  final String title;
   @override
   Widget build(BuildContext context) {
     return SliverAppBar(
@@ -18,7 +18,7 @@ class CustomSliverAppBar extends StatelessWidget {
       forceElevated: true,
       titleSpacing: 24,
       title: Text(
-        "ShopFlow",
+        title,
         style: AppFontStyles.styleBold20.copyWith(color: kPrimaryColor),
       ),
       actionsPadding: EdgeInsets.only(right: 24),
