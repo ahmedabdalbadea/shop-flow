@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shop_flow/features/home/view/widget/all_products_sliver_grid.dart';
 import 'package:shop_flow/features/home/view/widget/custom_sliver_app_bar.dart';
 
 class AllProductsViewBody extends StatelessWidget {
@@ -7,9 +8,16 @@ class AllProductsViewBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CustomScrollView(
-      slivers: [
+      scrollBehavior: ScrollBehavior().copyWith(
+        physics: BouncingScrollPhysics(),
+        overscroll: false,
+      ),
+      slivers: const [
         CustomSliverAppBar(title: "All Products"),
-        const SliverToBoxAdapter(child: SizedBox(height: 16)),
+        SliverPadding(
+          padding: EdgeInsetsGeometry.symmetric(horizontal: 24, vertical: 16),
+          sliver: AllProductsSliverGrid(),
+        ),
       ],
     );
   }
