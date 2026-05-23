@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:shop_flow/constants.dart';
 import 'package:shop_flow/core/utils/app_font_styles.dart';
+import 'package:shop_flow/core/utils/app_router.dart';
 import 'package:shop_flow/features/home/view/widget/all_product_grid.dart';
 
 class AllProductSection extends StatelessWidget {
@@ -17,10 +19,15 @@ class AllProductSection extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text("All Products", style: AppFontStyles.styleSemiBold20),
-                  Text(
-                    "View all",
-                    style: AppFontStyles.styleSemiBold14.copyWith(
-                      color: kSecTextColor,
+                  GestureDetector(
+                    onTap: () {
+                      GoRouter.of(context).push(AppRouter.kAllProductsView);
+                    },
+                    child: Text(
+                      "View all",
+                      style: AppFontStyles.styleSemiBold14.copyWith(
+                        color: kSecTextColor,
+                      ),
                     ),
                   ),
                 ],
