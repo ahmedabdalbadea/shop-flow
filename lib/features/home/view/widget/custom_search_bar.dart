@@ -9,16 +9,19 @@ class CustomSearchBar extends StatelessWidget {
     this.onTap,
     this.onChanged,
     this.onSubmitted,
+    this.controller,
   });
   final bool readOnly;
   final VoidCallback? onTap;
   final void Function(String)? onChanged;
   final void Function(String)? onSubmitted;
+  final TextEditingController? controller;
   @override
   Widget build(BuildContext context) {
     return SizedBox(
       height: 52,
       child: TextField(
+        controller: controller,
         onChanged: onChanged,
         onTap: onTap,
         onSubmitted: onSubmitted,

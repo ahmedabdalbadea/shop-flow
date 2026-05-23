@@ -5,11 +5,29 @@ import 'package:shop_flow/constants.dart';
 import 'package:shop_flow/features/home/manager/search_products_cubit/search_products_cubit.dart';
 import 'package:shop_flow/features/home/view/widget/custom_search_bar.dart';
 
-class CustomSliverSearchBar extends StatelessWidget {
+class CustomSliverSearchBar extends StatefulWidget {
   const CustomSliverSearchBar({super.key});
 
   @override
+  State<CustomSliverSearchBar> createState() => _CustomSliverSearchBarState();
+}
+
+class _CustomSliverSearchBarState extends State<CustomSliverSearchBar> {
+  final TextEditingController _textEditingController = TextEditingController();
+
+  @override
+  void dispose() {
+    super.dispose();
+    _textEditingController.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
+    final SearchProductsCubit cubit = BlocProvider.of<SearchProductsCubit>(
+      context,
+    );
+
+    cubit.searchBarController = _textEditingController;
     return SliverAppBar(
       pinned: true,
       floating: true,
@@ -19,10 +37,10 @@ class CustomSliverSearchBar extends StatelessWidget {
       elevation: 4,
       forceElevated: true,
       title: CustomSearchBar(
+        controller: _textEditingController,
         onChanged: (value) {
-          BlocProvider.of<SearchProductsCubit>(
-            context,
-          ).searchProducts(product: value);
+          cubit.searchProducts(product: value);
+          cubit.searchFromRecent = false;
         },
         onSubmitted: (value) {
           if (value.isNotEmpty) {

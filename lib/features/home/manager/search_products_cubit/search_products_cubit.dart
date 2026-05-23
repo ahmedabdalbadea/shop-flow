@@ -1,4 +1,5 @@
 import 'package:bloc/bloc.dart';
+import 'package:flutter/material.dart';
 import 'package:meta/meta.dart';
 import 'package:shop_flow/features/home/data/models/products/products.dart';
 import 'package:shop_flow/features/home/data/repos/home_repo.dart';
@@ -8,8 +9,11 @@ part 'search_products_state.dart';
 class SearchProductsCubit extends Cubit<SearchProductsState> {
   SearchProductsCubit(this._homeRepo) : super(SearchProductsInitial());
   final HomeRepo _homeRepo;
-
   Products? productsList;
+
+  bool? searchFromRecent;
+
+  TextEditingController? searchBarController;
   Future<void> searchProducts({required String product}) async {
     emit(SearchProductsLoading());
     var data = await _homeRepo.searchProducts(product: product);
