@@ -20,7 +20,11 @@ class AllProductsGrid extends StatelessWidget {
             childAspectRatio: 1 / 1.15,
             children: List.generate(
               4,
-              (index) => ProductCard(product: state.products.products![index]),
+              (index) => ProductCard(
+                product: BlocProvider.of<AllProductsCubit>(
+                  context,
+                ).productsList!.products![index],
+              ),
             ),
           );
         } else if (state is AllProductsFailure) {

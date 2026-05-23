@@ -7,11 +7,7 @@ final class AllProductsInitial extends AllProductsState {}
 
 final class AllProductsLoading extends AllProductsState {}
 
-final class AllProductsSuccess extends AllProductsState {
-  final Products products;
-
-  AllProductsSuccess({required this.products});
-}
+final class AllProductsSuccess extends AllProductsState {}
 
 final class AllProductsFailure extends AllProductsState {
   final String errMsg;

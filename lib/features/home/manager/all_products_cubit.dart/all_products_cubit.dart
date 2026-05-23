@@ -9,6 +9,8 @@ part 'all_products_state.dart';
 class AllProductsCubit extends Cubit<AllProductsState> {
   AllProductsCubit(this._homeRepo) : super(AllProductsInitial());
   final HomeRepo _homeRepo;
+
+  Products? productsList;
   Future<void> getAllProducts() async {
     emit(AllProductsLoading());
 
@@ -19,7 +21,8 @@ class AllProductsCubit extends Cubit<AllProductsState> {
         emit(AllProductsFailure(errMsg: failure.errMsg));
       },
       (products) {
-        emit(AllProductsSuccess(products: products));
+        productsList = products;
+        emit(AllProductsSuccess());
       },
     );
   }
