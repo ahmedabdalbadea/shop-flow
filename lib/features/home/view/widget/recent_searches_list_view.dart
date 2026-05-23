@@ -12,6 +12,7 @@ class RecentSearchesListView extends StatelessWidget {
       context,
     );
     return ListView.builder(
+      shrinkWrap: true,
       physics: const BouncingScrollPhysics(),
       itemCount: recentList.length,
       itemBuilder: (context, index) {

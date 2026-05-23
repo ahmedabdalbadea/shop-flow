@@ -33,8 +33,8 @@ class RecentSearchesSection extends StatelessWidget {
                 ),
               ],
             ),
-            SizedBox(
-              height: 100,
+            ConstrainedBox(
+              constraints: BoxConstraints(maxHeight: 100),
               child: RecentSearchesListView(recentList: recentList),
             ),
           ],
