@@ -14,7 +14,7 @@ class FilterCard extends StatelessWidget {
       padding: EdgeInsets.symmetric(vertical: 8, horizontal: 24),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(50),
-        color: selected ? kPrimaryColor : const Color(0xffE9E7F0),
+        color: selected ? kPrimaryColor : kPaddingColor,
       ),
       child: Text(
         title,
