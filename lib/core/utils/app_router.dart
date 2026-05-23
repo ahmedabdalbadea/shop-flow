@@ -2,6 +2,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:shop_flow/features/auth/view/sign_in_view.dart';
 import 'package:shop_flow/features/auth/view/sign_up_view.dart';
+import 'package:shop_flow/features/home/manager/all_products_cubit.dart/all_products_cubit.dart';
 import 'package:shop_flow/features/home/manager/category_list_cubit/category_list_cubit.dart';
 import 'package:shop_flow/features/home/view/all_products_view.dart';
 import 'package:shop_flow/features/home/view/home_view.dart';
@@ -54,7 +55,11 @@ abstract class AppRouter {
       GoRoute(
         path: kAllProductsView,
         builder: (context, state) {
-          return const AllProductsView();
+          final AllProductsCubit cubit = state.extra as AllProductsCubit;
+          return BlocProvider.value(
+            value: cubit,
+            child: const AllProductsView(),
+          );
         },
       ),
     ],
