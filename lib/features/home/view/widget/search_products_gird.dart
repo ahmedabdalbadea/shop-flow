@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 import 'package:shop_flow/core/utils/app_font_styles.dart';
+import 'package:shop_flow/core/utils/app_router.dart';
 import 'package:shop_flow/features/home/data/models/products/product.dart';
 import 'package:shop_flow/features/home/data/models/products/products.dart';
 import 'package:shop_flow/features/home/manager/search_products_cubit/search_products_cubit.dart';
@@ -87,7 +89,15 @@ class SearchProductsBodySucess extends StatelessWidget {
       ),
       itemCount: productsList.products!.length,
       itemBuilder: (context, index) {
-        return ProductCard(product: productsList.products![index]);
+        return GestureDetector(
+          onTap: () {
+            GoRouter.of(context).push(
+              AppRouter.kProductDetailsView,
+              extra: productsList.products![index],
+            );
+          },
+          child: ProductCard(product: productsList.products![index]),
+        );
       },
     );
   }

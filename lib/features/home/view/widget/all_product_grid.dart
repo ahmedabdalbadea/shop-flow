@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
+import 'package:shop_flow/core/utils/app_router.dart';
+import 'package:shop_flow/features/home/data/models/products/products.dart';
 import 'package:shop_flow/features/home/manager/all_products_cubit.dart/all_products_cubit.dart';
 import 'package:shop_flow/features/home/view/widget/product_card.dart';
 import 'package:shop_flow/features/home/view/widget/custom_all_product_loading.dart';
@@ -13,6 +16,9 @@ class AllProductsGrid extends StatelessWidget {
     return BlocBuilder<AllProductsCubit, AllProductsState>(
       builder: (context, state) {
         if (state is AllProductsSuccess) {
+          final Products productsList = BlocProvider.of<AllProductsCubit>(
+            context,
+          ).productsList!;
           return SliverGrid.count(
             crossAxisCount: 2,
             crossAxisSpacing: 16,
@@ -20,10 +26,14 @@ class AllProductsGrid extends StatelessWidget {
             childAspectRatio: 1 / 1.15,
             children: List.generate(
               4,
-              (index) => ProductCard(
-                product: BlocProvider.of<AllProductsCubit>(
-                  context,
-                ).productsList!.products![index],
+              (index) => GestureDetector(
+                onTap: () {
+                  GoRouter.of(context).push(
+                    AppRouter.kProductDetailsView,
+                    extra: productsList.products![index],
+                  );
+                },
+                child: ProductCard(product: productsList.products![index]),
               ),
             ),
           );

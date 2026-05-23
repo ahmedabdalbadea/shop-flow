@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
+import 'package:shop_flow/core/utils/app_router.dart';
 import 'package:shop_flow/features/home/manager/top_products_cubit/top_products_cubit.dart';
 import 'package:shop_flow/features/home/view/widget/custom_error.dart';
 import 'package:shop_flow/features/home/view/widget/custom_top_products_loading.dart';
@@ -19,7 +21,17 @@ class TopProductsListView extends StatelessWidget {
             itemBuilder: (context, index) {
               return Padding(
                 padding: const EdgeInsets.only(right: 16.0),
-                child: TopProductCard(product: state.products.products![index]),
+                child: GestureDetector(
+                  onTap: () {
+                    GoRouter.of(context).push(
+                      AppRouter.kProductDetailsView,
+                      extra: state.products.products![index],
+                    );
+                  },
+                  child: TopProductCard(
+                    product: state.products.products![index],
+                  ),
+                ),
               );
             },
           );
