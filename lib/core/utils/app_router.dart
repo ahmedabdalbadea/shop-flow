@@ -6,6 +6,7 @@ import 'package:shop_flow/features/home/manager/all_products_cubit.dart/all_prod
 import 'package:shop_flow/features/home/manager/category_list_cubit/category_list_cubit.dart';
 import 'package:shop_flow/features/home/view/all_products_view.dart';
 import 'package:shop_flow/features/home/view/home_view.dart';
+import 'package:shop_flow/features/home/view/product_details_view.dart';
 import 'package:shop_flow/features/home/view/search_view.dart';
 import 'package:shop_flow/features/splash/view/splash_view.dart';
 
@@ -15,6 +16,7 @@ abstract class AppRouter {
   static const kHomeView = "/homeView";
   static const kSearchView = "/searchView";
   static const kAllProductsView = "/allProductsView";
+  static const kProductDetailsView = "/productDetailsView";
   static final router = GoRouter(
     routes: [
       GoRoute(
@@ -60,6 +62,13 @@ abstract class AppRouter {
             value: cubit,
             child: const AllProductsView(),
           );
+        },
+      ),
+
+      GoRoute(
+        path: kProductDetailsView,
+        builder: (context, state) {
+          return const ProductDetailsView();
         },
       ),
     ],
