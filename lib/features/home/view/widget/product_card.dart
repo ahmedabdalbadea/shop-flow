@@ -1,8 +1,7 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:shop_flow/core/utils/assets.dart';
 import 'package:shop_flow/features/home/data/models/products/product.dart';
 import 'package:shop_flow/features/home/view/widget/all_product_card_info.dart';
+import 'package:shop_flow/features/home/view/widget/product_image.dart';
 
 class ProductCard extends StatelessWidget {
   const ProductCard({super.key, required this.product});
@@ -17,26 +16,7 @@ class ProductCard extends StatelessWidget {
       ),
       child: Column(
         children: [
-          SizedBox(
-            height: 115,
-            child: ClipRRect(
-              borderRadius: BorderRadius.only(
-                topLeft: Radius.circular(12),
-                topRight: Radius.circular(12),
-              ),
-              child: CachedNetworkImage(
-                imageUrl: product.thumbnail ?? "",
-                fit: BoxFit.cover,
-                errorWidget: (context, url, error) {
-                  return Image.asset(
-                    width: double.infinity,
-                    Assets.imagesImageNotFound,
-                    fit: BoxFit.cover,
-                  );
-                },
-              ),
-            ),
-          ),
+          SizedBox(height: 115, child: ProductImage(image: product.thumbnail)),
           AllProductCardInfo(
             title: product.title ?? "Unknown",
             price: product.price.toString(),
