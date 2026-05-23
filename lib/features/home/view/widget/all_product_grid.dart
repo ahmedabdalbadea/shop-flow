@@ -17,7 +17,7 @@ class AllProductsGrid extends StatelessWidget {
             crossAxisCount: 2,
             crossAxisSpacing: 16,
             mainAxisSpacing: 16,
-            childAspectRatio: 1 / 1.10,
+            childAspectRatio: 1 / 1.15,
             children: List.generate(
               4,
               (index) => ProductCard(product: state.products.products![index]),

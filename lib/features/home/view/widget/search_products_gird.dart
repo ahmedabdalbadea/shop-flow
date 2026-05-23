@@ -83,7 +83,7 @@ class SearchProductsBodySucess extends StatelessWidget {
         crossAxisCount: 2,
         crossAxisSpacing: 16,
         mainAxisSpacing: 16,
-        childAspectRatio: 1 / 1.10,
+        childAspectRatio: 1 / 1.15,
       ),
       itemCount: productsList.products!.length,
       itemBuilder: (context, index) {
