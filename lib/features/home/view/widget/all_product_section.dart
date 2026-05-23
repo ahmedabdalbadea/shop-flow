@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:shop_flow/constants.dart';
+import 'package:shop_flow/core/utils/app_font_styles.dart';
 import 'package:shop_flow/features/home/view/widget/all_product_grid.dart';
-import 'package:shop_flow/features/home/view/widget/home_section_header.dart';
 
 class AllProductSection extends StatelessWidget {
   const AllProductSection({super.key});
@@ -12,7 +13,19 @@ class AllProductSection extends StatelessWidget {
         SliverToBoxAdapter(
           child: Column(
             children: [
-              HomeSectionHeader(title: "All Products"),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text("All Products", style: AppFontStyles.styleSemiBold20),
+                  Text(
+                    "View all",
+                    style: AppFontStyles.styleSemiBold14.copyWith(
+                      color: kSecTextColor,
+                    ),
+                  ),
+                ],
+              ),
+
               const SizedBox(height: 16),
             ],
           ),
