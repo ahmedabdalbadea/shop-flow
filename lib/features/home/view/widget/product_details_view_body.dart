@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:shop_flow/features/home/data/models/products/product.dart';
 import 'package:shop_flow/features/home/view/widget/custom_sliver_app_bar.dart';
+import 'package:shop_flow/features/home/view/widget/product_image.dart';
 
 class ProductDetailsViewBody extends StatelessWidget {
   const ProductDetailsViewBody({super.key, required this.product});
@@ -12,7 +13,10 @@ class ProductDetailsViewBody extends StatelessWidget {
         physics: BouncingScrollPhysics(),
         overscroll: false,
       ),
-      slivers: [CustomSliverAppBar(title: "Shop Flow")],
+      slivers: [
+        CustomSliverAppBar(title: "Shop Flow"),
+        SliverToBoxAdapter(child: ProductImage(image: product.thumbnail)),
+      ],
     );
   }
 }
