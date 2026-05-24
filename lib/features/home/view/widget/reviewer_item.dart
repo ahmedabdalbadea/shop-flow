@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shop_flow/constants.dart';
 import 'package:shop_flow/core/utils/app_font_styles.dart';
 import 'package:shop_flow/features/home/view/widget/rating_stars.dart';
 
@@ -33,7 +34,12 @@ class ReviewerItem extends StatelessWidget {
           const SizedBox(height: 8),
           Align(
             alignment: Alignment.centerLeft,
-            child: Text("\"$comment\"", style: AppFontStyles.styleRegular16),
+            child: Text(
+              "\"$comment\"",
+              style: AppFontStyles.styleRegular14.copyWith(
+                color: kThrTextColor,
+              ),
+            ),
           ),
         ],
       ),
