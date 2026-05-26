@@ -32,7 +32,6 @@ class ProductDetailsCard extends StatelessWidget {
             rereviewsNumber: product.reviews!.length,
             rating: product.rating!,
           ),
-
           const SizedBox(height: 8),
           Text(
             product.title!,
@@ -52,15 +51,11 @@ class ProductDetailsCard extends StatelessWidget {
           const SizedBox(height: 24),
           TagsWrap(tags: product.tags!.cast<String>()),
           const SizedBox(height: 24),
-
           IntrinsicHeight(child: ProductHighlights(product: product)),
-          product.reviews == null || product.reviews == []
-              ? const SizedBox.shrink()
-              : const SizedBox(height: 56),
-
-          product.reviews == null || product.reviews == []
-              ? const SizedBox.shrink()
-              : ReviewsSection(reviews: product.reviews!),
+          if (product.reviews == null && product.reviews!.isNotEmpty) ...[
+            const SizedBox(height: 56),
+            ReviewsSection(reviews: product.reviews!),
+          ],
         ],
       ),
     );
