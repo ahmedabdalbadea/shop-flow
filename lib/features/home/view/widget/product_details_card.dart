@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:shop_flow/constants.dart';
 import 'package:shop_flow/core/utils/app_font_styles.dart';
 import 'package:shop_flow/features/home/data/models/products/product.dart';
+import 'package:shop_flow/features/home/view/widget/product_details_price.dart';
 import 'package:shop_flow/features/home/view/widget/product_highlights.dart';
 import 'package:shop_flow/features/home/view/widget/product_meta_row.dart';
 import 'package:shop_flow/features/home/view/widget/reviews_section.dart';
@@ -39,9 +40,9 @@ class ProductDetailsCard extends StatelessWidget {
             textAlign: TextAlign.start,
           ),
           const SizedBox(height: 8),
-          Text(
-            "\$${product.price!}",
-            style: AppFontStyles.styleSemiBold24.copyWith(color: kSecTextColor),
+          ProductDetailsPrice(
+            price: product.price!,
+            discountPercentage: product.discountPercentage,
           ),
           const SizedBox(height: 8),
           Text(
@@ -53,7 +54,6 @@ class ProductDetailsCard extends StatelessWidget {
           const SizedBox(height: 24),
 
           IntrinsicHeight(child: ProductHighlights(product: product)),
-
           product.reviews == null || product.reviews == []
               ? const SizedBox.shrink()
               : const SizedBox(height: 56),
