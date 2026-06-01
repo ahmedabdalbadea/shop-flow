@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:shop_flow/constants.dart';
-import 'package:shop_flow/core/utils/app_font_styles.dart';
-import 'package:shop_flow/core/widget/custom_elevated_button.dart';
 import 'package:shop_flow/features/home/data/models/products/product.dart';
 import 'package:shop_flow/features/home/view/widget/custom_icon_elevated_button.dart';
 import 'package:shop_flow/features/home/view/widget/custom_sliver_app_bar.dart';
 import 'package:shop_flow/features/home/view/widget/product_details_card.dart';
-import 'package:shop_flow/features/home/view/widget/product_image.dart';
+import 'package:shop_flow/features/home/view/widget/product_images.dart';
 
 class ProductDetailsViewBody extends StatelessWidget {
   const ProductDetailsViewBody({super.key, required this.product});
@@ -20,7 +18,7 @@ class ProductDetailsViewBody extends StatelessWidget {
       ),
       slivers: [
         CustomSliverAppBar(title: "Shop Flow"),
-        SliverToBoxAdapter(child: ProductImage(image: product.thumbnail)),
+        SliverToBoxAdapter(child: ProductImages(images: product.images!)),
 
         SliverPadding(
           padding: const EdgeInsetsGeometry.fromLTRB(24, 0, 24, 24),
