@@ -9,18 +9,21 @@ class FilterCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return AnimatedContainer(
+      duration: const Duration(milliseconds: 300),
+      curve: Curves.easeInOut,
       margin: const EdgeInsets.only(right: 8.0),
       padding: EdgeInsets.symmetric(vertical: 8, horizontal: 24),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(50),
         color: selected ? kPrimaryColor : kPaddingColor,
       ),
-      child: Text(
-        title,
+      child: AnimatedDefaultTextStyle(
         style: AppFontStyles.styleSemiBold14.copyWith(
           color: selected ? Colors.white : const Color(0xff454652),
         ),
+        duration: const Duration(milliseconds: 300),
+        child: Text(title),
       ),
     );
   }
