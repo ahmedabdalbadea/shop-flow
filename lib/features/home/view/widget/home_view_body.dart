@@ -48,14 +48,20 @@ class HomeViewBody extends StatelessWidget {
         SliverToBoxAdapter(
           child: Padding(
             padding: EdgeInsets.symmetric(horizontal: 24.0),
-            child: CustomSearchBar(
-              readOnly: true,
-              onTap: () {
-                GoRouter.of(context).push(
-                  AppRouter.kSearchView,
-                  extra: context.read<CategoryListCubit>(),
-                );
-              },
+            child: Hero(
+              tag: "search_bar",
+              child: Material(
+                color: Colors.transparent,
+                child: CustomSearchBar(
+                  readOnly: true,
+                  onTap: () {
+                    GoRouter.of(context).push(
+                      AppRouter.kSearchView,
+                      extra: context.read<CategoryListCubit>(),
+                    );
+                  },
+                ),
+              ),
             ),
           ),
         ),

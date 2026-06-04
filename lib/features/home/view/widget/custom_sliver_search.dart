@@ -36,17 +36,23 @@ class _CustomSliverSearchBarState extends State<CustomSliverSearchBar> {
       shadowColor: const Color.fromARGB(59, 241, 245, 249),
       elevation: 4,
       forceElevated: true,
-      title: CustomSearchBar(
-        controller: _textEditingController,
-        onChanged: (value) {
-          cubit.searchProducts(product: value);
-          cubit.searchFromRecent = false;
-        },
-        onSubmitted: (value) {
-          if (value.isNotEmpty) {
-            Hive.box<String>(kRecentSearchesBox).add(value);
-          }
-        },
+      title: Hero(
+        tag: "search_bar",
+        child: Material(
+          color: Colors.transparent,
+          child: CustomSearchBar(
+            controller: _textEditingController,
+            onChanged: (value) {
+              cubit.searchProducts(product: value);
+              cubit.searchFromRecent = false;
+            },
+            onSubmitted: (value) {
+              if (value.isNotEmpty) {
+                Hive.box<String>(kRecentSearchesBox).add(value);
+              }
+            },
+          ),
+        ),
       ),
 
       titleSpacing: 8,
