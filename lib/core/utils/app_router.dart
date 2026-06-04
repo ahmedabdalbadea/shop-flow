@@ -1,5 +1,6 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
+import 'package:shop_flow/core/widget/main_shell.dart';
 import 'package:shop_flow/features/auth/view/sign_in_view.dart';
 import 'package:shop_flow/features/auth/view/sign_up_view.dart';
 import 'package:shop_flow/features/home/data/models/products/product.dart';
@@ -20,12 +21,12 @@ abstract class AppRouter {
   static const kProductDetailsView = "/productDetailsView";
   static final router = GoRouter(
     routes: [
-      // GoRoute(
-      //   path: '/',
-      //   builder: (context, state) {
-      //     return const SplashView();
-      //   },
-      // ),
+      GoRoute(
+        path: '/',
+        builder: (context, state) {
+          return const SplashView();
+        },
+      ),
       GoRoute(
         path: kSignInView,
         builder: (context, state) {
@@ -39,12 +40,15 @@ abstract class AppRouter {
           return const SignUpView();
         },
       ),
-
-      GoRoute(
-        path: '/',
-        builder: (context, state) {
-          return const HomeView();
-        },
+      ShellRoute(
+        routes: [
+          GoRoute(
+            path: kHomeView,
+            builder: (context, state) {
+              return const HomeView();
+            },
+          ),
+        ],
       ),
 
       GoRoute(
