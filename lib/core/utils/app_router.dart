@@ -41,6 +41,9 @@ abstract class AppRouter {
         },
       ),
       ShellRoute(
+        builder: (context, state, child) {
+          return MainShell(child: child);
+        },
         routes: [
           GoRoute(
             path: kHomeView,
