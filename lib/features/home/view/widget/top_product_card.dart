@@ -1,6 +1,4 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:shop_flow/core/utils/assets.dart';
 import 'package:shop_flow/features/home/data/models/products/product.dart';
 import 'package:shop_flow/features/home/view/widget/product_image.dart';
 import 'package:shop_flow/features/home/view/widget/top_product_card_info.dart';
@@ -18,7 +16,13 @@ class TopProductCard extends StatelessWidget {
       ),
       child: Column(
         children: [
-          SizedBox(height: 150, child: ProductImage(image: product.thumbnail)),
+          SizedBox(
+            height: 150,
+            child: Hero(
+              tag: "${product.id}",
+              child: ProductImage(image: product.thumbnail),
+            ),
+          ),
           TopProductCardInfo(
             category: product.category ?? "Unknown",
             title: product.title ?? "Unknown",

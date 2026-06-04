@@ -16,7 +16,13 @@ class ProductCard extends StatelessWidget {
       ),
       child: Column(
         children: [
-          SizedBox(height: 115, child: ProductImage(image: product.thumbnail)),
+          SizedBox(
+            height: 115,
+            child: Hero(
+              tag: "${product.id}",
+              child: ProductImage(image: product.thumbnail),
+            ),
+          ),
           AllProductCardInfo(
             title: product.title ?? "Unknown",
             price: product.price.toString(),

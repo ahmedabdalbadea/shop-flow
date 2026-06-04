@@ -16,7 +16,9 @@ class ProductDetailsViewBody extends StatelessWidget {
       ),
       slivers: [
         CustomSliverAppBar(title: "Shop Flow"),
-        SliverToBoxAdapter(child: ProductImages(images: product.images!)),
+        SliverToBoxAdapter(
+          child: ProductImages(images: product.images!, productId: product.id!),
+        ),
 
         SliverPadding(
           padding: const EdgeInsetsGeometry.fromLTRB(24, 0, 24, 24),
