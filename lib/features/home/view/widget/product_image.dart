@@ -16,12 +16,12 @@ class ProductImage extends StatelessWidget {
       ),
       child: CachedNetworkImage(
         imageUrl: image ?? "",
-        fit: BoxFit.cover,
+        fit: BoxFit.contain,
         errorWidget: (context, url, error) {
           return Image.asset(
             width: double.infinity,
             Assets.imagesImageNotFound,
-            fit: BoxFit.cover,
+            fit: BoxFit.contain,
           );
         },
       ),
