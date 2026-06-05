@@ -8,6 +8,7 @@ part 'auth_state.dart';
 class AuthCubit extends Cubit<AuthState> {
   AuthCubit(this._authRepo) : super(AuthInitial());
   final AuthRepo _authRepo;
+  String? name;
   Future<void> signUp({required String email, required String password}) async {
     emit(SignUpLoading());
     var result = await _authRepo.signUp(email: email, password: password);
