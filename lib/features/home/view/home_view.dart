@@ -8,8 +8,8 @@ import 'package:shop_flow/features/home/manager/top_products_cubit/top_products_
 import 'package:shop_flow/features/home/view/widget/home_view_body.dart';
 
 class HomeView extends StatelessWidget {
-  const HomeView({super.key});
-
+  const HomeView({super.key, this.name});
+  final String? name;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -30,7 +30,7 @@ class HomeView extends StatelessWidget {
                   ..getCategoreyList(),
           ),
         ],
-        child: HomeViewBody(),
+        child: HomeViewBody(name: name),
       ),
     );
   }

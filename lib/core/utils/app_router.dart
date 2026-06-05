@@ -48,7 +48,8 @@ abstract class AppRouter {
           GoRoute(
             path: kHomeView,
             builder: (context, state) {
-              return const HomeView();
+              final String? name = state.extra as String?;
+              return HomeView(name: name);
             },
           ),
         ],
