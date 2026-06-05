@@ -30,7 +30,10 @@ class SignUpViewBody extends StatelessWidget {
           );
           isDialogOpen = true;
           Future.delayed(Duration(seconds: 1), () {
-            context.go(AppRouter.kHomeView);
+            context.go(
+              AppRouter.kHomeView,
+              extra: context.read<AuthCubit>().name,
+            );
           });
         } else if (state is AuthFailureState) {
           closeAlertDialog(context); // If dialog is open -> Close it
