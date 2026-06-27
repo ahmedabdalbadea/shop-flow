@@ -48,4 +48,29 @@ class RemoteDataSourceFailure extends Failure {
         return RemoteDataSourceFailure(e.message ?? 'Unknown error');
     }
   }
+
+  factory RemoteDataSourceFailure.fromFirebaseException(FirebaseException e) {
+    switch (e.code) {
+      case 'permission-denied':
+        return RemoteDataSourceFailure(
+          'You do not have permission to perform this action',
+        );
+      case 'unavailable':
+        return RemoteDataSourceFailure(
+          'Service is temporarily unavailable, please check your internet',
+        );
+      case 'not-found':
+        return RemoteDataSourceFailure('The requested document was not found');
+      case 'already-exists':
+        return RemoteDataSourceFailure('The document already exists');
+      case 'deadline-exceeded':
+        return RemoteDataSourceFailure(
+          'The operation timed out, please try again',
+        );
+      default:
+        return RemoteDataSourceFailure(
+          e.message ?? 'A database error occurred, please try again',
+        );
+    }
+  }
 }
