@@ -11,3 +11,5 @@ const kSecTextColor = Color(0xff24389C);
 const kThrTextColor = Color(0xff454652);
 const kRecentSearchesBox = 'recent_searches';
 const kPaddingColor = Color(0xffE9E7F0);
+const kWishListProductCollection = "wish_list_product";
+const kUsersCollection = "users";
