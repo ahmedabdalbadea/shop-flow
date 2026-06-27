@@ -52,7 +52,7 @@ class ProductDetailsCard extends StatelessWidget {
           TagsWrap(tags: product.tags!.cast<String>()),
           const SizedBox(height: 24),
           IntrinsicHeight(child: ProductHighlights(product: product)),
-          if (product.reviews == null && product.reviews!.isNotEmpty) ...[
+          if (product.reviews != null && product.reviews!.isNotEmpty) ...[
             const SizedBox(height: 56),
             ReviewsSection(reviews: product.reviews!),
           ],
