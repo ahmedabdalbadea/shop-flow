@@ -51,13 +51,13 @@ abstract class AppRouter {
 
       GoRoute(
         path: kSignUpView,
-        builder: (context, state) {
-          return const SignUpView();
+        pageBuilder: (context, state) {
+          return customSlideTransition(state, const SignUpView());
         },
       ),
       ShellRoute(
-        builder: (context, state, child) {
-          return MainShell(child: child);
+        pageBuilder: (context, state, child) {
+          return customSlideTransition(state, MainShell(child: child));
         },
         routes: [
           GoRoute(
