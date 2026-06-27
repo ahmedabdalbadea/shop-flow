@@ -12,7 +12,10 @@ class MainShell extends StatefulWidget {
 }
 
 class _MainShellState extends State<MainShell> {
-  final List<String> shellRouters = const [AppRouter.kHomeView];
+  final List<String> shellRouters = const [
+    AppRouter.kHomeView,
+    AppRouter.kWishListView,
+  ];
   @override
   Widget build(BuildContext context) {
     final currentRoute = GoRouterState.of(context).uri.path;

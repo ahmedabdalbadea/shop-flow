@@ -12,6 +12,7 @@ import 'package:shop_flow/features/home/view/home_view.dart';
 import 'package:shop_flow/features/home/view/product_details_view.dart';
 import 'package:shop_flow/features/home/view/search_view.dart';
 import 'package:shop_flow/features/splash/view/splash_view.dart';
+import 'package:shop_flow/features/wish_list/view/wish_list_view.dart';
 
 abstract class AppRouter {
   static const kSignInView = "/signInView";
@@ -20,6 +21,7 @@ abstract class AppRouter {
   static const kSearchView = "/searchView";
   static const kAllProductsView = "/allProductsView";
   static const kProductDetailsView = "/productDetailsView";
+  static const kWishListView = "/wishListView";
   static final router = GoRouter(
     routes: [
       GoRoute(
@@ -65,6 +67,13 @@ abstract class AppRouter {
             builder: (context, state) {
               final String? name = state.extra as String?;
               return HomeView(name: name);
+            },
+          ),
+
+          GoRoute(
+            path: kWishListView,
+            builder: (context, state) {
+              return const WishListView();
             },
           ),
         ],
