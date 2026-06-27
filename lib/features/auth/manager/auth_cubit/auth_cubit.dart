@@ -9,9 +9,17 @@ class AuthCubit extends Cubit<AuthState> {
   AuthCubit(this._authRepo) : super(AuthInitial());
   final AuthRepo _authRepo;
   String? name;
-  Future<void> signUp({required String email, required String password}) async {
+  Future<void> signUp({
+    required String name,
+    required String email,
+    required String password,
+  }) async {
     emit(SignUpLoading());
-    var result = await _authRepo.signUp(email: email, password: password);
+    var result = await _authRepo.signUp(
+      name: name,
+      email: email,
+      password: password,
+    );
 
     result.fold(
       (failure) {
