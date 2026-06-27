@@ -98,4 +98,25 @@ abstract class AppRouter {
       ),
     ],
   );
+
+  static Page<dynamic> customSlideTransition(
+    GoRouterState state,
+    Widget child,
+  ) {
+    return CustomTransitionPage(
+      key: state.pageKey,
+      child: child,
+      transitionsBuilder: (context, animation, secondaryAnimation, child) {
+        return SlideTransition(
+          position: Tween<Offset>(begin: const Offset(1, 0), end: Offset.zero)
+              .animate(
+                CurvedAnimation(parent: animation, curve: Curves.fastOutSlowIn),
+              ),
+
+          child: child,
+        );
+      },
+      transitionDuration: const Duration(milliseconds: 450),
+    );
+  }
 }
