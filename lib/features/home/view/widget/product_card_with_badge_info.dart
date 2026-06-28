@@ -8,8 +8,10 @@ class ProductCardWithBadgeInfo extends StatelessWidget {
     super.key,
     required this.title,
     required this.price,
+    required this.onPressed,
   });
   final String title, price;
+  final VoidCallback onPressed;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -35,7 +37,7 @@ class ProductCardWithBadgeInfo extends StatelessWidget {
                   color: kSecTextColor,
                 ),
               ),
-              CustomIconButton(size: 24, radius: 999, onPressed: () {}),
+              CustomIconButton(size: 24, radius: 999, onPressed: onPressed),
             ],
           ),
         ],

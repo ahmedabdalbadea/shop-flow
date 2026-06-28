@@ -5,8 +5,13 @@ import 'package:shop_flow/features/home/view/widget/product_card_with_badge_info
 import 'package:shop_flow/features/home/view/widget/product_image.dart';
 
 class ProductCardWithBadge extends StatelessWidget {
-  const ProductCardWithBadge({super.key, required this.product});
+  const ProductCardWithBadge({
+    super.key,
+    required this.product,
+    required this.onPressed,
+  });
   final Product product;
+  final VoidCallback onPressed;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -25,6 +30,7 @@ class ProductCardWithBadge extends StatelessWidget {
               ProductCardWithBadgeInfo(
                 title: product.title ?? "Unkown",
                 price: product.price.toString(),
+                onPressed: onPressed,
               ),
             ],
           ),
