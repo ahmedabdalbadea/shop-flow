@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:shop_flow/core/utils/app_font_styles.dart';
-import 'package:shop_flow/features/home/data/models/products/review.dart';
+import 'package:shop_flow/core/models/products/review.dart';
 import 'package:shop_flow/features/home/view/widget/reviewer_item.dart';
 
 class ReviewsSection extends StatelessWidget {

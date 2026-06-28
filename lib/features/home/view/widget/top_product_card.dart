@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:shop_flow/features/home/data/models/products/product.dart';
+import 'package:shop_flow/core/models/products/product.dart';
 import 'package:shop_flow/features/home/view/widget/product_image.dart';
 import 'package:shop_flow/features/home/view/widget/top_product_card_info.dart';
 

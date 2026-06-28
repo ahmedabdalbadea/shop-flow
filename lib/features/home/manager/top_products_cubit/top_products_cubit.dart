@@ -1,7 +1,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:meta/meta.dart';
 
-import 'package:shop_flow/features/home/data/models/products/products.dart';
+import 'package:shop_flow/core/models/products/products.dart';
 import 'package:shop_flow/features/home/data/repos/home_repo.dart';
 
 part 'top_products_state.dart';

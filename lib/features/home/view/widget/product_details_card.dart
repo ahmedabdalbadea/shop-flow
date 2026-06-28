@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:shop_flow/constants.dart';
 import 'package:shop_flow/core/utils/app_font_styles.dart';
-import 'package:shop_flow/features/home/data/models/products/product.dart';
+import 'package:shop_flow/core/models/products/product.dart';
 import 'package:shop_flow/features/home/view/widget/product_details_price.dart';
 import 'package:shop_flow/features/home/view/widget/product_highlights.dart';
 import 'package:shop_flow/features/home/view/widget/product_meta_row.dart';

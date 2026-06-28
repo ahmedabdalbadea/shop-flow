@@ -7,7 +7,7 @@ import 'package:shop_flow/core/errors/server_failure.dart';
 import 'package:shop_flow/core/utils/api_service.dart';
 import 'package:shop_flow/features/auth/data/models/user_model.dart';
 import 'package:shop_flow/features/home/data/home_remote_data_source.dart';
-import 'package:shop_flow/features/home/data/models/products/products.dart';
+import 'package:shop_flow/core/models/products/products.dart';
 import 'package:shop_flow/features/home/data/repos/home_repo.dart';
 
 class HomeRepoImpl implements HomeRepo {

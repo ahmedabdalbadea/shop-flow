@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:shop_flow/core/utils/app_router.dart';
-import 'package:shop_flow/features/home/data/models/products/products.dart';
+import 'package:shop_flow/core/models/products/products.dart';
 import 'package:shop_flow/features/home/manager/all_products_cubit.dart/all_products_cubit.dart';
 import 'package:shop_flow/features/home/view/widget/product_card.dart';
 import 'package:shop_flow/features/home/view/widget/custom_all_product_loading.dart';
