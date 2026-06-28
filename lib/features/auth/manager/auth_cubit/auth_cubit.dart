@@ -8,7 +8,7 @@ part 'auth_state.dart';
 class AuthCubit extends Cubit<AuthState> {
   AuthCubit(this._authRepo) : super(AuthInitial());
   final AuthRepo _authRepo;
-  String? name;
+  UserModel? user;
   Future<void> signUp({
     required String name,
     required String email,
@@ -26,6 +26,7 @@ class AuthCubit extends Cubit<AuthState> {
         emit(SignUpFailure(failure.errMsg));
       },
       (user) {
+        this.user = user;
         emit(SignUpSuccess(user: user));
       },
     );
@@ -40,6 +41,7 @@ class AuthCubit extends Cubit<AuthState> {
         emit(SignInFailure(failure.errMsg));
       },
       (user) {
+        this.user = user;
         emit(SignInSuccess(user: user));
       },
     );
@@ -53,6 +55,7 @@ class AuthCubit extends Cubit<AuthState> {
         emit(GoogleSignInFailure(failure.errMsg));
       },
       (user) {
+        this.user = user;
         emit(GoogleSignInSuccess(user: user));
       },
     );
