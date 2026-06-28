@@ -22,6 +22,7 @@ class CustomTopProductsLoading extends StatelessWidget {
                 title: 'Girl Summer Dress',
                 price: 19.99,
               ),
+              onAddTap: () {},
             ),
           );
         },

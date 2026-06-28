@@ -4,8 +4,13 @@ import 'package:shop_flow/features/home/view/widget/product_image.dart';
 import 'package:shop_flow/features/home/view/widget/top_product_card_info.dart';
 
 class TopProductCard extends StatelessWidget {
-  const TopProductCard({super.key, required this.product});
+  const TopProductCard({
+    super.key,
+    required this.product,
+    required this.onAddTap,
+  });
   final Product product;
+  final VoidCallback onAddTap;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -27,7 +32,7 @@ class TopProductCard extends StatelessWidget {
             category: product.category ?? "Unknown",
             title: product.title ?? "Unknown",
             price: product.price.toString(),
-            onAddTap: () {},
+            onAddTap: onAddTap,
           ),
         ],
       ),
