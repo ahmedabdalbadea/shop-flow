@@ -12,8 +12,7 @@ import 'package:shop_flow/features/home/view/widget/top_products_section.dart';
 import 'package:shop_flow/features/home/view/widget/filters_categorey_list.dart';
 
 class HomeViewBody extends StatelessWidget {
-  const HomeViewBody({super.key, this.name});
-  final String? name;
+  const HomeViewBody({super.key});
   @override
   Widget build(BuildContext context) {
     return CustomScrollView(
@@ -28,7 +27,7 @@ class HomeViewBody extends StatelessWidget {
           child: Padding(
             padding: _buildPadding(),
             child: Text(
-              name == null ? "Welcome Back!" : "Hello, $name",
+              "Hello, User",
               style: AppFontStyles.styleSemiBold14.copyWith(
                 color: kThrTextColor,
               ),
