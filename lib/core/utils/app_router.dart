@@ -57,24 +57,33 @@ abstract class AppRouter {
           return customSlideTransition(state, const SignUpView());
         },
       ),
-      ShellRoute(
-        pageBuilder: (context, state, child) {
-          return customSlideTransition(state, MainShell(child: child));
+      StatefulShellRoute.indexedStack(
+        pageBuilder: (context, state, navigationShell) {
+          return customSlideTransition(
+            state,
+            MainShell(navigationShell: navigationShell),
+          );
         },
-        routes: [
-          GoRoute(
-            path: kHomeView,
-            builder: (context, state) {
-              ;
-              return const HomeView();
-            },
+        branches: [
+          StatefulShellBranch(
+            routes: [
+              GoRoute(
+                path: kHomeView,
+                builder: (context, state) {
+                  return const HomeView();
+                },
+              ),
+            ],
           ),
-
-          GoRoute(
-            path: kWishListView,
-            builder: (context, state) {
-              return const WishListView();
-            },
+          StatefulShellBranch(
+            routes: [
+              GoRoute(
+                path: kWishListView,
+                builder: (context, state) {
+                  return const WishListView();
+                },
+              ),
+            ],
           ),
         ],
       ),
