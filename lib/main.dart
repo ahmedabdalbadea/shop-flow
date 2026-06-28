@@ -3,7 +3,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hive_ce_flutter/hive_flutter.dart';
+import 'package:provider/provider.dart';
 import 'package:shop_flow/constants.dart';
+import 'package:shop_flow/core/providers/user_provider.dart';
 import 'package:shop_flow/core/utils/app_router.dart';
 import 'package:shop_flow/core/utils/service_locator.dart';
 import 'package:shop_flow/generated/l10n.dart';
@@ -19,7 +21,7 @@ void main() async {
   setupServiceLocator();
   await Hive.initFlutter();
   await Hive.openBox<String>(kRecentSearchesBox);
-  runApp(const ShopFlow());
+  runApp(Provider(create: (_) => UserProvider(), child: const ShopFlow()));
 }
 
 class ShopFlow extends StatelessWidget {
