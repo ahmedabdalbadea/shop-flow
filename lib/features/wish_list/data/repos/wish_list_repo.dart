@@ -1,0 +1,10 @@
+import 'package:dartz/dartz.dart';
+import 'package:shop_flow/core/errors/failure.dart';
+import 'package:shop_flow/core/models/products/product.dart';
+
+abstract class WishListRepo {
+  Future<Either<Failure, void>> addProductToWishList({
+    required String uId,
+    required Product product,
+  });
+}
