@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
+import 'package:provider/provider.dart';
 import 'package:shop_flow/constants.dart';
 import 'package:shop_flow/core/helpers/close_alert_dialog.dart';
 import 'package:shop_flow/core/helpers/show_alert_dialog.dart';
+import 'package:shop_flow/core/providers/user_provider.dart';
 import 'package:shop_flow/core/utils/app_font_styles.dart';
 import 'package:shop_flow/core/utils/app_router.dart';
 import 'package:shop_flow/core/utils/assets.dart';
@@ -29,7 +31,12 @@ class SignInViewBody extends StatelessWidget {
           );
           isDialogOpen = true;
           Future.delayed(Duration(seconds: 1), () {
-            context.go(AppRouter.kHomeView);
+            if (context.mounted) {
+              Provider.of<UserProvider>(context).user = context
+                  .read<AuthCubit>()
+                  .user!;
+              context.go(AppRouter.kHomeView);
+            }
           });
         } else if (state is AuthFailureState) {
           closeAlertDialog(context); // If dialog is open -> Close it
