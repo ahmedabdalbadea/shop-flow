@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:provider/provider.dart';
-import 'package:shop_flow/core/providers/user_provider.dart';
+import 'package:shop_flow/core/manager/provider/user_provider.dart';
 import 'package:shop_flow/core/utils/service_locator.dart';
 import 'package:shop_flow/features/home/data/repos/home_repo_impl.dart';
 import 'package:shop_flow/features/home/manager/all_products_cubit.dart/all_products_cubit.dart';

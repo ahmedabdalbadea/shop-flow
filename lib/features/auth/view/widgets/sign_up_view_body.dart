@@ -5,7 +5,7 @@ import 'package:provider/provider.dart';
 import 'package:shop_flow/constants.dart';
 import 'package:shop_flow/core/helpers/close_alert_dialog.dart';
 import 'package:shop_flow/core/helpers/show_alert_dialog.dart';
-import 'package:shop_flow/core/providers/user_provider.dart';
+import 'package:shop_flow/core/manager/provider/user_provider.dart';
 import 'package:shop_flow/core/utils/app_font_styles.dart';
 import 'package:shop_flow/core/utils/app_router.dart';
 import 'package:shop_flow/core/utils/assets.dart';
