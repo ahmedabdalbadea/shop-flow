@@ -1,30 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:shop_flow/core/utils/app_router.dart';
 import 'package:shop_flow/core/widget/custom_bottom_navigation_bar.dart';
 
-class MainShell extends StatefulWidget {
-  const MainShell({super.key, required this.child});
-  final Widget child;
-
-  @override
-  State<MainShell> createState() => _MainShellState();
-}
-
-class _MainShellState extends State<MainShell> {
-  final List<String> shellRouters = const [
-    AppRouter.kHomeView,
-    AppRouter.kWishListView,
-  ];
+class MainShell extends StatelessWidget {
+  const MainShell({super.key, required this.navigationShell});
+  final StatefulNavigationShell navigationShell;
   @override
   Widget build(BuildContext context) {
-    final currentRoute = GoRouterState.of(context).uri.path;
-
-    final calcIndex = shellRouters.indexOf(currentRoute);
-
-    final int currentIndex = calcIndex == -1 ? 0 : calcIndex;
     return Scaffold(
-      body: widget.child,
+      body: navigationShell,
       bottomNavigationBar: Container(
         padding: const EdgeInsets.only(top: 8.0),
         decoration: BoxDecoration(
@@ -39,9 +23,9 @@ class _MainShellState extends State<MainShell> {
           ],
         ),
         child: CustomBottomNavigationBar(
-          currentIndex: currentIndex,
+          currentIndex: navigationShell.currentIndex,
           onTap: (value) {
-            context.go(shellRouters[value]);
+            navigationShell.goBranch(value);
           },
         ),
       ),
