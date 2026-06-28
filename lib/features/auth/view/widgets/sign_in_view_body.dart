@@ -32,7 +32,7 @@ class SignInViewBody extends StatelessWidget {
           isDialogOpen = true;
           Future.delayed(Duration(seconds: 1), () {
             if (context.mounted) {
-              Provider.of<UserProvider>(context).user = context
+              Provider.of<UserProvider>(context, listen: false).user = context
                   .read<AuthCubit>()
                   .user!;
               context.go(AppRouter.kHomeView);
