@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
-import 'package:shop_flow/constants.dart';
+import 'package:provider/provider.dart';
 import 'package:shop_flow/core/utils/app_font_styles.dart';
 import 'package:shop_flow/core/utils/app_router.dart';
 import 'package:shop_flow/features/home/manager/category_list_cubit/category_list_cubit.dart';
@@ -10,6 +10,7 @@ import 'package:shop_flow/features/home/view/widget/custom_search_bar.dart';
 import 'package:shop_flow/features/home/view/widget/custom_sliver_app_bar.dart';
 import 'package:shop_flow/features/home/view/widget/top_products_section.dart';
 import 'package:shop_flow/features/home/view/widget/filters_categorey_list.dart';
+import 'package:shop_flow/features/home/view/widget/user_home_greeting.dart';
 
 class HomeViewBody extends StatelessWidget {
   const HomeViewBody({super.key});
@@ -24,15 +25,7 @@ class HomeViewBody extends StatelessWidget {
         CustomSliverAppBar(title: "ShopFlow"),
         const SliverToBoxAdapter(child: SizedBox(height: 32)),
         SliverToBoxAdapter(
-          child: Padding(
-            padding: _buildPadding(),
-            child: Text(
-              "Hello, User",
-              style: AppFontStyles.styleSemiBold14.copyWith(
-                color: kThrTextColor,
-              ),
-            ),
-          ),
+          child: Padding(padding: _buildPadding(), child: UserHomeGreeting()),
         ),
         const SliverToBoxAdapter(child: SizedBox(height: 8)),
         SliverToBoxAdapter(
