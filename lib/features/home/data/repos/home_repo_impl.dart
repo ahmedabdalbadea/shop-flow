@@ -1,15 +1,19 @@
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
+
 import 'package:shop_flow/core/errors/failure.dart';
+import 'package:shop_flow/core/errors/remote_data_source_failuer.dart';
 import 'package:shop_flow/core/errors/server_failure.dart';
 import 'package:shop_flow/core/utils/api_service.dart';
+import 'package:shop_flow/features/auth/data/models/user_model.dart';
+import 'package:shop_flow/features/home/data/home_remote_data_source.dart';
 import 'package:shop_flow/features/home/data/models/products/products.dart';
 import 'package:shop_flow/features/home/data/repos/home_repo.dart';
 
 class HomeRepoImpl implements HomeRepo {
   final ApiService _apiService;
-
-  HomeRepoImpl(this._apiService);
+  final HomeRemoteDataSource _dataSource;
+  HomeRepoImpl(this._apiService, this._dataSource);
   @override
   Future<Either<Failure, Products>> fetchProductsByCategory({
     required String category,
@@ -78,6 +82,20 @@ class HomeRepoImpl implements HomeRepo {
         return left(ServerFailuer("An error occurred, please try again"));
       }
     }
-    ;
+  }
+
+  @override
+  Future<Either<Failure, UserModel>> getUserInfo(String uId) async {
+    try {
+      final userData = await _dataSource.getUserData(uId: uId);
+
+      if (userData != null) {
+        return right(UserModel.fromJson(userData));
+      } else {
+        return left(RemoteDataSourceFailure("User data not found"));
+      }
+    } catch (e) {
+      return left(RemoteDataSourceFailure(e.toString()));
+    }
   }
 }

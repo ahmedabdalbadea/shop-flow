@@ -1,5 +1,6 @@
 import 'package:dartz/dartz.dart';
 import 'package:shop_flow/core/errors/failure.dart';
+import 'package:shop_flow/features/auth/data/models/user_model.dart';
 import 'package:shop_flow/features/home/data/models/products/products.dart';
 
 abstract class HomeRepo {
@@ -11,4 +12,6 @@ abstract class HomeRepo {
   Future<Either<Failure, List<dynamic>>> fetchCategoryList();
 
   Future<Either<Failure, Products>> searchProducts({required String product});
+
+  Future<Either<Failure, UserModel>> getUserInfo(String uId);
 }
