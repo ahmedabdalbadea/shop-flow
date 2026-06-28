@@ -6,6 +6,7 @@ import 'package:shop_flow/core/utils/api_service.dart';
 import 'package:shop_flow/features/auth/data/auth_remote_data_source.dart';
 import 'package:shop_flow/features/auth/data/repos/auth_repo.dart';
 import 'package:shop_flow/features/auth/data/repos/auth_repo_impl.dart';
+import 'package:shop_flow/features/home/data/home_remote_data_source.dart';
 import 'package:shop_flow/features/home/data/repos/home_repo_impl.dart';
 
 final getIt = GetIt.instance;
@@ -18,7 +19,13 @@ void setupServiceLocator() {
     () => AuthRepoImpl(getIt.get<AuthRemoteDataSource>()),
   );
   getIt.registerLazySingleton<ApiService>(() => ApiService(Dio()));
+  getIt.registerLazySingleton<HomeRemoteDataSource>(
+    () => HomeRemoteDataSource(FirebaseFirestore.instance),
+  );
   getIt.registerLazySingleton<HomeRepoImpl>(
-    () => HomeRepoImpl(getIt.get<ApiService>()),
+    () => HomeRepoImpl(
+      getIt.get<ApiService>(),
+      getIt.get<HomeRemoteDataSource>(),
+    ),
   );
 }
