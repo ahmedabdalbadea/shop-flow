@@ -1,5 +1,9 @@
+import 'dart:async';
+
 import 'package:bloc/bloc.dart';
+import 'package:dartz/dartz.dart';
 import 'package:meta/meta.dart';
+import 'package:shop_flow/core/errors/failure.dart';
 import 'package:shop_flow/core/models/products/product.dart';
 
 import 'package:shop_flow/core/models/products/products.dart';
@@ -10,6 +14,7 @@ part 'wish_list_state.dart';
 class WishListCubit extends Cubit<WishListState> {
   WishListCubit(this._wishListRepo) : super(WishListInitial());
   final WishListRepo _wishListRepo;
+  StreamSubscription<Either<Failure, List<Product>>>? _streamSubscription;
   Future<void> addProductToWishList({
     required String uId,
     required Product product,
@@ -27,5 +32,26 @@ class WishListCubit extends Cubit<WishListState> {
         emit(WishListAddingSuccess());
       },
     );
+  }
+
+  void getWishListProducts({required String uId}) {
+    _streamSubscription?.cancel();
+
+    emit(WishListLoading());
+
+    _streamSubscription = _wishListRepo.getWishListProducts(uId: uId).listen((
+      data,
+    ) {
+      data.fold(
+        (failure) => emit(WishListFailure(failure.errMsg)),
+        (products) => emit(WishListSuccess(products)),
+      );
+    });
+  }
+
+  @override
+  Future<void> close() {
+    _streamSubscription?.cancel();
+    return super.close();
   }
 }
