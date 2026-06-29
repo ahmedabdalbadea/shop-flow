@@ -26,4 +26,16 @@ class WishListRemoteDataSource {
         .where('uId', isEqualTo: uId)
         .snapshots();
   }
+
+  Future<void> deleteFromWishList({
+    required String uId,
+    required Product product,
+  }) async {
+    final String uniqueDocId = '${uId}_${product.id}';
+
+    await _firestore
+        .collection(kWishListProductCollection)
+        .doc(uniqueDocId)
+        .delete();
+  }
 }
