@@ -48,4 +48,21 @@ class WishListRepoImpl implements WishListRepo {
       yield left(RemoteDataSourceFailure(e.toString()));
     }
   }
+
+  @override
+  Future<Either<Failure, void>> deleteFromWishList({
+    required String uId,
+    required Product product,
+  }) async {
+    try {
+      await _dataSource.deleteFromWishList(uId: uId, product: product);
+      return right(null);
+    } catch (e) {
+      if (e is FirebaseException) {
+        return left(RemoteDataSourceFailure.fromFirebaseException(e));
+      } else {
+        return left(RemoteDataSourceFailure(e.toString()));
+      }
+    }
+  }
 }

@@ -11,4 +11,9 @@ abstract class WishListRepo {
   Stream<Either<Failure, List<Product>>> getWishListProducts({
     required String uId,
   });
+
+  Future<Either<Failure, void>> deleteFromWishList({
+    required String uId,
+    required Product product,
+  });
 }
