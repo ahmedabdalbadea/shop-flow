@@ -6,14 +6,18 @@ sealed class WishListState {}
 final class WishListInitial extends WishListState {}
 
 final class WishListSuccess extends WishListState {
-  final Products products;
+  final List<Product> products;
 
   WishListSuccess(this.products);
 }
 
 final class WishListLoading extends WishListState {}
 
-final class WishListFailure extends WishListState {}
+final class WishListFailure extends WishListState {
+  final String errMsg;
+
+  WishListFailure(this.errMsg);
+}
 
 final class WishListAddingSuccess extends WishListState {}
 
