@@ -7,4 +7,8 @@ abstract class WishListRepo {
     required String uId,
     required Product product,
   });
+
+  Stream<Either<Failure, List<Product>>> getWishListProducts({
+    required String uId,
+  });
 }

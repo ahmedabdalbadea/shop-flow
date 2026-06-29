@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dartz/dartz.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:shop_flow/core/errors/failure.dart';
@@ -24,6 +25,27 @@ class WishListRepoImpl implements WishListRepo {
       } else {
         return left(RemoteDataSourceFailure(e.toString()));
       }
+    }
+  }
+
+  @override
+  Stream<Either<Failure, List<Product>>> getWishListProducts({
+    required String uId,
+  }) async* {
+    try {
+      await for (final querySnapshot in _dataSource.getWishListProducts(
+        uId: uId,
+      )) {
+        final products = querySnapshot.docs
+            .map((doc) => Product.fromJson(doc.data()))
+            .toList();
+
+        yield right(products);
+      }
+    } on FirebaseException catch (e) {
+      yield left(RemoteDataSourceFailure.fromFirebaseException(e));
+    } catch (e) {
+      yield left(RemoteDataSourceFailure(e.toString()));
     }
   }
 }
