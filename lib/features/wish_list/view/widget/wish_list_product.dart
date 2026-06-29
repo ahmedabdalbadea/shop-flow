@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:shop_flow/core/models/products/product.dart';
 import 'package:shop_flow/features/home/view/widget/category_badge.dart';
 import 'package:shop_flow/features/home/view/widget/product_image.dart';
 import 'package:shop_flow/features/wish_list/view/widget/wish_list_product_info.dart';
 
 class WishListProduct extends StatelessWidget {
-  const WishListProduct({super.key});
-
+  const WishListProduct({super.key, required this.product});
+  final Product product;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -17,17 +18,20 @@ class WishListProduct extends StatelessWidget {
         children: [
           Column(
             children: [
-              SizedBox(height: 115, child: ProductImage(image: "")),
+              SizedBox(
+                height: 115,
+                child: ProductImage(image: product.thumbnail),
+              ),
               WishListProductInfo(
-                title: "Nordic Ceramic Watch",
-                price: "180.00",
+                title: product.title ?? "UnKnown",
+                price: product.price?.toString() ?? r"",
               ),
             ],
           ),
           Positioned(
             top: 115 - 20,
             left: 12,
-            child: CategoryBadge(category: 'Unknown'),
+            child: CategoryBadge(category: product.category ?? 'Unknown'),
           ),
         ],
       ),
