@@ -8,10 +8,12 @@ class CustomIconElevatedButton extends StatelessWidget {
     required this.icon,
     this.backgroundColor,
     this.foregroundColor,
+    this.radius,
   });
   final String label;
   final IconData icon;
   final Color? backgroundColor, foregroundColor;
+  final double? radius;
   @override
   Widget build(BuildContext context) {
     return ElevatedButton.icon(
@@ -19,7 +21,7 @@ class CustomIconElevatedButton extends StatelessWidget {
         foregroundColor: foregroundColor,
         backgroundColor: backgroundColor,
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadiusGeometry.circular(16),
+          borderRadius: BorderRadiusGeometry.circular(radius ?? 16),
         ),
       ),
       icon: Icon(icon),
