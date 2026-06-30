@@ -5,6 +5,7 @@ import 'package:shop_flow/core/widget/main_shell.dart';
 import 'package:shop_flow/features/auth/view/sign_in_view.dart';
 import 'package:shop_flow/features/auth/view/sign_up_view.dart';
 import 'package:shop_flow/core/models/products/product.dart';
+import 'package:shop_flow/features/cart/view/cart_view.dart';
 import 'package:shop_flow/features/home/manager/all_products_cubit.dart/all_products_cubit.dart';
 import 'package:shop_flow/features/home/manager/category_list_cubit/category_list_cubit.dart';
 import 'package:shop_flow/features/home/view/all_products_view.dart';
@@ -22,6 +23,7 @@ abstract class AppRouter {
   static const kAllProductsView = "/allProductsView";
   static const kProductDetailsView = "/productDetailsView";
   static const kWishListView = "/wishListView";
+  static const kCartView = "/cartView";
   static final router = GoRouter(
     routes: [
       GoRoute(
@@ -81,6 +83,17 @@ abstract class AppRouter {
                 path: kWishListView,
                 builder: (context, state) {
                   return const WishListView();
+                },
+              ),
+            ],
+          ),
+
+          StatefulShellBranch(
+            routes: [
+              GoRoute(
+                path: kCartView,
+                builder: (context, state) {
+                  return const CartView();
                 },
               ),
             ],
