@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:shop_flow/constants.dart';
 import 'package:shop_flow/core/utils/assets.dart';
 import 'package:shop_flow/core/widget/custom_elevated_button.dart';
 import 'package:shop_flow/features/auth/manager/auth_cubit/auth_cubit.dart';
@@ -15,9 +16,15 @@ class SignInActions extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        CustomElevatedButton(
-          title: S.of(context).signIn,
-          onPressed: _validateForm,
+        SizedBox(
+          height: 65,
+          width: double.infinity,
+          child: CustomElevatedButton(
+            foregroundColor: Colors.white,
+            backgroundColor: kPrimaryColor,
+            title: S.of(context).signIn,
+            onPressed: _validateForm,
+          ),
         ),
         const SizedBox(height: 32),
         const OrDivider(),

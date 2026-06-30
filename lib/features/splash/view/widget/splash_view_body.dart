@@ -73,12 +73,18 @@ class _SplashViewBodyState extends State<SplashViewBody> {
           AnimatedOpacity(
             duration: kAnimationDuration,
             opacity: _buttonOpacity,
-            child: CustomElevatedButton(
-              title: S.of(context).start,
-              onPressed: () {
-                // Navigate to Signin
-                GoRouter.of(context).push(AppRouter.kSignInView);
-              },
+            child: SizedBox(
+              height: 65,
+              width: double.infinity,
+              child: CustomElevatedButton(
+                foregroundColor: Colors.white,
+                backgroundColor: kPrimaryColor,
+                title: S.of(context).start,
+                onPressed: () {
+                  // Navigate to Signin
+                  GoRouter.of(context).push(AppRouter.kSignInView);
+                },
+              ),
             ),
           ),
 

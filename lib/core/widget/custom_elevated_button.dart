@@ -6,26 +6,32 @@ class CustomElevatedButton extends StatelessWidget {
   const CustomElevatedButton({
     super.key,
     required this.title,
-    required this.onPressed,
+    this.onPressed,
+    this.backgroundColor,
+    this.foregroundColor,
+    this.borderColor = const Color(0xFF000000),
+    this.radius,
+    this.borderWidth = 1.0,
   });
   final String title;
   final void Function()? onPressed;
+  final Color? backgroundColor, foregroundColor;
+  final Color borderColor;
+  final double? radius;
+  final double borderWidth;
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: 65,
-      width: double.infinity,
-      child: ElevatedButton(
-        style: ElevatedButton.styleFrom(
-          backgroundColor: kPrimaryColor,
-          foregroundColor: Colors.white,
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(kBorderRadiusCircular),
-          ),
+    return ElevatedButton(
+      style: ElevatedButton.styleFrom(
+        backgroundColor: backgroundColor,
+        foregroundColor: foregroundColor,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(radius ?? kBorderRadiusCircular),
+          side: BorderSide(color: borderColor, width: borderWidth),
         ),
-        onPressed: onPressed,
-        child: Text(title, style: AppFontStyles.styleSemiBold14),
       ),
+      onPressed: onPressed,
+      child: Text(title, style: AppFontStyles.styleSemiBold14),
     );
   }
 }
