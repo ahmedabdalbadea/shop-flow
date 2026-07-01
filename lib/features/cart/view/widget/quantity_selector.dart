@@ -1,17 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shop_flow/constants.dart';
 import 'package:shop_flow/core/utils/app_font_styles.dart';
+import 'package:shop_flow/features/cart/data/models/product_cart_model.dart';
+import 'package:shop_flow/features/cart/manager/cart_cubit/cart_cubit.dart';
 import 'package:shop_flow/features/cart/view/widget/cart_icon_button.dart';
 
-class QuantitySelector extends StatefulWidget {
-  const QuantitySelector({super.key});
-
-  @override
-  State<QuantitySelector> createState() => _QuantitySelectorState();
-}
-
-class _QuantitySelectorState extends State<QuantitySelector> {
-  int itemsCount = 1;
+class QuantitySelector extends StatelessWidget {
+  const QuantitySelector({super.key, required this.product});
+  final ProductCartModel product;
 
   @override
   Widget build(BuildContext context) {
@@ -28,24 +25,27 @@ class _QuantitySelectorState extends State<QuantitySelector> {
             icon: Icons.remove,
             backgroundColor: Colors.white,
             onPressed: () {
-              if (itemsCount > 1) {
-                setState(() {
-                  itemsCount--;
-                });
+              if (product.count > 1) {
+                context.read<CartCubit>().decrementProductcount(product.id);
               }
             },
           ),
           const SizedBox(width: 16),
-          Text(itemsCount.toString(), style: AppFontStyles.styleSemiBold14),
+          BlocBuilder<CartCubit, CartState>(
+            builder: (context, state) {
+              return Text(
+                product.count.toString(),
+                style: AppFontStyles.styleSemiBold14,
+              );
+            },
+          ),
           const SizedBox(width: 16),
           CartIconButton(
             icon: Icons.add,
             backgroundColor: kSecTextColor,
             iconColor: Colors.white,
             onPressed: () {
-              setState(() {
-                itemsCount++;
-              });
+              context.read<CartCubit>().incrementProductcount(product.id);
             },
           ),
         ],
