@@ -1,20 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:shop_flow/constants.dart';
 import 'package:shop_flow/core/utils/app_font_styles.dart';
+import 'package:shop_flow/features/cart/data/models/product_cart_model.dart';
 import 'package:shop_flow/features/cart/view/widget/cart_icon_button.dart';
 import 'package:shop_flow/features/cart/view/widget/quantity_selector.dart';
 
 class CartProductDetails extends StatelessWidget {
-  const CartProductDetails({
-    super.key,
-    required this.title,
-    required this.onPressed,
-    required this.price,
-  });
-
-  final String title;
+  const CartProductDetails({super.key, required this.product, this.onPressed});
+  final ProductCartModel product;
   final VoidCallback? onPressed;
-  final double price;
+
   @override
   Widget build(BuildContext context) {
     return Expanded(
@@ -24,7 +19,7 @@ class CartProductDetails extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text(title, style: AppFontStyles.styleSemiBold14),
+              Text(product.title, style: AppFontStyles.styleSemiBold14),
               CartIconButton(
                 icon: Icons.delete_outlined,
                 iconSize: 24,
@@ -33,7 +28,7 @@ class CartProductDetails extends StatelessWidget {
             ],
           ),
           Text(
-            "Size: 42 • Red",
+            product.category ?? "unKnown",
             style: AppFontStyles.styleRegular14.copyWith(color: kThrTextColor),
           ),
 
@@ -42,13 +37,13 @@ class CartProductDetails extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
-                "\$${price.toStringAsFixed(2)}",
+                "\$${product.price.toStringAsFixed(2)}",
                 style: AppFontStyles.styleSemiBold20.copyWith(
                   color: kSecTextColor,
                 ),
               ),
 
-              const QuantitySelector(),
+              QuantitySelector(product: product),
             ],
           ),
         ],

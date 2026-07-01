@@ -28,11 +28,7 @@ class CartProduct extends StatelessWidget {
               child: ProductImage(image: product.image),
             ),
             const SizedBox(width: 16),
-            CartProductDetails(
-              title: product.title,
-              price: product.price,
-              onPressed: onPressed,
-            ),
+            CartProductDetails(product: product, onPressed: onPressed),
           ],
         ),
       ),
