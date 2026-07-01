@@ -10,15 +10,18 @@ class CustomIconElevatedButton extends StatelessWidget {
     this.foregroundColor,
     this.radius,
     this.onPressed,
+    this.iconAlignment,
   });
   final String label;
   final IconData icon;
   final Color? backgroundColor, foregroundColor;
   final double? radius;
   final VoidCallback? onPressed;
+  final IconAlignment? iconAlignment;
   @override
   Widget build(BuildContext context) {
     return ElevatedButton.icon(
+      iconAlignment: iconAlignment,
       style: ElevatedButton.styleFrom(
         foregroundColor: foregroundColor,
         backgroundColor: backgroundColor,
