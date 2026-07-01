@@ -34,6 +34,18 @@ class CartCubit extends Cubit<CartState> {
     });
   }
 
+  double calcTotalPrice() {
+    double total = 0;
+    for (final product in products) {
+      total += (product.price * product.count);
+    }
+    return total;
+  }
+
+  double calcTax() => calcTotalPrice() * 0.08;
+
+  double calcTotalPriceWithTax() => calcTotalPrice() + calcTax();
+
   @override
   Future<void> close() {
     _subscription?.cancel();
