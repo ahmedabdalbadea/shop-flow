@@ -22,4 +22,16 @@ class CartLocalDataSource {
   Stream<BoxEvent> watchCart() {
     return _cartBox.watch();
   }
+
+  Future<void> incrementProductcount(int id) async {
+    ProductCartModel product = _cartBox.get(id)!;
+    product.count++;
+    await addProductToCart(product);
+  }
+
+  Future<void> decrementProductcount(int id) async {
+    ProductCartModel product = _cartBox.get(id)!;
+    product.count--;
+    await addProductToCart(product);
+  }
 }
