@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:go_router/go_router.dart';
 import 'package:shop_flow/constants.dart';
+import 'package:shop_flow/core/manager/cubit/cart_cubit/cart_cubit.dart';
 import 'package:shop_flow/core/utils/app_font_styles.dart';
+import 'package:shop_flow/core/utils/app_router.dart';
 import 'package:shop_flow/core/utils/assets.dart';
 
 class CustomSliverAppBar extends StatelessWidget {
@@ -22,7 +26,22 @@ class CustomSliverAppBar extends StatelessWidget {
         style: AppFontStyles.styleBold20.copyWith(color: kPrimaryColor),
       ),
       actionsPadding: EdgeInsets.only(right: 24),
-      actions: [SvgPicture.asset(Assets.imageBag)],
+      actions: [
+        BlocBuilder<CartCubit, CartState>(
+          builder: (context, state) {
+            return GestureDetector(
+              onTap: () {
+                context.go(AppRouter.kCartView);
+              },
+              child: Badge(
+                label: Text("${context.read<CartCubit>().products.length}"),
+                backgroundColor: const Color(0xFF2E7D32),
+                child: SvgPicture.asset(Assets.imageBag),
+              ),
+            );
+          },
+        ),
+      ],
     );
   }
 }
