@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 import 'package:shop_flow/constants.dart';
+import 'package:shop_flow/core/helpers/show_snack_bar.dart';
 import 'package:shop_flow/core/models/products/product.dart';
+import 'package:shop_flow/core/utils/app_router.dart';
 import 'package:shop_flow/features/cart/data/models/product_cart_model.dart';
 import 'package:shop_flow/core/manager/cubit/cart_cubit/cart_cubit.dart';
 import 'package:shop_flow/features/home/view/widget/custom_icon_elevated_button.dart';
@@ -35,6 +38,14 @@ class AddToCartButton extends StatelessWidget {
           onPressed: () {
             context.read<CartCubit>().addProductToCart(
               ProductCartModel.fromProduct(product),
+            );
+            showSnackbar(
+              context,
+              title: "Added to cart successfully",
+              actionLabel: 'View Cart',
+              onActionPressed: () {
+                context.go(AppRouter.kCartView);
+              },
             );
           },
         ),
