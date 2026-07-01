@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shop_flow/constants.dart';
 import 'package:shop_flow/core/models/products/product.dart';
 import 'package:shop_flow/features/cart/data/models/product_cart_model.dart';
-import 'package:shop_flow/features/cart/manager/cart_cubit/cart_cubit.dart';
+import 'package:shop_flow/core/manager/cubit/cart_cubit/cart_cubit.dart';
 import 'package:shop_flow/features/home/view/widget/custom_icon_elevated_button.dart';
 
 class AddToCartButton extends StatelessWidget {
