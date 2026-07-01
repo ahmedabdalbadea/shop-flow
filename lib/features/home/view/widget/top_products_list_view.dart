@@ -20,16 +20,14 @@ class TopProductsListView extends StatelessWidget {
     return BlocListener<WishListCubit, WishListState>(
       listener: (context, state) {
         if (state is WishListAddingSuccess) {
-          showSnackbar(
-            context,
-            title: 'Product added to Wishlist successfully!',
-          );
+          showSnackbar(context, title: 'Added to Wishlist successfully!');
         }
         if (state is WishListAddingFailure) {
           showSnackbar(
             context,
             title: state.errMsg,
             backgroundColor: kErrorColor,
+            textColor: Colors.white,
           );
         }
       },

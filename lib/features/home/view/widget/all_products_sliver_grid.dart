@@ -23,7 +23,11 @@ class AllProductsSliverGrid extends StatelessWidget {
         if (state is WishListAddingSuccess) {
           showSnackbar(
             context,
-            title: 'Product added to Wishlist successfully!',
+            title: 'Added to Wishlist successfully!',
+            actionLabel: 'WishList',
+            onActionPressed: () {
+              context.go(AppRouter.kWishListView);
+            },
           );
         }
         if (state is WishListAddingFailure) {
@@ -31,6 +35,7 @@ class AllProductsSliverGrid extends StatelessWidget {
             context,
             title: state.errMsg,
             backgroundColor: kErrorColor,
+            textColor: Colors.white,
           );
         }
       },
