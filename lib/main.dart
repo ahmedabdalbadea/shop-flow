@@ -5,9 +5,11 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:hive_ce_flutter/hive_flutter.dart';
 import 'package:provider/provider.dart';
 import 'package:shop_flow/constants.dart';
+import 'package:shop_flow/core/manager/cubit/cart_cubit/cart_cubit.dart';
 import 'package:shop_flow/core/manager/provider/user_provider.dart';
 import 'package:shop_flow/core/utils/app_router.dart';
 import 'package:shop_flow/core/utils/service_locator.dart';
+import 'package:shop_flow/features/cart/data/cart_local_data_source.dart';
 import 'package:shop_flow/features/cart/data/models/product_cart_model.dart';
 import 'package:shop_flow/generated/l10n.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -24,7 +26,15 @@ void main() async {
   Hive.registerAdapter<ProductCartModel>(ProductCartModelAdapter());
   await Hive.openBox<String>(kRecentSearchesBox);
   await Hive.openBox<ProductCartModel>(kCartProductsBox);
-  runApp(Provider(create: (_) => UserProvider(), child: const ShopFlow()));
+  runApp(
+    Provider(
+      create: (_) => UserProvider(),
+      child: BlocProvider(
+        create: (context) => CartCubit(CartLocalDataSource())..getCartProduct(),
+        child: const ShopFlow(),
+      ),
+    ),
+  );
 }
 
 class ShopFlow extends StatelessWidget {

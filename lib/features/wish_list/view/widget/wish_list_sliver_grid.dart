@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:shop_flow/core/manager/cubit/cart_cubit/cart_cubit.dart';
 import 'package:shop_flow/core/models/products/product.dart';
-import 'package:shop_flow/features/cart/data/cart_local_data_source.dart';
 import 'package:shop_flow/features/wish_list/view/widget/delete_icon_button.dart';
 import 'package:shop_flow/features/wish_list/view/widget/wish_list_product.dart';
 
@@ -37,10 +34,7 @@ class _WishListSliverGridState extends State<WishListSliverGrid> {
           },
           child: Stack(
             children: [
-              BlocProvider(
-                create: (context) => CartCubit(CartLocalDataSource()),
-                child: WishListProduct(product: widget.products[index]),
-              ),
+              WishListProduct(product: widget.products[index]),
               appearDelete
                   ? Positioned(
                       top: 8,

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:shop_flow/constants.dart';
-import 'package:shop_flow/core/widget/custom_elevated_button.dart';
 import 'package:shop_flow/features/cart/view/widget/cart_header.dart';
 import 'package:shop_flow/features/cart/view/widget/cart_products_sliver_list.dart';
 import 'package:shop_flow/features/cart/view/widget/order_summary.dart';
