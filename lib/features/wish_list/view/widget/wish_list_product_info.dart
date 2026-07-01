@@ -7,8 +7,10 @@ class WishListProductInfo extends StatelessWidget {
     super.key,
     required this.title,
     required this.price,
+    this.onPressed,
   });
   final String title, price;
+  final VoidCallback? onPressed;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -44,7 +46,7 @@ class WishListProductInfo extends StatelessWidget {
                   tapTargetSize: MaterialTapTargetSize.shrinkWrap,
                   minimumSize: Size(32, 32),
                 ),
-                onPressed: () {},
+                onPressed: onPressed,
                 icon: Icon(
                   Icons.add_shopping_cart_outlined,
                   color: Colors.white,
