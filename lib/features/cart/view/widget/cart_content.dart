@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:shop_flow/constants.dart';
+import 'package:shop_flow/core/utils/app_router.dart';
 import 'package:shop_flow/features/cart/view/widget/cart_header.dart';
 import 'package:shop_flow/features/cart/view/widget/cart_products_sliver_list.dart';
 import 'package:shop_flow/features/cart/view/widget/order_summary.dart';
@@ -42,7 +44,9 @@ class CartContent extends StatelessWidget {
                 label: "Proceed to Checkout",
                 backgroundColor: kPrimaryColor,
                 foregroundColor: Colors.white,
-                onPressed: () {},
+                onPressed: () {
+                  context.go(AppRouter.kCheckoutView);
+                },
                 radius: 12,
               ),
             ),
