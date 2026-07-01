@@ -8,6 +8,7 @@ import 'package:shop_flow/constants.dart';
 import 'package:shop_flow/core/manager/provider/user_provider.dart';
 import 'package:shop_flow/core/utils/app_router.dart';
 import 'package:shop_flow/core/utils/service_locator.dart';
+import 'package:shop_flow/features/cart/data/models/product_cart_model.dart';
 import 'package:shop_flow/generated/l10n.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:shop_flow/simple_bloc_observer.dart';
@@ -20,7 +21,9 @@ void main() async {
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   setupServiceLocator();
   await Hive.initFlutter();
+  Hive.registerAdapter<ProductCartModel>(ProductCartModelAdapter());
   await Hive.openBox<String>(kRecentSearchesBox);
+  await Hive.openBox<ProductCartModel>(kCartProductsBox);
   runApp(Provider(create: (_) => UserProvider(), child: const ShopFlow()));
 }
 
