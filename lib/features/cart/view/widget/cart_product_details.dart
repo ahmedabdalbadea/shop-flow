@@ -21,7 +21,14 @@ class CartProductDetails extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text(product.title, style: AppFontStyles.styleSemiBold14),
+              ConstrainedBox(
+                constraints: BoxConstraints(minWidth: 50, maxWidth: 150),
+                child: Text(
+                  product.title,
+                  style: AppFontStyles.styleSemiBold14,
+                  overflow: TextOverflow.ellipsis,
+                ),
+              ),
               CartIconButton(
                 icon: Icons.delete_outlined,
                 iconSize: 24,
