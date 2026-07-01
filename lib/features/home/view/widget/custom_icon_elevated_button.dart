@@ -9,11 +9,13 @@ class CustomIconElevatedButton extends StatelessWidget {
     this.backgroundColor,
     this.foregroundColor,
     this.radius,
+    this.onPressed,
   });
   final String label;
   final IconData icon;
   final Color? backgroundColor, foregroundColor;
   final double? radius;
+  final VoidCallback? onPressed;
   @override
   Widget build(BuildContext context) {
     return ElevatedButton.icon(
@@ -25,7 +27,7 @@ class CustomIconElevatedButton extends StatelessWidget {
         ),
       ),
       icon: Icon(icon),
-      onPressed: () {},
+      onPressed: onPressed,
       label: Text(label, style: AppFontStyles.styleRegular16),
     );
   }
