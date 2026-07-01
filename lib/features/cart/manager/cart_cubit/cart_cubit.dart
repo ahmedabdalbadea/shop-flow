@@ -34,17 +34,22 @@ class CartCubit extends Cubit<CartState> {
     });
   }
 
-  double calcTotalPrice() {
-    double total = 0;
-    for (final product in products) {
-      total += (product.price * product.count);
-    }
-    return total;
-  }
+  double calcTotalPrice() => products.fold(
+    0,
+    (total, product) => total + (product.price * product.count),
+  );
 
   double calcTax() => calcTotalPrice() * 0.08;
 
   double calcTotalPriceWithTax() => calcTotalPrice() + calcTax();
+
+  void incrementProductcount(int id) async {
+    await _localDataSource.incrementProductcount(id);
+  }
+
+  void decrementProductcount(int id) async {
+    await _localDataSource.decrementProductcount(id);
+  }
 
   @override
   Future<void> close() {
