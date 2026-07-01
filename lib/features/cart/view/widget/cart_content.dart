@@ -49,22 +49,6 @@ class CartContent extends StatelessWidget {
             ),
           ),
         ),
-        const SliverToBoxAdapter(child: SizedBox(height: 8)),
-        SliverToBoxAdapter(
-          child: Padding(
-            padding: EdgeInsets.symmetric(horizontal: 24.0),
-            child: SizedBox(
-              height: 56,
-              child: CustomElevatedButton(
-                title: "Continue Shopping",
-                onPressed: () {},
-                foregroundColor: kPrimaryColor,
-                borderWidth: 2,
-                borderColor: kPrimaryColor,
-              ),
-            ),
-          ),
-        ),
 
         const SliverToBoxAdapter(child: SizedBox(height: 32)),
       ],
