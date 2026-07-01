@@ -45,7 +45,7 @@ class CartContent extends StatelessWidget {
                 backgroundColor: kPrimaryColor,
                 foregroundColor: Colors.white,
                 onPressed: () {
-                  context.go(AppRouter.kCheckoutView);
+                  context.push(AppRouter.kCheckoutView);
                 },
                 radius: 12,
               ),
