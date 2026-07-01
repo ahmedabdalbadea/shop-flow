@@ -11,7 +11,7 @@ import 'package:shop_flow/core/utils/app_router.dart';
 import 'package:shop_flow/core/utils/assets.dart';
 import 'package:shop_flow/features/auth/manager/auth_cubit/auth_cubit.dart';
 import 'package:shop_flow/features/auth/view/widgets/sign_in_inputs.dart';
-import 'package:shop_flow/features/auth/view/widgets/onboarding_card.dart';
+import 'package:shop_flow/core/widget/onboarding_card.dart';
 import 'package:shop_flow/features/auth/view/widgets/sign_up_prompt.dart';
 import 'package:shop_flow/generated/l10n.dart';
 
