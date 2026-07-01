@@ -12,12 +12,31 @@ part 'cart_state.dart';
 class CartCubit extends Cubit<CartState> {
   CartCubit(this._localDataSource) : super(CartInitial());
   final CartLocalDataSource _localDataSource;
-
+  List<ProductCartModel> products = [];
+  StreamSubscription? _subscription;
   Future<void> addProductToCart(ProductCartModel product) async {
     await _localDataSource.addProductToCart(product);
   }
 
   Future<void> deleteProductFromCart(int id) async {
     await _localDataSource.deleteProductFromCart(id);
+  }
+
+  void getCartProduct() {
+    products = _localDataSource.getCartProducts();
+    emit(CartProductsLoaded());
+    _subscription?.cancel();
+
+    _subscription = _localDataSource.watchCart().listen((_) {
+      products = _localDataSource.getCartProducts();
+
+      emit(CartProductsLoaded());
+    });
+  }
+
+  @override
+  Future<void> close() {
+    _subscription?.cancel();
+    return super.close();
   }
 }
