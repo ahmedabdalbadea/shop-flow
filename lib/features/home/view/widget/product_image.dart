@@ -20,7 +20,7 @@ class ProductImage extends StatelessWidget {
         errorWidget: (context, url, error) {
           return Image.asset(
             width: double.infinity,
-            Assets.imagesImageNotFound,
+            Assets.imageNotFound,
             fit: BoxFit.contain,
           );
         },

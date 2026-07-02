@@ -16,8 +16,9 @@ class Assets {
 
   static const String imageBag = "assets/images/bag.svg";
 
-  static const String imagesFeaturedImageTest =
+  static const String featuredImageTest =
       "assets/images/featured_image_test.png";
 
-  static const String imagesImageNotFound = "assets/images/Image-not-found.png";
+  static const String imageNotFound = "assets/images/Image-not-found.png";
+  static const String userAvatar = "assets/images/user_avatar.jpg";
 }
