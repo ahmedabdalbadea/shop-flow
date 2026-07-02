@@ -6,8 +6,14 @@ import 'package:shop_flow/features/cart/view/widget/shipping_address_form.dart';
 import 'package:shop_flow/features/cart/view/widget/stripe_security_notice.dart';
 
 class CheckoutViewBody extends StatelessWidget {
-  const CheckoutViewBody({super.key});
-
+  const CheckoutViewBody({
+    super.key,
+    required GlobalKey<FormState> formKey,
+    required AutovalidateMode autovalidateMode,
+  }) : _autovalidateMode = autovalidateMode,
+       _formKey = formKey;
+  final GlobalKey<FormState> _formKey;
+  final AutovalidateMode _autovalidateMode;
   @override
   Widget build(BuildContext context) {
     return CustomScrollView(
@@ -24,10 +30,13 @@ class CheckoutViewBody extends StatelessWidget {
           ),
         ),
         const SliverToBoxAdapter(child: SizedBox(height: 24)),
-        const SliverToBoxAdapter(
+        SliverToBoxAdapter(
           child: Padding(
-            padding: EdgeInsets.symmetric(horizontal: 24.0),
-            child: ShippingAddressForm(),
+            padding: const EdgeInsets.symmetric(horizontal: 24.0),
+            child: ShippingAddressForm(
+              formKey: _formKey,
+              autovalidateMode: _autovalidateMode,
+            ),
           ),
         ),
 

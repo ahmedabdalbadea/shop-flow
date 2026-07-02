@@ -3,8 +3,8 @@ import 'package:shop_flow/constants.dart';
 import 'package:shop_flow/features/home/view/widget/custom_icon_elevated_button.dart';
 
 class PayNowButton extends StatelessWidget {
-  const PayNowButton({super.key});
-
+  const PayNowButton({super.key, this.onPressed});
+  final VoidCallback? onPressed;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -27,7 +27,7 @@ class PayNowButton extends StatelessWidget {
           backgroundColor: kPrimaryColor,
           foregroundColor: Colors.white,
           iconAlignment: IconAlignment.end,
-          onPressed: () {},
+          onPressed: onPressed,
         ),
       ),
     );
