@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:shop_flow/features/home/view/widget/custom_sliver_app_bar.dart';
+import 'package:shop_flow/features/profile/view/widgets/total_orders.dart';
 import 'package:shop_flow/features/profile/view/widgets/user_info.dart';
 
 class ProfileViewBody extends StatelessWidget {
@@ -14,6 +15,9 @@ class ProfileViewBody extends StatelessWidget {
         const SliverToBoxAdapter(child: SizedBox(height: 24)),
 
         const SliverToBoxAdapter(child: UserInfo()),
+        const SliverToBoxAdapter(child: SizedBox(height: 24)),
+
+        const SliverToBoxAdapter(child: Center(child: TotalOrders())),
         const SliverToBoxAdapter(child: SizedBox(height: 24)),
       ],
     );

@@ -20,7 +20,7 @@ class FilterCard extends StatelessWidget {
       ),
       child: AnimatedDefaultTextStyle(
         style: AppFontStyles.styleSemiBold14.copyWith(
-          color: selected ? Colors.white : const Color(0xff454652),
+          color: selected ? Colors.white : kThrTextColor,
         ),
         duration: const Duration(milliseconds: 300),
         child: Text(title),
