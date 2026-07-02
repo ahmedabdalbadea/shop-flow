@@ -13,6 +13,7 @@ import 'package:shop_flow/features/home/view/all_products_view.dart';
 import 'package:shop_flow/features/home/view/home_view.dart';
 import 'package:shop_flow/features/home/view/product_details_view.dart';
 import 'package:shop_flow/features/home/view/search_view.dart';
+import 'package:shop_flow/features/profile/view/profile_view.dart';
 import 'package:shop_flow/features/splash/view/splash_view.dart';
 import 'package:shop_flow/features/wish_list/view/wish_list_view.dart';
 
@@ -26,6 +27,7 @@ abstract class AppRouter {
   static const kWishListView = "/wishListView";
   static const kCartView = "/cartView";
   static const kCheckoutView = "/checkoutView";
+  static const kProfileView = "/profileView";
   static final router = GoRouter(
     routes: [
       GoRoute(
@@ -96,6 +98,17 @@ abstract class AppRouter {
                 path: kCartView,
                 builder: (context, state) {
                   return const CartView();
+                },
+              ),
+            ],
+          ),
+
+          StatefulShellBranch(
+            routes: [
+              GoRoute(
+                path: kProfileView,
+                builder: (context, state) {
+                  return const ProfileView();
                 },
               ),
             ],
