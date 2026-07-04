@@ -2,7 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:shop_flow/constants.dart';
-import 'package:shop_flow/features/auth/data/models/user_model.dart';
+import 'package:shop_flow/core/models/user_model.dart';
 
 class AuthRemoteDataSource {
   final FirebaseAuth _auth;

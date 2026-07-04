@@ -1,6 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:meta/meta.dart';
-import 'package:shop_flow/features/auth/data/models/user_model.dart';
+import 'package:shop_flow/core/models/user_model.dart';
 import 'package:shop_flow/features/home/data/repos/home_repo.dart';
 
 part 'user_info_state.dart';

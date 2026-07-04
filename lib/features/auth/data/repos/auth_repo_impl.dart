@@ -3,7 +3,7 @@ import 'package:dartz/dartz.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:shop_flow/core/errors/failure.dart';
 import 'package:shop_flow/features/auth/data/auth_remote_data_source.dart';
-import 'package:shop_flow/features/auth/data/models/user_model.dart';
+import 'package:shop_flow/core/models/user_model.dart';
 import 'package:shop_flow/core/errors/remote_data_source_failuer.dart';
 import 'package:shop_flow/features/auth/data/repos/auth_repo.dart';
 

@@ -1,6 +1,6 @@
 import 'package:dartz/dartz.dart';
 import 'package:shop_flow/core/errors/failure.dart';
-import 'package:shop_flow/features/auth/data/models/user_model.dart';
+import 'package:shop_flow/core/models/user_model.dart';
 import 'package:shop_flow/core/models/products/products.dart';
 
 abstract class HomeRepo {
