@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shop_flow/constants.dart';
+import 'package:shop_flow/core/helpers/formate_name.dart';
 import 'package:shop_flow/core/utils/app_font_styles.dart';
 import 'package:shop_flow/core/manager/cubit/user_info_cubit/user_info_cubit.dart';
 import 'package:skeletonizer/skeletonizer.dart';
@@ -14,7 +15,7 @@ class UserHomeGreeting extends StatelessWidget {
       builder: (context, state) {
         if (state is UserInfoSuccess) {
           return Text(
-            "Hello, ${state.user.name}",
+            "Hello, ${formateName(state.user.name)![0]}",
             style: AppFontStyles.styleSemiBold14.copyWith(color: kThrTextColor),
           );
         } else if (state is UserInfoFailure) {
