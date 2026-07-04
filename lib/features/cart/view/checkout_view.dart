@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+import 'package:shop_flow/core/utils/app_router.dart';
 import 'package:shop_flow/features/cart/view/widget/checkout_view_body.dart';
 import 'package:shop_flow/features/cart/view/widget/pay_now_button.dart';
 
@@ -26,6 +28,7 @@ class _CheckoutViewState extends State<CheckoutView> {
         onPressed: () {
           if (_formKey.currentState!.validate()) {
             _formKey.currentState!.save();
+            context.push(AppRouter.kPaymentView);
           } else {
             setState(() {
               _autovalidateMode = AutovalidateMode.always;
