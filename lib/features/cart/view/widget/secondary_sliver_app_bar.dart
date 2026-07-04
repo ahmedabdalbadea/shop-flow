@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:shop_flow/constants.dart';
 import 'package:shop_flow/core/utils/app_font_styles.dart';
 
-class CheckoutSliverAppBar extends StatelessWidget {
-  const CheckoutSliverAppBar({super.key, required this.title});
+class SecondarySliverAppBar extends StatelessWidget {
+  const SecondarySliverAppBar({super.key, required this.title});
   final String title;
   @override
   Widget build(BuildContext context) {
