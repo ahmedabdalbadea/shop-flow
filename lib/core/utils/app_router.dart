@@ -7,6 +7,7 @@ import 'package:shop_flow/features/auth/view/sign_up_view.dart';
 import 'package:shop_flow/core/models/products/product.dart';
 import 'package:shop_flow/features/cart/view/cart_view.dart';
 import 'package:shop_flow/features/cart/view/checkout_view.dart';
+import 'package:shop_flow/features/cart/view/payment_view.dart';
 import 'package:shop_flow/features/home/manager/all_products_cubit.dart/all_products_cubit.dart';
 import 'package:shop_flow/features/home/manager/category_list_cubit/category_list_cubit.dart';
 import 'package:shop_flow/features/home/view/all_products_view.dart';
@@ -28,6 +29,7 @@ abstract class AppRouter {
   static const kCartView = "/cartView";
   static const kCheckoutView = "/checkoutView";
   static const kProfileView = "/profileView";
+  static const kPaymentView = "/paymentView";
   static final router = GoRouter(
     routes: [
       GoRoute(
@@ -147,6 +149,13 @@ abstract class AppRouter {
         path: kCheckoutView,
         builder: (context, state) {
           return const CheckoutView();
+        },
+      ),
+
+      GoRoute(
+        path: kPaymentView,
+        builder: (context, state) {
+          return const PaymentView();
         },
       ),
     ],
