@@ -1,41 +1,24 @@
 import 'package:flutter/material.dart';
-import 'package:shop_flow/constants.dart';
-import 'package:shop_flow/core/utils/app_font_styles.dart';
-import 'package:shop_flow/core/utils/assets.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:shop_flow/core/manager/cubit/user_info_cubit/user_info_cubit.dart';
+import 'package:shop_flow/features/profile/view/widgets/user_info_content.dart';
+import 'package:shop_flow/features/profile/view/widgets/user_info_error.dart';
+import 'package:skeletonizer/skeletonizer.dart';
 
 class UserInfo extends StatelessWidget {
   const UserInfo({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.center,
-      children: [
-        ClipRRect(
-          clipBehavior: Clip.hardEdge,
-          borderRadius: BorderRadiusGeometry.circular(9999),
-          child: Image.asset(Assets.userAvatar, width: 120, height: 120),
-        ),
-        ConstrainedBox(
-          constraints: const BoxConstraints(minWidth: 150, maxWidth: 250),
-          child: const Text(
-            "Alexandra Rivera",
-            overflow: TextOverflow.ellipsis,
-            textAlign: TextAlign.center,
-            style: AppFontStyles.styleRegular16,
-          ),
-        ),
-        ConstrainedBox(
-          constraints: const BoxConstraints(minWidth: 150, maxWidth: 250),
-          child: Text(
-            "alexandra.rivera@example.com",
-            maxLines: 2,
-            textAlign: TextAlign.center,
-            overflow: TextOverflow.ellipsis,
-            style: AppFontStyles.styleRegular16.copyWith(color: kThrTextColor),
-          ),
-        ),
-      ],
+    return BlocBuilder<UserInfoCubit, UserInfoState>(
+      builder: (context, state) {
+        if (state is UserInfoSuccess) {
+          return UserInfoContent(user: state.user);
+        } else if (state is UserInfoFailure) {
+          return Center(child: UserInfoError(errMsg: state.errMsg));
+        }
+        return Skeletonizer(child: UserInfoContent(user: null));
+      },
     );
   }
 }
