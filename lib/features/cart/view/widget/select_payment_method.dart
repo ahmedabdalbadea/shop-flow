@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:shop_flow/core/manager/cubit/order_cubit/order_cubit.dart';
 import 'package:shop_flow/core/utils/app_font_styles.dart';
 import 'package:shop_flow/features/cart/view/widget/payment_method_item.dart';
 
@@ -38,6 +40,9 @@ class _SelectPaymentMethodState extends State<SelectPaymentMethod> {
                   setState(() {
                     selectedItem = index;
                   });
+
+                  context.read<OrderCubit>().paymentMethod =
+                      paymentMethods[index].title;
                 }
               },
               child: PaymentMethodItem(

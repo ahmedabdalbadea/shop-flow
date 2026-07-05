@@ -22,7 +22,7 @@ class TotalToPay extends StatelessWidget {
           ),
           const SizedBox(height: 4),
           Text(
-            "\$$totalAmount",
+            "\$${totalAmount.toStringAsFixed(8).replaceFirst(RegExp(r'0+$'), '')}",
             style: AppFontStyles.styleSemiBold24.copyWith(color: kSecTextColor),
           ),
         ],
