@@ -17,9 +17,12 @@ class FiltersCategoreyList extends StatelessWidget {
               .read<CategoryListCubit>()
               .categoreyList!;
 
-          return SuccessFiltersBody(
-            fromHome: fromHome,
-            filtersList: filtersList,
+          return SizedBox(
+            height: 33,
+            child: SuccessFiltersBody(
+              fromHome: fromHome,
+              filtersList: filtersList,
+            ),
           );
         } else if (state is CategoryListFailure) {
           return Center(child: Text(state.errMsg));
@@ -54,35 +57,32 @@ class _SuccessFiltersBodyState extends State<SuccessFiltersBody> {
 
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
+    return ListView.builder(
+      itemCount: widget.filtersList.length,
       scrollDirection: Axis.horizontal,
-      child: Padding(
-        padding: const EdgeInsets.symmetric(vertical: 8.0),
-        child: Row(
-          children: widget.filtersList.asMap().entries.map((e) {
-            return GestureDetector(
-              onTap: () {
-                if (e.key != selectedItem) {
-                  setState(() {
-                    if (!widget.fromHome) {
-                      BlocProvider.of<SearchProductsCubit>(
-                        context,
-                      ).searchProductsByCategory(
-                        category: widget.filtersList[e.key],
-                      );
-                    }
-                    selectedItem = e.key;
-                  });
+      physics: const BouncingScrollPhysics(),
+      itemBuilder: (context, index) {
+        return GestureDetector(
+          onTap: () {
+            if (index != selectedItem) {
+              setState(() {
+                if (!widget.fromHome) {
+                  BlocProvider.of<SearchProductsCubit>(
+                    context,
+                  ).searchProductsByCategory(
+                    category: widget.filtersList[index],
+                  );
                 }
-              },
-              child: FilterCard(
-                title: e.value,
-                selected: selectedItem == e.key,
-              ),
-            );
-          }).toList(),
-        ),
-      ),
+                selectedItem = index;
+              });
+            }
+          },
+          child: FilterCard(
+            title: widget.filtersList[index],
+            selected: selectedItem == index,
+          ),
+        );
+      },
     );
   }
 }
