@@ -15,6 +15,10 @@ class CartLocalDataSource {
     await _cartBox.delete(id);
   }
 
+  Future<void> clearCart() async {
+    await _cartBox.clear();
+  }
+
   List<ProductCartModel> getCartProducts() {
     return _cartBox.values.toList();
   }
