@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shop_flow/features/home/manager/category_list_cubit/category_list_cubit.dart';
 import 'package:shop_flow/features/home/manager/search_products_cubit/search_products_cubit.dart';
-import 'package:shop_flow/features/home/view/widget/filter_card.dart';
+import 'package:shop_flow/core/widget/filter_card.dart';
 import 'package:skeletonizer/skeletonizer.dart';
 
 class FiltersCategoreyList extends StatelessWidget {
