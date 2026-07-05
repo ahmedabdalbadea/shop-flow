@@ -37,4 +37,24 @@ class ProductCartModel {
       count: 1,
     );
   }
+
+  factory ProductCartModel.fromJson(Map<String, dynamic> json) {
+    return ProductCartModel(
+      id: json['id'],
+      image: json['image'],
+      title: json['title'],
+      category: json['category'],
+      price: json['price'],
+      count: json['count'],
+    );
+  }
+
+  Map<String, dynamic> toJson() => {
+    'id': id,
+    'image': image,
+    'title': title,
+    'category': category,
+    'price': price,
+    'count': count,
+  };
 }
