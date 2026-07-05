@@ -51,6 +51,10 @@ class CartCubit extends Cubit<CartState> {
     await _localDataSource.decrementProductcount(id);
   }
 
+  Future<void> clearCart() async {
+    await _localDataSource.clearCart();
+  }
+
   @override
   Future<void> close() {
     _subscription?.cancel();
