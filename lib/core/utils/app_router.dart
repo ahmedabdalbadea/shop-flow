@@ -14,6 +14,7 @@ import 'package:shop_flow/features/home/view/all_products_view.dart';
 import 'package:shop_flow/features/home/view/home_view.dart';
 import 'package:shop_flow/features/home/view/product_details_view.dart';
 import 'package:shop_flow/features/home/view/search_view.dart';
+import 'package:shop_flow/features/profile/view/orders_view.dart';
 import 'package:shop_flow/features/profile/view/profile_view.dart';
 import 'package:shop_flow/features/splash/view/splash_view.dart';
 import 'package:shop_flow/features/wish_list/view/wish_list_view.dart';
@@ -30,6 +31,7 @@ abstract class AppRouter {
   static const kCheckoutView = "/checkoutView";
   static const kProfileView = "/profileView";
   static const kPaymentView = "/paymentView";
+  static const kOrdersView = '/ordersView';
   static final router = GoRouter(
     routes: [
       GoRoute(
@@ -156,6 +158,13 @@ abstract class AppRouter {
         path: kPaymentView,
         builder: (context, state) {
           return const PaymentView();
+        },
+      ),
+
+      GoRoute(
+        path: kOrdersView,
+        builder: (context, state) {
+          return const OrdersView();
         },
       ),
     ],
