@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:shop_flow/core/models/products/product.dart';
 import 'package:shop_flow/features/home/view/widget/all_product_card_info.dart';
-import 'package:shop_flow/features/home/view/widget/product_image.dart';
+import 'package:shop_flow/core/widget/product_image.dart';
 
 class ProductCard extends StatelessWidget {
   const ProductCard({super.key, required this.product});

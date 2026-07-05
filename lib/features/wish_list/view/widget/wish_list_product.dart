@@ -5,7 +5,7 @@ import 'package:shop_flow/core/manager/cubit/cart_cubit/cart_cubit.dart';
 import 'package:shop_flow/core/models/products/product.dart';
 import 'package:shop_flow/features/cart/data/models/product_cart_model.dart';
 import 'package:shop_flow/features/home/view/widget/category_badge.dart';
-import 'package:shop_flow/features/home/view/widget/product_image.dart';
+import 'package:shop_flow/core/widget/product_image.dart';
 import 'package:shop_flow/features/wish_list/view/widget/wish_list_product_info.dart';
 
 class WishListProduct extends StatelessWidget {

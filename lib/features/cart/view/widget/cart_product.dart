@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:shop_flow/features/cart/data/models/product_cart_model.dart';
 import 'package:shop_flow/features/cart/view/widget/cart_product_details.dart';
-import 'package:shop_flow/features/home/view/widget/product_image.dart';
+import 'package:shop_flow/core/widget/product_image.dart';
 
 class CartProduct extends StatelessWidget {
   const CartProduct({

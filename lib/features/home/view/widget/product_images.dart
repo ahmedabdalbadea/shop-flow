@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:shop_flow/features/home/view/widget/dot_indicators.dart';
-import 'package:shop_flow/features/home/view/widget/product_image.dart';
+import 'package:shop_flow/core/widget/product_image.dart';
 
 class ProductImages extends StatefulWidget {
   const ProductImages({

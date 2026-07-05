@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:shop_flow/core/models/products/product.dart';
 import 'package:shop_flow/features/home/view/widget/category_badge.dart';
 import 'package:shop_flow/features/home/view/widget/product_card_with_badge_info.dart';
-import 'package:shop_flow/features/home/view/widget/product_image.dart';
+import 'package:shop_flow/core/widget/product_image.dart';
 
 class ProductCardWithBadge extends StatelessWidget {
   const ProductCardWithBadge({
