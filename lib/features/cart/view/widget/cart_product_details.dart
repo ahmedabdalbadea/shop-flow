@@ -48,10 +48,13 @@ class CartProductDetails extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text(
-                "\$${product.price.toStringAsFixed(2)}",
-                style: AppFontStyles.styleSemiBold20.copyWith(
-                  color: kSecTextColor,
+              ConstrainedBox(
+                constraints: BoxConstraints(minWidth: 50, maxWidth: 80),
+                child: Text(
+                  "\$${product.price.toStringAsFixed(2)}",
+                  style: AppFontStyles.styleSemiBold20.copyWith(
+                    color: kSecTextColor,
+                  ),
                 ),
               ),
 
