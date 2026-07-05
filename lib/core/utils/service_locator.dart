@@ -8,6 +8,9 @@ import 'package:shop_flow/features/auth/data/repos/auth_repo.dart';
 import 'package:shop_flow/features/auth/data/repos/auth_repo_impl.dart';
 import 'package:shop_flow/features/home/data/home_remote_data_source.dart';
 import 'package:shop_flow/features/home/data/repos/home_repo_impl.dart';
+import 'package:shop_flow/features/profile/data/profile_remote_data_source.dart';
+import 'package:shop_flow/features/profile/data/repos/profile_repo.dart';
+import 'package:shop_flow/features/profile/data/repos/profile_repo_impl.dart';
 import 'package:shop_flow/features/wish_list/data/repos/wish_list_repo.dart';
 import 'package:shop_flow/features/wish_list/data/repos/wish_list_repo_impl.dart';
 import 'package:shop_flow/features/wish_list/data/wish_list_remote_data_source.dart';
@@ -38,5 +41,13 @@ void setupServiceLocator() {
 
   getIt.registerLazySingleton<WishListRepo>(
     () => WishListRepoImpl(getIt.get<WishListRemoteDataSource>()),
+  );
+
+  getIt.registerLazySingleton<ProfileRemoteDataSource>(
+    () => ProfileRemoteDataSource(FirebaseFirestore.instance),
+  );
+
+  getIt.registerLazySingleton<ProfileRepo>(
+    () => ProfileRepoImpl(getIt.get<ProfileRemoteDataSource>()),
   );
 }
