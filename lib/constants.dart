@@ -14,3 +14,4 @@ const kCartProductsBox = 'cart_products';
 const kPaddingColor = Color(0xffE9E7F0);
 const kWishListProductCollection = "wish_list_product";
 const kUsersCollection = "users";
+const kOrdersCollection = "orders";
