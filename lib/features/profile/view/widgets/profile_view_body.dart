@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:hive_ce_flutter/hive_flutter.dart';
 import 'package:shop_flow/constants.dart';
-import 'package:shop_flow/core/utils/app_font_styles.dart';
 import 'package:shop_flow/features/home/view/widget/custom_sliver_app_bar.dart';
 import 'package:shop_flow/features/profile/view/widgets/profile_item.dart';
 import 'package:shop_flow/features/profile/view/widgets/profile_items.dart';
