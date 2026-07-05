@@ -17,12 +17,9 @@ class FiltersCategoreyList extends StatelessWidget {
               .read<CategoryListCubit>()
               .categoreyList!;
 
-          return SizedBox(
-            height: 33,
-            child: SuccessFiltersBody(
-              fromHome: fromHome,
-              filtersList: filtersList,
-            ),
+          return SuccessFiltersBody(
+            fromHome: fromHome,
+            filtersList: filtersList,
           );
         } else if (state is CategoryListFailure) {
           return Center(child: Text(state.errMsg));
@@ -57,32 +54,35 @@ class _SuccessFiltersBodyState extends State<SuccessFiltersBody> {
 
   @override
   Widget build(BuildContext context) {
-    return ListView.builder(
-      itemCount: widget.filtersList.length,
-      scrollDirection: Axis.horizontal,
-      physics: const BouncingScrollPhysics(),
-      itemBuilder: (context, index) {
-        return GestureDetector(
-          onTap: () {
-            if (index != selectedItem) {
-              setState(() {
-                if (!widget.fromHome) {
-                  BlocProvider.of<SearchProductsCubit>(
-                    context,
-                  ).searchProductsByCategory(
-                    category: widget.filtersList[index],
-                  );
-                }
-                selectedItem = index;
-              });
-            }
-          },
-          child: FilterCard(
-            title: widget.filtersList[index],
-            selected: selectedItem == index,
-          ),
-        );
-      },
+    return SizedBox(
+      height: 33,
+      child: ListView.builder(
+        itemCount: widget.filtersList.length,
+        scrollDirection: Axis.horizontal,
+        physics: const BouncingScrollPhysics(),
+        itemBuilder: (context, index) {
+          return GestureDetector(
+            onTap: () {
+              if (index != selectedItem) {
+                setState(() {
+                  if (!widget.fromHome) {
+                    BlocProvider.of<SearchProductsCubit>(
+                      context,
+                    ).searchProductsByCategory(
+                      category: widget.filtersList[index],
+                    );
+                  }
+                  selectedItem = index;
+                });
+              }
+            },
+            child: FilterCard(
+              title: widget.filtersList[index],
+              selected: selectedItem == index,
+            ),
+          );
+        },
+      ),
     );
   }
 }
