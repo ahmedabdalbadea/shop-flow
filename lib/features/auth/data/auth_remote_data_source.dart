@@ -56,4 +56,10 @@ class AuthRemoteDataSource {
         .doc(uId)
         .set(user.toJson());
   }
+
+  Future<void> logOut() async {
+    await _auth.signOut();
+    final GoogleSignIn googleSignIn = GoogleSignIn.instance;
+    await googleSignIn.signOut();
+  }
 }
