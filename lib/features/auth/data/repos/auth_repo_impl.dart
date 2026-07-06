@@ -100,4 +100,18 @@ class AuthRepoImpl implements AuthRepo {
       );
     }
   }
+
+  @override
+  Future<Either<Failure, void>> logOut() async {
+    try {
+      _authRemoteDataSource.logOut();
+      return right(null);
+    } on FirebaseException catch (e) {
+      return left(RemoteDataSourceFailure.fromFirebaseException(e));
+    } catch (e) {
+      return left(
+        RemoteDataSourceFailure("Unexpected error, please try again"),
+      );
+    }
+  }
 }
