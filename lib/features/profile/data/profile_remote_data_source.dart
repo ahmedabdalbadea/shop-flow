@@ -17,4 +17,22 @@ class ProfileRemoteDataSource {
       ...order.toJson(),
     });
   }
+
+  Stream<QuerySnapshot<Map<String, dynamic>>> fetchOrders({
+    required String uId,
+    String? filter,
+  }) {
+    if (filter == null) {
+      return _firestore
+          .collection(kOrdersCollection)
+          .where('uId', isEqualTo: uId)
+          .snapshots();
+    }
+
+    return _firestore
+        .collection(kOrdersCollection)
+        .where('uId', isEqualTo: uId)
+        .where('orderState', isEqualTo: filter)
+        .snapshots();
+  }
 }
