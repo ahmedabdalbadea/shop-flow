@@ -30,7 +30,7 @@ void main() async {
     Provider(
       create: (_) => UserProvider(),
       child: BlocProvider(
-        create: (context) => CartCubit(CartLocalDataSource())..getCartProduct(),
+        create: (_) => CartCubit(CartLocalDataSource())..getCartProduct(),
         child: const ShopFlow(),
       ),
     ),

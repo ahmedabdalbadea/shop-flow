@@ -8,7 +8,7 @@ void showSnackbar(
   String? actionLabel,
   VoidCallback? onActionPressed,
 }) {
-  ScaffoldMessenger.of(context).hideCurrentSnackBar();
+  ScaffoldMessenger.of(context).removeCurrentSnackBar();
   ScaffoldMessenger.of(context).showSnackBar(
     SnackBar(
       content: Text(
@@ -26,4 +26,10 @@ void showSnackbar(
           : null,
     ),
   );
+
+  Future.delayed(const Duration(seconds: 2), () {
+    if (context.mounted) {
+      ScaffoldMessenger.of(context).hideCurrentSnackBar();
+    }
+  });
 }
