@@ -12,6 +12,12 @@ class OrderSliverList extends StatelessWidget {
     return BlocBuilder<OrderCubit, OrderState>(
       builder: (context, state) {
         if (state is OrdersSuccess) {
+          if (state.orders.isEmpty) {
+            return const SliverFillRemaining(
+              hasScrollBody: false,
+              child: Center(child: Text("You don't have any orders yet.")),
+            );
+          }
           return OrderSliverListContent(orders: state.orders);
         } else if (state is OrdersFailure) {
           return SliverFillRemaining(
@@ -19,7 +25,7 @@ class OrderSliverList extends StatelessWidget {
             child: Center(child: Text(state.errMsg)),
           );
         }
-        return OrdersSliverListLoading();
+        return const OrdersSliverListLoading();
       },
     );
   }
