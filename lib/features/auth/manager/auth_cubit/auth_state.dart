@@ -42,3 +42,11 @@ final class GoogleSignInSuccess extends AuthState {
 final class GoogleSignInFailure extends AuthFailureState {
   GoogleSignInFailure(super.errMsg);
 }
+
+final class LogOutSuccess extends AuthState {}
+
+final class LogOutFailure extends AuthState {
+  final String errMsg;
+
+  LogOutFailure(this.errMsg);
+}
