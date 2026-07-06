@@ -2,10 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:shop_flow/constants.dart';
 import 'package:shop_flow/core/utils/app_font_styles.dart';
 import 'package:shop_flow/core/widget/product_image.dart';
+import 'package:shop_flow/features/cart/data/models/product_cart_model.dart';
 
 class OrderProduct extends StatelessWidget {
-  const OrderProduct({super.key});
-
+  const OrderProduct({super.key, required this.product});
+  final ProductCartModel product;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -21,15 +22,14 @@ class OrderProduct extends StatelessWidget {
             height: 64,
             child: ProductImage(
               borderRadius: BorderRadius.all(Radius.circular(12)),
-              image:
-                  "https://images.squarespace-cdn.com/content/v1/62957e003c63212b17de5749/cb3406ee-bb0d-418c-9ba1-4f182180ef2a/Sennheiser-Product-Gel0018.jpg",
+              image: product.image,
             ),
           ),
 
           Expanded(
             child: ListTile(
               title: Text(
-                "Velocity Elite Runners",
+                product.title,
                 maxLines: 2,
                 softWrap: true,
                 overflow: TextOverflow.ellipsis,
@@ -37,12 +37,15 @@ class OrderProduct extends StatelessWidget {
               ),
 
               subtitle: Text(
-                "Qty: 2",
+                "Qty: ${product.count}",
                 style: AppFontStyles.styleRegular16.copyWith(
                   color: kThrTextColor,
                 ),
               ),
-              trailing: Text("\$129.00", style: AppFontStyles.styleBold16),
+              trailing: Text(
+                "\$${product.price.toStringAsFixed(2)}",
+                style: AppFontStyles.styleBold16,
+              ),
               // isThreeLine: true,
             ),
           ),
