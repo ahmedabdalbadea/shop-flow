@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:provider/provider.dart';
+import 'package:shop_flow/core/manager/cubit/order_cubit/order_cubit.dart';
+import 'package:shop_flow/core/manager/provider/user_provider.dart';
 import 'package:shop_flow/core/widget/filter_card.dart';
 
 class OrdersFilter extends StatefulWidget {
@@ -13,6 +17,7 @@ class _OrdersFilterState extends State<OrdersFilter> {
     'All Orders',
     'Processing',
     'Delivered',
+    'Cancelled',
   ];
   int selectedItem = 0;
   @override
@@ -24,9 +29,18 @@ class _OrdersFilterState extends State<OrdersFilter> {
         children: List.generate(_statusList.length, (index) {
           return GestureDetector(
             onTap: () {
-              setState(() {
-                selectedItem = index;
-              });
+              if (selectedItem != index) {
+                setState(() {
+                  selectedItem = index;
+                });
+                context.read<OrderCubit>().fetchOrders(
+                  uId: Provider.of<UserProvider>(
+                    context,
+                    listen: false,
+                  ).user!.uId,
+                  filter: index == 0 ? null : _statusList[index],
+                );
+              }
             },
             child: FilterCard(
               title: _statusList[index],
