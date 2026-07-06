@@ -60,4 +60,17 @@ class AuthCubit extends Cubit<AuthState> {
       },
     );
   }
+
+  Future<void> logOut() async {
+    var result = await _authRepo.logOut();
+
+    result.fold(
+      (failure) {
+        emit(LogOutFailure(failure.errMsg));
+      },
+      (_) {
+        emit(LogOutSuccess());
+      },
+    );
+  }
 }
