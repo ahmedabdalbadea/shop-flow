@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
+import 'package:shop_flow/core/manager/cubit/order_cubit/order_cubit.dart';
 import 'package:shop_flow/core/widget/main_shell.dart';
 import 'package:shop_flow/features/auth/view/sign_in_view.dart';
 import 'package:shop_flow/features/auth/view/sign_up_view.dart';
@@ -163,8 +164,10 @@ abstract class AppRouter {
 
       GoRoute(
         path: kOrdersView,
+
         builder: (context, state) {
-          return const OrdersView();
+          final OrderCubit cubit = state.extra as OrderCubit;
+          return BlocProvider.value(value: cubit, child: const OrdersView());
         },
       ),
     ],
