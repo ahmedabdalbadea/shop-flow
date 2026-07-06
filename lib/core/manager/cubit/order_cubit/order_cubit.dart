@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:bloc/bloc.dart';
 import 'package:meta/meta.dart';
 
@@ -11,7 +13,7 @@ class OrderCubit extends Cubit<OrderState> {
   OrderCubit(this._profileRepo) : super(OrderInitial());
   String paymentMethod = "Credit / Debit Card";
   final ProfileRepo _profileRepo;
-
+  StreamSubscription? _subscription;
   Future<void> createOrder({
     required String uId,
     required double totalAmount,
@@ -34,5 +36,28 @@ class OrderCubit extends Cubit<OrderState> {
         emit(OrderAddingSuccess());
       },
     );
+  }
+
+  void fetchOrders({required String uId, String? filter}) {
+    emit(OrdersLoading());
+    _subscription?.cancel();
+    _subscription = _profileRepo.fetchOrders(uId: uId, filter: filter).listen((
+      event,
+    ) {
+      event.fold(
+        (failure) {
+          emit(OrdersFailure(failure.errMsg));
+        },
+        (orders) {
+          emit(OrdersSuccess(orders));
+        },
+      );
+    });
+  }
+
+  @override
+  Future<void> close() {
+    _subscription?.cancel();
+    return super.close();
   }
 }
