@@ -5,6 +5,8 @@ import 'package:shop_flow/core/manager/cubit/order_cubit/order_cubit.dart';
 import 'package:shop_flow/core/manager/cubit/user_info_cubit/user_info_cubit.dart';
 import 'package:shop_flow/core/manager/provider/user_provider.dart';
 import 'package:shop_flow/core/utils/service_locator.dart';
+import 'package:shop_flow/features/auth/data/repos/auth_repo.dart';
+import 'package:shop_flow/features/auth/manager/auth_cubit/auth_cubit.dart';
 import 'package:shop_flow/features/home/data/repos/home_repo_impl.dart';
 import 'package:shop_flow/features/profile/data/repos/profile_repo.dart';
 import 'package:shop_flow/features/profile/view/widgets/profile_view_body.dart';
@@ -37,6 +39,8 @@ class ProfileView extends StatelessWidget {
                   ).user!.uId,
                 ),
             ),
+
+            BlocProvider(create: (context) => AuthCubit(getIt.get<AuthRepo>())),
           ],
           child: const ProfileViewBody(),
         ),
