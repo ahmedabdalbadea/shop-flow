@@ -22,7 +22,10 @@ class PaymentViewBody extends StatelessWidget {
     return BlocConsumer<OrderCubit, OrderState>(
       listener: (context, state) {
         if (state is OrderAddingSuccess) {
-          context.go(AppRouter.kOrdersView);
+          context.read<OrderCubit>().fetchOrders(
+            uId: Provider.of<UserProvider>(context, listen: false).user!.uId,
+          );
+          context.go(AppRouter.kOrdersView, extra: context.read<OrderCubit>());
         } else if (state is OrderAddingFailure) {
           showSnackbar(
             context,

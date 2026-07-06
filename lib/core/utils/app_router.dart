@@ -32,7 +32,7 @@ abstract class AppRouter {
   static const kCheckoutView = "/checkoutView";
   static const kProfileView = "/profileView";
   static const kPaymentView = "/paymentView";
-  static const kOrdersView = '/ordersView';
+  static const kOrdersView = '/profileView/ordersView';
   static final router = GoRouter(
     routes: [
       GoRoute(
@@ -115,6 +115,18 @@ abstract class AppRouter {
                 builder: (context, state) {
                   return const ProfileView();
                 },
+                routes: [
+                  GoRoute(
+                    path: 'ordersView',
+                    builder: (context, state) {
+                      final OrderCubit cubit = state.extra as OrderCubit;
+                      return BlocProvider.value(
+                        value: cubit,
+                        child: const OrdersView(),
+                      );
+                    },
+                  ),
+                ],
               ),
             ],
           ),
@@ -159,15 +171,6 @@ abstract class AppRouter {
         path: kPaymentView,
         builder: (context, state) {
           return const PaymentView();
-        },
-      ),
-
-      GoRoute(
-        path: kOrdersView,
-
-        builder: (context, state) {
-          final OrderCubit cubit = state.extra as OrderCubit;
-          return BlocProvider.value(value: cubit, child: const OrdersView());
         },
       ),
     ],
