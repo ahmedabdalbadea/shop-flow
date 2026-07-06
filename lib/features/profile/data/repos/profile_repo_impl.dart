@@ -44,4 +44,27 @@ class ProfileRepoImpl implements ProfileRepo {
   }
 
   String generateOrderId() => "#SF-${10000 + Random().nextInt(90000)}";
+
+  @override
+  Stream<Either<Failure, List<OrderModel>>> fetchOrders({
+    required String uId,
+    String? filter,
+  }) async* {
+    try {
+      await for (final querySnapshot in _dataSource.fetchOrders(
+        uId: uId,
+        filter: filter,
+      )) {
+        final orders = querySnapshot.docs
+            .map((doc) => OrderModel.fromJson(doc.data()))
+            .toList();
+
+        yield right(orders);
+      }
+    } on FirebaseException catch (e) {
+      yield left(RemoteDataSourceFailure.fromFirebaseException(e));
+    } catch (e) {
+      yield left(RemoteDataSourceFailure(e.toString()));
+    }
+  }
 }
