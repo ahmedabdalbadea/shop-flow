@@ -4,7 +4,7 @@ A modern Flutter e-commerce application built with **MVVM Architecture**, featur
 
 ## 🎥 Demo
 🎬 Full demo available on LinkedIn:
-https://www.linkedin.com/posts/your-post-link
+[https://www.linkedin.com/posts/your-post-link](https://www.linkedin.com/posts/ahmed-abd-al-badea-3357092b2_flutter-dart-firebase-ugcPost-7486690772751167488-dniL/)
 ---
 
 ## ✨ Features
@@ -48,7 +48,6 @@ lib
 │   ├── helpers
 │   ├── manager
 │   ├── models
-│   ├── services
 │   ├── utils
 │   └── widgets
 │
