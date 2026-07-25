@@ -3,8 +3,8 @@
 A modern Flutter e-commerce application built with **MVVM Architecture**, featuring Firebase Authentication, Cloud Firestore, Hive local storage, and Bloc state management.
 
 ## 🎥 Demo
-Coming soon...
-
+🎬 Full demo available on LinkedIn:
+https://www.linkedin.com/posts/your-post-link
 ---
 
 ## ✨ Features
@@ -18,6 +18,7 @@ Coming soon...
 - Order History
 - Google Sign-In
 - Local Cart Storage using Hive
+- Real-time Order Tracking
 
 ---
 
@@ -106,8 +107,23 @@ flutter run
 
 ## 📸 Screenshots
 
-Coming soon...
+<p align="center">
+  <img src="assets/screenshots/splash.png" width="220"/>
+  <img src="assets/screenshots/login.png" width="220"/>
+  <img src="assets/screenshots/home.png" width="220"/>
+</p>
 
+<p align="center">
+  <img src="assets/screenshots/search.png" width="220"/>
+  <img src="assets/screenshots/product_details.png" width="220"/>
+  <img src="assets/screenshots/cart.png" width="220"/>
+</p>
+
+<p align="center">
+  <img src="assets/screenshots/checkout.png" width="220"/>
+  <img src="assets/screenshots/orders.png" width="220"/>
+  <img src="assets/screenshots/profile.png" width="220"/>
+</p>
 ---
 
 ## 👨‍💻 Author
