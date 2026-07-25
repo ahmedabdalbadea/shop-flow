@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:shop_flow/constants.dart';
-import 'package:shop_flow/core/manager/cubit/order_cubit/order_cubit.dart';
 import 'package:shop_flow/core/utils/app_router.dart';
 import 'package:shop_flow/features/profile/view/widgets/profile_item.dart';
 
@@ -20,10 +18,7 @@ class ProfileItems extends StatelessWidget {
         children: [
           GestureDetector(
             onTap: () {
-              context.push(
-                AppRouter.kOrdersView,
-                extra: context.read<OrderCubit>(),
-              );
+              context.push(AppRouter.kOrdersView);
             },
             child: ProfileItem(perfixIcon: Icons.widgets, title: "My Orders"),
           ),

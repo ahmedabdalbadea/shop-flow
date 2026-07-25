@@ -119,11 +119,7 @@ abstract class AppRouter {
                   GoRoute(
                     path: 'ordersView',
                     builder: (context, state) {
-                      final OrderCubit cubit = state.extra as OrderCubit;
-                      return BlocProvider.value(
-                        value: cubit,
-                        child: const OrdersView(),
-                      );
+                      return const OrdersView();
                     },
                   ),
                 ],

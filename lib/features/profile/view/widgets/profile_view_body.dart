@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
+import 'package:provider/provider.dart';
 import 'package:shop_flow/constants.dart';
 import 'package:shop_flow/core/helpers/show_snack_bar.dart';
+import 'package:shop_flow/core/manager/cubit/order_cubit/order_cubit.dart';
+import 'package:shop_flow/core/manager/provider/user_provider.dart';
 import 'package:shop_flow/core/utils/app_router.dart';
 import 'package:shop_flow/features/auth/manager/auth_cubit/auth_cubit.dart';
 import 'package:shop_flow/features/home/view/widget/custom_sliver_app_bar.dart';
@@ -11,8 +14,22 @@ import 'package:shop_flow/features/profile/view/widgets/profile_items.dart';
 import 'package:shop_flow/features/profile/view/widgets/total_orders.dart';
 import 'package:shop_flow/features/profile/view/widgets/user_info.dart';
 
-class ProfileViewBody extends StatelessWidget {
+class ProfileViewBody extends StatefulWidget {
   const ProfileViewBody({super.key});
+
+  @override
+  State<ProfileViewBody> createState() => _ProfileViewBodyState();
+}
+
+class _ProfileViewBodyState extends State<ProfileViewBody> {
+  @override
+  void initState() {
+    super.initState();
+
+    context.read<OrderCubit>().fetchOrders(
+      uId: Provider.of<UserProvider>(context, listen: false).user!.uId,
+    );
+  }
 
   @override
   Widget build(BuildContext context) {

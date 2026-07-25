@@ -40,6 +40,7 @@ class OrderCubit extends Cubit<OrderState> {
 
   void fetchOrders({required String uId, String? filter}) {
     emit(OrdersLoading());
+
     _subscription?.cancel();
     _subscription = _profileRepo.fetchOrders(uId: uId, filter: filter).listen((
       event,

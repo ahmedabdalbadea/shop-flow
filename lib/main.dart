@@ -6,11 +6,13 @@ import 'package:hive_ce_flutter/hive_flutter.dart';
 import 'package:provider/provider.dart';
 import 'package:shop_flow/constants.dart';
 import 'package:shop_flow/core/manager/cubit/cart_cubit/cart_cubit.dart';
+import 'package:shop_flow/core/manager/cubit/order_cubit/order_cubit.dart';
 import 'package:shop_flow/core/manager/provider/user_provider.dart';
 import 'package:shop_flow/core/utils/app_router.dart';
 import 'package:shop_flow/core/utils/service_locator.dart';
 import 'package:shop_flow/features/cart/data/cart_local_data_source.dart';
 import 'package:shop_flow/features/cart/data/models/product_cart_model.dart';
+import 'package:shop_flow/features/profile/data/repos/profile_repo.dart';
 import 'package:shop_flow/generated/l10n.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:shop_flow/simple_bloc_observer.dart';
@@ -29,8 +31,13 @@ void main() async {
   runApp(
     Provider(
       create: (_) => UserProvider(),
-      child: BlocProvider(
-        create: (_) => CartCubit(CartLocalDataSource())..getCartProduct(),
+      child: MultiBlocProvider(
+        providers: [
+          BlocProvider(
+            create: (_) => CartCubit(CartLocalDataSource())..getCartProduct(),
+          ),
+          BlocProvider(create: (_) => OrderCubit(getIt.get<ProfileRepo>())),
+        ],
         child: const ShopFlow(),
       ),
     ),
