@@ -26,6 +26,7 @@ class ProfileRemoteDataSource {
       return _firestore
           .collection(kOrdersCollection)
           .where('uId', isEqualTo: uId)
+          .orderBy("time", descending: true)
           .snapshots();
     }
 
@@ -33,6 +34,7 @@ class ProfileRemoteDataSource {
         .collection(kOrdersCollection)
         .where('uId', isEqualTo: uId)
         .where('orderState', isEqualTo: filter)
+        .orderBy("time", descending: true)
         .snapshots();
   }
 }
